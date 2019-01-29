@@ -6,7 +6,7 @@
           <img src="https://jin.itxiaolong.cn/icon/index.jpg"/>
         <ul class="info">
           <li style="margin-bottom: 10px;">昵称</li>
-          <li style="border:1px white solid;padding: 0px 5px;border-radius: 5px; background-color: white;color: #3E48CB">推荐人：傻逼</li>
+          <li style="border:1px white solid;padding: 0px 5px;border-radius: 5px; background-color: white;color: #E9323C">推荐人：傻逼</li>
         </ul>
       </div>
       <div class="center">
@@ -68,11 +68,11 @@ export default {
   }
 .top{
   width: 100%;
-  height: 18%;
+  height: 15%;
   display: flex;
   align-items: center;
   padding: 10px;
-  background-color: #3E86CB;
+  background-color: #E9323C;
   color: white;
   font-size: 13px;
   img{
