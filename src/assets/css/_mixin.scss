@@ -1,0 +1,42 @@
+@import './_var';
+
+@mixin bg {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin bg-img($url) {
+  background-image: url("~@/assets/img/#{$url}");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@mixin bg-icon($width) {
+  display: inline-block;
+  width: $width;
+  height: $width;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+@mixin icon($width) {
+  display: inline-block;
+  width: $width;
+  height: $width;
+  border-radius: 50%;
+}
+@mixin singleLine {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin moreLine($lineNum) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lineNum;
+  overflow: hidden;
+}

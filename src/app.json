@@ -1,0 +1,89 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/home/goodsList",
+    "pages/login/login",
+    "pages/login/wxLogin",
+    "pages/sort/index",
+    "pages/shopCart/index",
+    "pages/my/index",
+    "pages/login/Privacy",
+    "pages/login/agreement",
+    "pages/login/forget",
+    "pages/login/bindphone",
+    "pages/login/codeLogin",
+    "pages/login/register",
+    "pages/my/setting",
+    "pages/my/setphone",
+    "pages/my/mydata",
+    "pages/my/changename",
+    "pages/my/noticeCenter",
+    "pages/my/noticedetail",
+    "pages/my/Agreement",
+    "pages/my/aboutUser",
+    "pages/my/helpCenter",
+    "pages/my/myAddress",
+    "pages/my/editAddress",
+    "pages/my/addAddress",
+    "pages/my/myCollection",
+    "pages/shopCart/confirmOrder",
+    "pages/shopCart/selectPay",
+    "pages/shopCart/selectAddress",
+    "pages/shopCart/payResult",
+    "pages/my/orderCenter",
+    "pages/home/search_result",
+    "pages/my/orderDetail",
+    "pages/my/afterSaleDetail",
+    "pages/sort/details",
+    "pages/home/everyDay",
+    "pages/my/myEvaluate",
+    "pages/my/publishEvaluate",
+    "pages/my/evaluateSuccess",
+    "pages/my/selectAfterSale",
+    "pages/my/submitAfterSale",
+    "pages/my/allEvaluate"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "紫色魅影",
+    "navigationBarTextStyle": "black",
+    "backgroundColorTop": "#F8F8F8",
+    "backgroundColorBottom": "#F8F8F8",
+    "enablePullDownRefresh": false,
+    "onReachBottomDistance": 50,
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "borderStyle": "#EAEAEA",
+    "position": "bottom",
+    "backgroundColor": "#FFFFFF",
+    "color": "#888888",
+    "selectedColor": "#ED1731",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页",
+        "iconPath": "/img/shop.png",
+        "selectedIconPath": "/img/shop1.png"
+      },
+      {
+        "pagePath": "pages/sort/index",
+        "text": "分类",
+        "iconPath": "/img/fenlei.png",
+        "selectedIconPath": "/img/fenlei1.png"
+      },
+      {
+        "pagePath": "pages/shopCart/index",
+        "text": "购物车",
+        "iconPath": "/img/gwc.png",
+        "selectedIconPath": "/img/gwc1.png"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "我的",
+        "iconPath": "/img/geren.png",
+        "selectedIconPath": "/img/geren1.png"
+      }
+    ]
+  }
+}
