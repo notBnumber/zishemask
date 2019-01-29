@@ -44,7 +44,10 @@
     "pages/my/allEvaluate",
     "pages/my/pyramid",
     "pages/my/power",
-    "pages/my/teamdetail"
+    "pages/my/teamdetail",
+    "pages/my/toge",
+    "pages/my/quyu",
+    "pages/my/fuckvip"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

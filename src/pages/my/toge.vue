@@ -6,7 +6,7 @@
         <div class="head-left-div">
           <i class="photo-img">
             <open-data type="userAvatarUrl"></open-data>
-            <span>(商家)</span>
+            <span>(商ss家)</span>
           </i>
 
         </div>
@@ -18,13 +18,9 @@
         </div>
         <div class="headBottom">
           <div class="shenfen">
-            <img src="https://jin.itxiaolong.cn/icon/vip2.png" alt="">
-            <span>:合伙人</span>
+            <span>合伙人</span>
           </div>
-          <div class="shenfen">
-            <img src="https://jin.itxiaolong.cn/icon/leve_icon.png" alt="">
-            <span>:钻石合伙人</span>
-          </div>
+
         </div>
         <!-- <img src="https://jin.itxiaolong.cn/icon/leve_icon.png" alt=""> -->
       </div>
@@ -36,35 +32,16 @@
     <!-- 使用  :xxx = xxx 传值给子组件      @toggleSelect="toggleSelect 接收  toggleSelect子组件的事件   jjjj父组件的事件-->
     <!-- <newpower :info='isDownRefresh' @toggleSelect="jjjj"></newpower> -->
     <div class="main">
-      <div class="one" @click="pageTo('/pages/my/toge')">
-        <div class="leftImg">
-          <img src="https://jin.itxiaolong.cn/icon/togeticon.png" alt="">
-        </div>
-        <div class="rightDiv" >
-          <p class="p1">合伙人</p>
-          <p class="p2">您已成为合伙人</p>
-        </div>
-        <p>></p>
+      <div class="main_title">
+        查看用户协议
       </div>
-      <div class="one" @click="pageTo('/pages/my/fuckvip')">
-        <div class="leftImg">
-          <img src="https://jin.itxiaolong.cn/icon/vipicon.png" alt="">
-        </div>
-        <div class="rightDiv">
-          <p class="p1">会员卡</p>
-          <p class="p2">银卡代理</p>
-        </div>
-        <p>></p>
+      <div class="imgDiv">
+        <img src="https://jin.itxiaolong.cn/icon/jiangicon.png" alt="">
       </div>
-      <div class="one"  @click="pageTo('/pages/my/quyu')">
-        <div class="leftImg">
-          <img src="https://jin.itxiaolong.cn/icon/quyuicon.png" alt="">
-        </div>
-        <div class="rightDiv">
-          <p class="p1">区域商</p>
-          <p class="p2">申请成为区域商</p>
-        </div>
-        <p>></p>
+      <div class="imgDiv1">
+        <p>恭喜你</p>
+        <p>你现在已经是举世无双的高手了</p>
+        <p>赶紧去享受一下您的权益吧</p>
       </div>
     </div>
   </div>
@@ -112,9 +89,7 @@ export default {
     padding: 10 12px;
     position: relative;
     .head-left {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      margin: auto;
       padding-top: 50px;
       padding-bottom: 10px;
       box-sizing: border-box;
@@ -149,11 +124,14 @@ export default {
         align-items: center;
         margin-top: 5px;
         .shenfen {
-          // margin-left: 10px;
           display: flex;
           justify-content: flex-start;
           font-size: 15px;
-          color: rgba(255, 255, 255, 1);
+          // color: rgba(255, 255, 255, 1);
+          padding: 5px 5px;
+          box-sizing: border-box;
+          border-radius: 5px;
+          background-color: #fff;
           img {
             width: 22px;
             height: 22px;
@@ -201,42 +179,35 @@ export default {
   }
   .main {
     width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
     background-color: #f6f6f6;
-    .one {
+    .main_title {
       width: 100%;
-      margin-top: 10px;
-      border-radius: 5px;
+      text-align: center;
+      padding-top: 8px;
+      padding-bottom: 8px;
       background-color: #fff;
+      font-size: 14px;
+    }
+    img {
+      width: 200px;
+      height: 200px;
+    }
+    .imgDiv {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      height: 68px;
-      padding-left: 15px;
-      padding-right: 15px;
-      box-sizing: border-box;
-      .leftImg {
-        width: 30px;
-          height: 30px;
-        img {
-          display: inline-block;
-          // width: 30px;
-          // height: 30px;
-        }
+    }
+    .imgDiv1 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      p {
+        margin-top: 15px;
+        font-size: 15px;
       }
-      .rightDiv {
-        width: 60%;
-        text-align: left;
-        .p1 {
-          font-size: 18px;
-          margin-bottom: 10px;
-        }
-        .p2 {
-          font-size: 14px;
-          color: #666;
-          margin-top: 10px;
-        }
+      p:nth-child(1) {
+        margin-top: 25px;
       }
     }
   }

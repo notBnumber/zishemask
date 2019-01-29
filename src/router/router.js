@@ -308,21 +308,54 @@ module.exports = [
       }
     }
   },
-    {
-        path: "pages/my/teamdetail",
-        config: {
-            "navigationBarTitleText": "我的团队",
-            "usingComponents": {
-                "i-modal": "/iView/modal/index",
-                "i-swipeout": "/iView/swipeout/index",
-                "i-toast": "/iView/toast/index",
-            }
-        }
-    },
+  {
+    path: "pages/my/teamdetail",
+    config: {
+      "navigationBarTitleText": "我的团队",
+      "usingComponents": {
+        "i-modal": "/iView/modal/index",
+        "i-swipeout": "/iView/swipeout/index",
+        "i-toast": "/iView/toast/index",
+      }
+    }
+  },
   {
     path: "pages/my/power",
     config: {
       "navigationBarTitleText": "我的特权",
+      "usingComponents": {
+        "i-modal": "/iView/modal/index",
+        "i-swipeout": "/iView/swipeout/index",
+        "i-toast": "/iView/toast/index",
+      }
+    }
+  },
+  {
+    path: "pages/my/toge",
+    config: {
+      "navigationBarTitleText": "我的合伙人",
+      "usingComponents": {
+        "i-modal": "/iView/modal/index",
+        "i-swipeout": "/iView/swipeout/index",
+        "i-toast": "/iView/toast/index",
+      }
+    }
+  },
+  {
+    path: "pages/my/fuckvip",
+    config: {
+      "navigationBarTitleText": "我的会员卡",
+      "usingComponents": {
+        "i-modal": "/iView/modal/index",
+        "i-swipeout": "/iView/swipeout/index",
+        "i-toast": "/iView/toast/index",
+      }
+    }
+  },
+  {
+    path: "pages/my/quyu",
+    config: {
+      "navigationBarTitleText": "区域商",
       "usingComponents": {
         "i-modal": "/iView/modal/index",
         "i-swipeout": "/iView/swipeout/index",
