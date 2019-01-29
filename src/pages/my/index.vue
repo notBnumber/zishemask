@@ -7,12 +7,22 @@
 
     <div class="head" :style="{justifyContent: [isLogin ? 'space-between' : 'flex-end']}">
       <div class="head-left" @click="pageTo('/pages/my/mydata')" v-if="isLogin">
-        <i class="photo-img">
-          <open-data type="userAvatarUrl"></open-data>
-        </i>
-        <span>
-          <open-data type="userNickName"></open-data>
-        </span>
+        <div class="head-left-div">
+          <i class="photo-img">
+            <open-data type="userAvatarUrl"></open-data>
+          </i>
+
+        </div>
+        <div class="head-left-img-right">
+          <span>
+            <open-data type="userNickName"></open-data>
+          </span>
+          <div class="shenfen">
+            <img src="https://jin.itxiaolong.cn/icon/leve_icon.png" alt="">
+            <span>:游客</span>
+          </div>
+        </div>
+        <!-- <img src="https://jin.itxiaolong.cn/icon/leve_icon.png" alt=""> -->
       </div>
       <button class="login" @click="goLogin('/pages/login/login')" v-if="!isLogin">登录/注册</button>
       <!-- <div class="head-pic" @click="pageTo('/pages/my/noticeCenter')" v-if="isLogin">
@@ -78,12 +88,12 @@
             <i class="setting"></i>编辑资料</span>
           <i class="arrow"></i>
         </li>
-        <li @click="pageTo('/pages/my/setting')">
+        <li @click="pageTo('/pages/my/power')">
           <span>
             <i class="myRight"></i>我的特权</span>
           <i class="arrow"></i>
         </li>
-        <li @click="pageTo('/pages/my/setting')">
+        <li @click="pageTo('/pages/my/pyramid')">
           <span>
             <i class="distribution"></i>分销中心</span>
           <i class="arrow"></i>
@@ -130,7 +140,7 @@ export default {
       let vm = this;
       wx.getSetting({
         success(res) {
-          console.log(res,'是否授权');
+          console.log(res, "是否授权");
           if (!res.authSetting["scope.userInfo"]) {
             vm.getUserInfo();
           }
@@ -184,20 +194,38 @@ export default {
     position: relative;
     .head-left {
       display: flex;
-      align-items: center;
-      i.photo-img {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        overflow: hidden;
-        @include bg;
-        margin-right: 13px;
+      // align-items: center;
+      justify-content: flex-start;
+      .head-left-div {
+        i.photo-img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          overflow: hidden;
+          @include bg;
+          margin-right: 13px;
+        }
       }
-      span {
-        font-size: 17px;
-        font-family: PingFang-SC-Medium;
-        font-weight: 500;
-        color: rgba(255, 255, 255, 1);
+      .head-left-img-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        span {
+          font-size: 17px;
+          font-family: PingFang-SC-Medium;
+          font-weight: 500;
+          color: rgba(255, 255, 255, 1);
+        }
+        .shenfen {
+          display: flex;
+          justify-content: flex-start;
+          img {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            overflow: hidden;
+          }
+        }
       }
     }
     button.login {

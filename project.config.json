@@ -11,7 +11,7 @@
 	"miniprogramRoot": "dist/wx/",
 	"compileType": "miniprogram",
 	"appid": "wxe4c236378ce4469e",
-	"projectname": "rotting_b2c",
+	"projectname": "zise",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -47,7 +47,13 @@
 				{
 					"id": -1,
 					"name": "选择支付",
-					"pathName": "pages/shopCart/selectPay"
+					"pathName": "pages/shopCart/selectPay",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "特权",
+					"pathName": "pages/my/power"
 				}
 			]
 		}

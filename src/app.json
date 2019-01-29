@@ -41,7 +41,9 @@
     "pages/my/evaluateSuccess",
     "pages/my/selectAfterSale",
     "pages/my/submitAfterSale",
-    "pages/my/allEvaluate"
+    "pages/my/allEvaluate",
+    "pages/my/pyramid",
+    "pages/my/power"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

@@ -298,6 +298,28 @@ module.exports = [
     }
   },
   {
+    path: "pages/my/pyramid",
+    config: {
+      "navigationBarTitleText": "我的分销",
+      "usingComponents": {
+        "i-modal": "/iView/modal/index",
+        "i-swipeout": "/iView/swipeout/index",
+        "i-toast": "/iView/toast/index",
+      }
+    }
+  },
+  {
+    path: "pages/my/power",
+    config: {
+      "navigationBarTitleText": "我的特权",
+      "usingComponents": {
+        "i-modal": "/iView/modal/index",
+        "i-swipeout": "/iView/swipeout/index",
+        "i-toast": "/iView/toast/index",
+      }
+    }
+  },
+  {
     path: "pages/my/orderCenter",
     config: {
       "navigationBarTitleText": "我的订单",
