@@ -308,6 +308,17 @@ module.exports = [
       }
     }
   },
+    {
+        path: "pages/my/teamdetail",
+        config: {
+            "navigationBarTitleText": "我的团队",
+            "usingComponents": {
+                "i-modal": "/iView/modal/index",
+                "i-swipeout": "/iView/swipeout/index",
+                "i-toast": "/iView/toast/index",
+            }
+        }
+    },
   {
     path: "pages/my/power",
     config: {

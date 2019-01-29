@@ -211,7 +211,7 @@ export default {
         flex-direction: column;
         justify-content: center;
         span {
-          font-size: 17px;
+          font-size: 16px;
           font-family: PingFang-SC-Medium;
           font-weight: 500;
           color: rgba(255, 255, 255, 1);
@@ -219,11 +219,16 @@ export default {
         .shenfen {
           display: flex;
           justify-content: flex-start;
+          span{
+            font-size: 16px;
+            padding: 5px 1px;
+          }
           img {
-            width: 25px;
-            height: 25px;
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
             overflow: hidden;
+            padding: 5px 1px;
           }
         }
       }

@@ -43,7 +43,8 @@
     "pages/my/submitAfterSale",
     "pages/my/allEvaluate",
     "pages/my/pyramid",
-    "pages/my/power"
+    "pages/my/power",
+    "pages/my/teamdetail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
