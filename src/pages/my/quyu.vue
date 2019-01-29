@@ -222,12 +222,15 @@ export default {
         .btn {
           width: 30%;
           margin: auto;
+          border-radius: 5px;
+          font-size: 20px
         }
         .one {
           margin-top: 10px;
           .jb {
             display: flex;
             justify-content: space-between;
+            font-size: 14px;
           }
         }
       }
