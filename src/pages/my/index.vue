@@ -78,7 +78,7 @@
             <i class="address"></i>收货地址</span>
           <i class="arrow"></i>
         </li>
-        <li @click="pageTo('/pages/my/helpCenter')">
+        <li @click="pageTo('/pages/my/myMoney')">
           <span>
             <i class="Help"></i>我的资产</span>
           <i class="arrow"></i>

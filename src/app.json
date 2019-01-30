@@ -47,7 +47,8 @@
     "pages/my/teamdetail",
     "pages/my/toge",
     "pages/my/quyu",
-    "pages/my/fuckvip"
+    "pages/my/fuckvip",
+    "pages/my/myMoney"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
