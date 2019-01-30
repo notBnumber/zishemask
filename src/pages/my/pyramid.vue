@@ -38,7 +38,7 @@
         </div>
         <div class="down_right">
           <ul>
-            <li><img src="https://jin.itxiaolong.cn/icon/syicon.png"/></li>
+            <li @click="pageTo('/pages/my/earnings')"><img src="https://jin.itxiaolong.cn/icon/syicon.png"/></li>
             <li style="text-align: center;margin-top: 3px;">累积收益</li>
           </ul>
         </div>
@@ -53,10 +53,9 @@ export default {
 
   data() {
     return {
-      addList: [],
       isDownRefresh: false
     };
-  },
+  }
 
 };
 </script>

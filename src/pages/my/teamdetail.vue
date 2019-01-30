@@ -6,13 +6,13 @@
         <input type="text" placeholder="请输入用户名或者用户ID" />
       </div>
       <div class="title">
-        <span class="title_left ischose">
+        <span v-bind:class="tabActive==1?'title_left': 'title_left ischose'" @click="setActive(0)">
           <ul>
             <li>一级团队(221)</li>
             <li>合伙人(20)粉丝(202)</li>
           </ul>
         </span>
-        <span class="title_right">
+        <span v-bind:class="tabActive==0?'title_right': 'title_right ischose'" @click="setActive(1)">
           <ul>
              <li>二级团队(221)</li>
             <li>合伙人(20)粉丝(202)</li>
@@ -37,7 +37,7 @@
         </ul>
       </div>
     </div>
-
+    <i-toast id="toast" />
   </div>
 </template>
 
@@ -47,9 +47,19 @@ export default {
   data() {
     return {
       addList: [],
+        tabActive: 0,
       isDownRefresh: false
     };
   },
+    methods:{
+        setActive(index) {
+            this.tabActive = index;
+//            this.$Toast({
+//                content: "选中"+index,
+//                type: "warning"
+//            });
+        },
+    }
 
 };
 </script>
@@ -61,7 +71,6 @@ export default {
   .top{
     width: 100%;
     height: 50px;
-    border: 1px red solid;
     background-color: #E9323C;
     display: flex;
     justify-content: center;
