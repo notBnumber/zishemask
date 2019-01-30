@@ -51,8 +51,9 @@
     "pages/my/myMoney",
     "pages/my/earnings",
     "pages/my/shareqrcode",
-    "pages/my/userinfo",
-    "pages/my/earningsdetail"
+    "pages/my/earningsdetail",
+    "pages/my/vipcard",
+    "pages/my/dayday"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

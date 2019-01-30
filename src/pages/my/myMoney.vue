@@ -22,6 +22,25 @@
       <div class="maintitle">
         功能
       </div>
+      <div class="mainContent">
+        <div class="contentOne" @click="pageTo('/pages/my/vipcard')">
+          <img src="https://jin.itxiaolong.cn/icon/teamicon.png" alt="">
+
+          <div class="cao">
+
+            <p>会员卡</p>
+            <p>1张</p>
+          </div>
+        </div>
+
+        <div class="contentTwo">
+          <img src="https://jin.itxiaolong.cn/icon/teamicon.png" alt="">
+          <div class="cao">
+            <p>支付密码</p>
+            <p>设置/修改</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -41,9 +60,7 @@ export default {
     };
   },
   methods: {
-    jjjj(index) {
-      console.log(index, "子传的值");
-    }
+    jjjj(index) {}
   }
 };
 </script>
@@ -118,11 +135,83 @@ export default {
   }
   .main {
     width: 100%;
-    padding: 10px;
+    // padding: 10px;
     box-sizing: border-box;
     background-color: #f6f6f6;
     .maintitle {
-      
+      height: 40px;
+      line-height: 40px;
+      padding-left: 10px;
+      font-size: 16px;
+      background-color: #fff;
+    }
+    .mainContent {
+      width: 100%;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      .contentOne {
+        width: 50%;
+        padding-left: 10px;
+        box-sizing: border-box;
+        height: 70px;
+        border: 1px solid #666;
+        border-left: none;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+        }
+        .cao {
+          height: 70px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          margin-left: 20px;
+          p:nth-child(1) {
+            font-size: 16px;
+          }
+          p:nth-child(2) {
+            font-size: 14px;
+            color: #666;
+          }
+        }
+      }
+      .contentTwo {
+        width: 50%;
+        height: 70px;
+        padding-left: 10px;
+        box-sizing: border-box;
+        border: 1px solid #666;
+        border-left: none;
+        border-right: none;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+        }
+        .cao {
+          margin-left: 20px;
+          height: 70px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          margin-left: 20px;
+          p:nth-child(1) {
+            font-size: 16px;
+          }
+          p:nth-child(2) {
+            font-size: 14px;
+            color: #666;
+          }
+        }
+      }
     }
   }
 }
