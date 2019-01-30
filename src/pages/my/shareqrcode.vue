@@ -43,7 +43,7 @@ export default {
                 top: 50,
                 width: 650,
             }];
-    }
+    
   },
   onShow() {
     console.log(111);
