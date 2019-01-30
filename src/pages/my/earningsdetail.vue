@@ -2,51 +2,40 @@
   <!-- 我的销   template > div第一级需要div-->
   <div class="address-template">
     <div class="bodys">
-      <div class="top">
-          <img src="https://jin.itxiaolong.cn/icon/index.jpg"/>
-        <ul class="info">
-          <li style="margin-bottom: 10px;">昵称</li>
-          <li style="border:1px white solid;padding: 0px 5px;border-radius: 5px; background-color: white;color: #E9323C">推荐人：傻逼</li>
-        </ul>
-      </div>
       <div class="center">
         <div class="cen_top">
           <span>
             <img src="https://jin.itxiaolong.cn/icon/teammoneyicon.png"/>
-            <label>消费总额</label>
+            <label>佣金金额</label>
           </span>
           <span style="color: red;">￥0.00</span>
         </div>
-        <div class="info_title">基本信息</div>
+        <div class="info_title">详细</div>
         <div class="info_detail">
           <ul>
             <li>
-              <span>姓名:</span>
-              <span>小龙</span>
+              <span>类型:</span>
+              <span>直推奖金</span>
             </li>
             <li>
-              <span>性别:</span>
-              <span>男</span>
+              <span>时间:</span>
+              <span>2019-01-20</span>
             </li>
             <li>
-              <span>微信号:</span>
-              <span>itxiaolong</span>
+              <span>交易单号:</span>
+              <span>2019584487878</span>
             </li>
             <li>
-              <span>QQ:</span>
-              <span>171254455</span>
+              <span>买家:</span>
+              <span>小龙啊</span>
             </li>
             <li>
-              <span>生日:</span>
-              <span>待填</span>
+              <span>状态:</span>
+              <span>已完成</span>
             </li>
             <li>
-              <span>地区:</span>
-              <span>广东 雷州</span>
-            </li>
-            <li>
-              <span>微信号:</span>
-              <span>itxiaolong</span>
+              <span>备注:</span>
+              <span>代理升级，奖励：xx元</span>
             </li>
           </ul>
         </div>
@@ -57,19 +46,19 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      isDownRefresh: false
-    };
-  },
-    methods:{
-        setActive(index) {
-            this.tabActive = index;
+    export default {
+        data() {
+            return {
+                isDownRefresh: false
+            };
         },
-    }
+        methods:{
+            setActive(index) {
+                this.tabActive = index;
+            },
+        }
 
-};
+    };
 </script>
 
 <style scoped lang='scss'>
@@ -77,32 +66,16 @@ export default {
     width: 100%;
     height: 600px;
   }
-.top{
-  width: 100%;
-  height: 15%;
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  background-color: #E9323C;
-  color: white;
-  font-size: 13px;
-  img{
-    width: 70px;
-    height:70px;
-    border-radius: 50%;
-
-  }
-}
   .info{
     margin-top: 10px;
   }
-.info li{
-  margin-left: 10px;
+  .info li{
+    margin-left: 10px;
 
-}
-.center{
-  width: 100%;
-}
+  }
+  .center{
+    width: 100%;
+  }
   .cen_top{
     display: flex;
     justify-content: space-between;

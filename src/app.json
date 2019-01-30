@@ -48,7 +48,9 @@
     "pages/my/toge",
     "pages/my/quyu",
     "pages/my/fuckvip",
-    "pages/my/myMoney"
+    "pages/my/myMoney",
+    "pages/my/earnings",
+    "pages/my/earningsdetail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
@@ -61,7 +63,7 @@
     "backgroundColor": "#F8F8F8"
   },
   "tabBar": {
-    "borderStyle": "#EAEAEA",
+    "borderStyle": "white",
     "position": "bottom",
     "backgroundColor": "#FFFFFF",
     "color": "#888888",
