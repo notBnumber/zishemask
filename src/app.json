@@ -51,6 +51,7 @@
     "pages/my/myMoney",
     "pages/my/earnings",
     "pages/my/shareqrcode",
+    "pages/my/userinfo",
     "pages/my/earningsdetail"
   ],
   "window": {

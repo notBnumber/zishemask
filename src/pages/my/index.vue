@@ -83,7 +83,7 @@
             <i class="Help"></i>我的资产</span>
           <i class="arrow"></i>
         </li>
-        <li @click="pageTo('/pages/my/setting')">
+        <li @click="pageTo('/pages/my/userinfo')">
           <span>
             <i class="setting"></i>编辑资料</span>
           <i class="arrow"></i>

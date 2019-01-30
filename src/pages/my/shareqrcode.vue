@@ -1,21 +1,23 @@
 <template>
   <!-- 我的销   template > div第一级需要div-->
   <div class="address-template">
+    <i-spin fix v-if="spinShow"></i-spin>
     <div class="bodys">
-      <poster :drawing="drawinginfo"></poster>
+      <poster :drawing="drawinginfo" :savebtnText="savebtnText" ></poster>
     </div>
-
   </div>
 </template>
 
 <script>
-let qrcodeplugin = requirePlugin("poster");
+    const qrcodeplugin = requirePlugin("poster");
 export default {
   data() {
     return {
       isDownRefresh: false,
       savebtnText: "点击保存",
-      drawinginfo: []
+      drawinginfo: [],
+        spinShow:true,
+        qrcodeimg:'https://jin.itxiaolong.cn/addons/mask/img/1.jpeg'//自己的分享二维码
     };
   },
     methods:{
@@ -24,52 +26,52 @@ export default {
         },
     },
     onLoad() {
-        this.drawinginfo=[{
-                type: 'image',
-                url: 'https://jin.itxiaolong.cn/icon/index.jpg',
+        let that=this;
+        setTimeout(function () {
+            console.log('关闭我')
+            that.spinShow=false;
+        },2500)
+
+    },
+    onShow() {
+        let that=this;
+        let uid=wx.getStorageSync('sessionId');
+        if (uid){
+          //获取自己的分享二维码
+
+        }
+        this.drawinginfo = [
+            {
+                type: "image",
+                url: "https://jin.itxiaolong.cn/icon/index.jpg",
                 left: 0,
                 top: 0,
                 width: 750,
-                height: 1100
+                height: 1000
             },
             {
-                type: 'text',
-                textType: 'CN',
-                content: '我是文字',
+                type: "text",
+                textType: "CN",
+                content: "我是文字",
                 fontSize: 26,
-                color: 'white',
-                textAlign: 'left',
+                color: "white",
+                textAlign: "center",
                 left: 170,
                 top: 50,
-                width: 650,
-            }];
-    }
-  },
-  onShow() {
-    console.log(111);
+                width: 650
+            },
+            {
+                type: 'image',
+                url: that.qrcodeimg,
+                left: 250,
+                top: 700,
+                width: 250,
+                height: 250
+            },
+        ];
 
-    this.drawinginfo = [
-      {
-        type: "image",
-        url: "https://jin.itxiaolong.cn/icon/index.jpg",
-        left: 0,
-        top: 0,
-        width: 650,
-        height: 950
-      },
-      {
-        type: "text",
-        textType: "CN",
-        content: "我是文字",
-        fontSize: 26,
-        color: "white",
-        textAlign: "center",
-        left: 170,
-        top: 50,
-        width: 650
-      }
-    ];
   }
+
 };
 </script>
 

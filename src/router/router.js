@@ -297,6 +297,21 @@ module.exports = [
       }
     }
   },
+    {
+        path: "pages/my/userinfo",
+        config: {
+            "navigationBarTitleText": "个人信息",
+            "usingComponents": {
+                "i-modal": "/iView/modal/index",
+                "i-swipeout": "/iView/swipeout/index",
+                "i-toast": "/iView/toast/index",
+                "i-input": "/iView/input/index",
+                "i-radio": "/iView/radio/index",
+                "i-panel": "/iView/panel/index",
+                "i-radio-group": "/iView/radio-group/index",
+            }
+        }
+    },
   {
     path: "pages/my/pyramid",
     config: {
@@ -372,6 +387,7 @@ module.exports = [
                 "i-modal": "/iView/modal/index",
                 "i-swipeout": "/iView/swipeout/index",
                 "i-toast": "/iView/toast/index",
+                "i-spin": "/iView/spin/index",
                 "poster": "plugin://poster/poster"
             }
         }
