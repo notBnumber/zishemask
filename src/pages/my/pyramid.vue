@@ -32,7 +32,7 @@
         </div>
         <div class="down_cen">
           <ul>
-            <li><img src="https://jin.itxiaolong.cn/icon/qrcodeicon.png"/></li>
+            <li @click="pageTo('/pages/my/shareqrcode')"><img src="https://jin.itxiaolong.cn/icon/qrcodeicon.png"/></li>
             <li style="text-align: center;margin-top: 3px;">推广二维码</li>
           </ul>
         </div>

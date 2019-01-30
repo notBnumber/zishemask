@@ -50,6 +50,7 @@
     "pages/my/fuckvip",
     "pages/my/myMoney",
     "pages/my/earnings",
+    "pages/my/shareqrcode",
     "pages/my/earningsdetail"
   ],
   "window": {
@@ -61,6 +62,12 @@
     "enablePullDownRefresh": false,
     "onReachBottomDistance": 50,
     "backgroundColor": "#F8F8F8"
+  },
+  "plugins": {
+    "poster": {
+      "version": "1.2.2",
+      "provider": "wxbf07f0f22c6c200d"
+    }
   },
   "tabBar": {
     "borderStyle": "white",
