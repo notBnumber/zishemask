@@ -153,6 +153,25 @@ export default {
     this.loadMore();
     console.log("上拉触底");
   },
+   onShareAppMessage: function (ops) {
+   if (ops.from === 'button') {
+     // 来自页面内转发按钮
+     console.log(ops.target)
+   }
+   return {
+     title: '紫色魁影',
+     path: 'pages/home/index',
+     success: function (res) {
+       // 转发成功
+       console.log("转发成功:" + JSON.stringify(res));
+     },
+     fail: function (res) {
+       // 转发失败
+       console.log("转发失败:" + JSON.stringify(res));
+     }
+   }
+
+ },
   onLoad: function(options) {
     var scene = decodeURIComponent(options.scene);
     console.log("扫进了的参数" + scene);
