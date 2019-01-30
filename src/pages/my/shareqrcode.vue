@@ -2,7 +2,7 @@
   <!-- 我的销   template > div第一级需要div-->
   <div class="address-template">
     <div class="bodys">
-      <poster :drawing="drawinginfo" class="canvas-style"></poster>
+      <poster :drawing="drawinginfo"></poster>
     </div>
 
   </div>
@@ -29,8 +29,8 @@ export default {
                 url: 'https://jin.itxiaolong.cn/icon/index.jpg',
                 left: 0,
                 top: 0,
-                width: 650,
-                height: 950
+                width: 750,
+                height: 1100
             },
             {
                 type: 'text',
@@ -54,8 +54,8 @@ export default {
   }
   /* 画布样式 */
   .canvas-style{
-    width: 100% !important;
-    height: 700px  !important;
+    width: 750px !important;
+    height: 1100px  !important;
     margin: 0 auto;
     border: 1px solid orangered;
     margin-top: 3px;
