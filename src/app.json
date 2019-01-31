@@ -53,6 +53,7 @@
     "pages/my/shareqrcode",
     "pages/my/earningsdetail",
     "pages/my/vipcard",
+    "pages/my/userinfo",
     "pages/my/dayday"
   ],
   "window": {

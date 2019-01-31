@@ -3,13 +3,13 @@
   <div class="address-template">
     <i-spin fix v-if="spinShow"></i-spin>
     <div class="bodys">
-      <poster :drawing="drawinginfo" :savebtnText="savebtnText" ></poster>
+      <poster :drawing="drawinginfo" :savebtnText="savebtnText" bindcompleted="docompleted"></poster>
     </div>
   </div>
 </template>
 
 <script>
-    const qrcodeplugin = requirePlugin("poster");
+
 export default {
   data() {
     return {
@@ -23,6 +23,9 @@ export default {
     methods:{
         setActive(index) {
             this.tabActive = index;
+        },
+        docompleted(e) {
+            console.log(e,'参数')
         },
     },
     onLoad() {
