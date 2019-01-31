@@ -2,7 +2,7 @@
   <!-- 个人信息 -->
   <div class="add-template">
     <div class="box">
-      <ul>
+
         <i-panel>
           <i-input  title="姓名" placeholder="名字" />
           <RadioGroup v-model="sexs" @change="changeModel" class="sexradio">
@@ -13,23 +13,24 @@
               <!--<span>{{item.label}}</span>-->
             <!--</Radio>-->
           </RadioGroup>
-          <i-input  type="number" title="QQ" placeholder="请输入QQ" />
+          <i-input  type="number" title="QQ" placeholder="请输入QQ"/>
           <i-input  type="text" title="微信" placeholder="请输入微信" />
-          <i-input type="text" title="生日" placeholder="请输入生日" />
+          <i-input type="text" title="生日" placeholder="请输入生日"/>
           <i-input  title="手机号" placeholder="请输入手机号" />
+          <div class="area">
+            <span>所在地区：</span>
+            <picker mode="region" @change="bindRegionChange">
+              <div class="chooseaddress">
+                {{region}}
+                <i></i>
+              </div>
+            </picker>
+          </div>
+
           <i-input value="已设置密码" title="密码" disabled />
 
         </i-panel>
-        <li>
-          <span>所在地区：</span>
-          <picker mode="region" @change="bindRegionChange">
-            <div class="chooseaddress">
-              {{region}}
-              <i></i>
-            </div>
-          </picker>
-        </li>
-      </ul>
+
     </div>
     <div class="btn">
       <button class="login-out" @click="submit">提交</button>
@@ -154,39 +155,7 @@
     .box {
       background-color: #fff;
       padding: 0 15px 25px;
-      ul {
-        li {
-          border-bottom: 1px solid #eaeaea;
-          padding: 15px 0;
-          display: flex;
-          align-items: center;
-          font-size: 14px;
-          justify-content: space-between;
-          span {
-            font-size: 17px;
-            padding:5px 16px;
-            color: #495060;
-          }
-          input {
-            flex: 1;
-            font-size: 14px;
-            font-family: PingFang-SC-Regular;
-            font-weight: 400;
-            color: rgba(36, 33, 33, 1);
-            text-align: right;
-            &.left {
-              text-align: left;
-            }
-          }
-          i {
-            @include bg-icon(10px) background-image:
-                  url("~@/assets/img/user_icon_more_2@2x.png");
-          }
-          &:last-child {
-            border: 0;
-          }
-        }
-      }
+
     }
     .setting {
       margin-top: 13px;
@@ -201,6 +170,13 @@
         font-weight: bold;
         color: #242121;
       }
+    }
+    .area{
+      display: flex;
+      justify-content: space-between;
+      padding:5px 16px;
+      color:#495060;
+      font-size: 16px;
     }
     .btn {
       position: fixed;
@@ -221,11 +197,16 @@
     }
     .sexradio{
       color:#495060;
-      font-size: 17px;
-      padding:5px 16px;
+      font-size: 16px;
+      padding:12px 16px;
+      border-bottom: 1px #F5F6F6 solid;
+
+    }
+    .qqinput{
+      border-bottom: 1px #F5F6F6 solid;
     }
     .myradio{
-      margin-left: 25px;
+      margin-left: 20px;
     }
     .chooseaddress{
       font-size: 17px;

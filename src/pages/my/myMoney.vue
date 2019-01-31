@@ -107,8 +107,8 @@ export default {
         justify-content: space-between;
         align-items: center;
         img {
-          width: 42px;
-          height: 48px;
+          width: 40px;
+          height: 45px;
           margin-bottom: 10px;
         }
         p {
@@ -155,10 +155,10 @@ export default {
         padding-left: 10px;
         box-sizing: border-box;
         height: 70px;
-        border: 1px solid #666;
+        border: 1px solid #E5E5E5;
         border-left: none;
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
         img {
           width: 30px;
@@ -170,7 +170,7 @@ export default {
           display: flex;
           flex-direction: column;
           justify-content: center;
-          margin-left: 20px;
+          margin-left: 10px;
           p:nth-child(1) {
             font-size: 16px;
           }
@@ -185,11 +185,11 @@ export default {
         height: 70px;
         padding-left: 10px;
         box-sizing: border-box;
-        border: 1px solid #666;
+        border: 1px solid #E5E5E5;
         border-left: none;
         border-right: none;
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
         img {
           width: 30px;

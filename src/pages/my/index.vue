@@ -50,10 +50,10 @@
           <i class="Receiving"></i>
           <span>待收货</span>
         </span>
-        <span class="body-item" @click="pageTo('/pages/my/orderCenter', {tabIndex: 4})">
-          <i class="evaluate"></i>
-          <span>待评价</span>
-        </span>
+        <!--<span class="body-item" @click="pageTo('/pages/my/orderCenter', {tabIndex: 4})">-->
+          <!--<i class="evaluate"></i>-->
+          <!--<span>待评价</span>-->
+        <!--</span>-->
         <span class="body-item" @click="pageTo('/pages/my/orderAfterSale')">
           <i class="refund"></i>
           <span>退货/退款</span>

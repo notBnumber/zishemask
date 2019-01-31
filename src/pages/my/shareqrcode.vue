@@ -3,7 +3,7 @@
   <div class="address-template">
     <i-spin fix v-if="spinShow"></i-spin>
     <div class="bodys">
-      <poster :drawing="drawinginfo" :savebtnText="savebtnText" bindcompleted="docompleted"></poster>
+      <poster :drawing="drawinginfo" :savebtnText="savebtnText" :bindcompleted="docompleted"></poster>
     </div>
   </div>
 </template>
@@ -17,26 +17,34 @@ export default {
       savebtnText: "点击保存",
       drawinginfo: [],
         spinShow:true,
-        qrcodeimg:'https://jin.itxiaolong.cn/addons/mask/img/1.jpeg'//自己的分享二维码
+        nickname:'我是昵称',
+        qrcodeimg:'https://jin.itxiaolong.cn/addons/mask/img/1.jpeg',//自己的分享二维码
+        headerimg:'https://wx.qlogo.cn/mmopen/vi_32/171rpAQ2g2v0MV7WIcp7edYibXEcIjicpZNUgJ28ib5kQyD4mjLt7mr55y1tEB9z2KMWBqicYCwaCv29ErnJGFmVgQ/132',//头像
     };
   },
     methods:{
         setActive(index) {
             this.tabActive = index;
         },
-        docompleted(e) {
-            console.log(e,'参数')
-        },
+
     },
     onLoad() {
         let that=this;
         setTimeout(function () {
             console.log('关闭我')
             that.spinShow=false;
-        },2500)
+        },4500)
 
     },
+    onUnload() {
+        console.log('onUnload')
+    },
+    onHide(){
+        console.log('onhide')
+        this.spinShow=true;
+    },
     onShow() {
+        console.log('onShow')
         let that=this;
         let uid=wx.getStorageSync('sessionId');
         if (uid){
@@ -44,9 +52,10 @@ export default {
 
         }
         this.drawinginfo = [
+
             {
                 type: "image",
-                url: "https://jin.itxiaolong.cn/icon/index.jpg",
+                url: "https://jin.itxiaolong.cn/icon/qrcodebj.jpg",
                 left: 0,
                 top: 0,
                 width: 750,
@@ -55,11 +64,12 @@ export default {
             {
                 type: "text",
                 textType: "CN",
-                content: "我是文字",
-                fontSize: 26,
+                content: that.nickname,
+                fontSize: 32,
                 color: "white",
+                bold:"true",
                 textAlign: "center",
-                left: 170,
+                left: 270,
                 top: 50,
                 width: 650
             },
@@ -67,9 +77,17 @@ export default {
                 type: 'image',
                 url: that.qrcodeimg,
                 left: 250,
-                top: 700,
-                width: 250,
-                height: 250
+                top: 450,
+                width: 280,
+                height: 280
+            },
+            {
+                type: "image",
+                url: that.headerimg,
+                left: 80,
+                top: 50,
+                width: 100,
+                height: 100
             },
         ];
 
