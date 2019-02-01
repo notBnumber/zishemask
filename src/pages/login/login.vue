@@ -14,7 +14,7 @@
         <div>
           <i></i>
         </div>
-        <input type="number" maxlength="8" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入您的密码" v-model="code" @focus='focu(1)' @blur="blur">
+        <input type="password" maxlength="8" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入您的密码" v-model="code" @focus='focu(1)' @blur="blur">
       </li>
     </ul>
     <div class="btn">
