@@ -223,7 +223,8 @@ export default {
           width: 30%;
           margin: auto;
           border-radius: 5px;
-          font-size: 20px
+          font-size: 15px;
+          padding: 5px 2px;
         }
         .one {
           margin-top: 10px;

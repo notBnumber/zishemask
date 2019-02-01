@@ -54,7 +54,7 @@
             </div>
           </div>
 
-          <button type="warn" class="btn">申请</button>
+          <!--<button type="warn" class="btn">申请</button>-->
         </div>
       </div>
     </div>

@@ -50,10 +50,10 @@
           <i class="Receiving"></i>
           <span>待收货</span>
         </span>
-        <span class="body-item" @click="pageTo('/pages/my/orderCenter', {tabIndex: 4})">
-          <i class="evaluate"></i>
-          <span>待评价</span>
-        </span>
+        <!--<span class="body-item" @click="pageTo('/pages/my/orderCenter', {tabIndex: 4})">-->
+          <!--<i class="evaluate"></i>-->
+          <!--<span>待评价</span>-->
+        <!--</span>-->
         <span class="body-item" @click="pageTo('/pages/my/orderAfterSale')">
           <i class="refund"></i>
           <span>退货/退款</span>
@@ -83,7 +83,7 @@
             <i class="Help"></i>我的资产</span>
           <i class="arrow"></i>
         </li>
-        <li @click="pageTo('/pages/my/setting')">
+        <li @click="pageTo('/pages/my/userinfo')">
           <span>
             <i class="setting"></i>编辑资料</span>
           <i class="arrow"></i>
@@ -98,6 +98,16 @@
             <i class="distribution"></i>分销中心</span>
           <i class="arrow"></i>
         </li>
+        <li @click="docall">
+          <span>
+            <i class="complaints"></i>投诉:18773115706</span>
+          <i class="arrow"></i>
+        </li>
+        <!--<li @click="xieyi">-->
+          <!--<span>-->
+            <!--<i class="complaints"></i>我是协议</span>-->
+          <!--<i class="arrow"></i>-->
+        <!--</li>-->
       </ul>
     </div>
   </div>
@@ -136,6 +146,26 @@ export default {
         }
       });
     },
+      docall(){
+          wx.makePhoneCall({
+              phoneNumber: '18773115706' //仅为示例，并非真实的电话号码
+          })
+      },
+      xieyi(){
+//          wx.showActionSheet({
+//              itemList: ['类型1', '类型二', '类型三'],
+//              success(res) {
+//                  console.log(res.tapIndex)
+//                  wx.showToast({
+//                          title: '选择了'+res.tapIndex,
+//                          duration: 1000
+//                      })
+//              },
+//              fail(res) {
+//                  console.log(res.errMsg)
+//              }
+//          })
+      },
     getSetting() {
       let vm = this;
       wx.getSetting({
@@ -320,6 +350,7 @@ export default {
           &.refund {
             background-image: url("~@/assets/img/user_icon_5@2x.png");
           }
+
         }
         span {
           font-size: 12px;
@@ -381,6 +412,9 @@ export default {
             }
             &.distribution {
               background-image: url("https://jin.itxiaolong.cn/icon/icon2.png");
+            }
+            &.complaints {
+              background-image: url("https://jin.itxiaolong.cn/icon/tousuicon.png");
             }
           }
         }

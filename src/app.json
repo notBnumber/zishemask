@@ -49,12 +49,14 @@
     "pages/my/quyu",
     "pages/my/fuckvip",
     "pages/my/myMoney",
+    "pages/my/setpsw",
     "pages/my/earnings",
     "pages/my/shareqrcode",
     "pages/my/earningsdetail",
     "pages/my/vipcard",
     "pages/my/dayday",
-    "pages/my/changepwd"
+    "pages/my/changepwd",
+    "pages/my/userinfo"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
