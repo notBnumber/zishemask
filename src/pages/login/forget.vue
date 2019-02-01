@@ -32,7 +32,7 @@
     <div class="btn">
       <button type="button" :disabled=" !name || !code || !password " @click="changePwd">更改密码</button>
     </div>
-     <i-toast id="toast" />
+    <i-toast id="toast" />
   </div>
 </template>
 
@@ -112,7 +112,12 @@ export default {
           console.log(res, "注册");
           if (res.code == 1) {
             console.log();
-             this.switchTab("/pages/home/index");
+            this.switchTab("/pages/home/index");
+          } else {
+            this.$Toast({
+              content: res.msg,
+              type: "error"
+            });
           }
         });
     }
