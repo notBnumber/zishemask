@@ -3,7 +3,7 @@
   <div class="address-template">
     <i-spin fix v-if="spinShow"></i-spin>
     <div class="bodys">
-      <poster :drawing="drawinginfo" :savebtnText="savebtnText" bindcompleted="docompleted"></poster>
+      <poster :drawing="drawinginfo" :savebtnText="savebtnText" :bindcompleted="docompleted"  bindsaveImage='saveImage'></poster>
     </div>
   </div>
 </template>
@@ -28,6 +28,11 @@ export default {
         },
 
 
+    },
+
+    saveImage() {
+        console.log(88484);
+        
     },
     docompleted(){
           console.log('完成事件');

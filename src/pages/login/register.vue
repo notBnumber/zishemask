@@ -14,13 +14,13 @@
           <i></i>
         </div>
         <input type="text" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入验证码" v-model="code" @focus='focu(1)' @blur="blur">
-        <button type="button" @click="getCode">发送验证码</button>
+        <button type="button" @click="getCode">{{message}}</button>
       </li>
       <li class="password" :class="isfocu == 2 && 'active'">
         <div>
           <i></i>
         </div>
-        <input type="text" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入手机号" v-model="password" @focus='focu(2)' @blur="blur">
+        <input type="text" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入密码" v-model="password" @focus='focu(2)' @blur="blur">
       </li>
     </ul>
     <!-- <p class="agree">登录即代表您同意我们的
@@ -28,9 +28,9 @@
       <i @click="pageTo('/pages/login/Privacy')">隐私政策</i>
     </p> -->
     <div class="btn">
-      <button type="button" :disabled=" !name || !code || !password " @click="toGet">同意协议并注册</button>
+      <button type="button" :disabled=" !name || !code || !password " @click="toGet">注册</button>
     </div>
-     <i-toast id="toast" />
+    <i-toast id="toast" />
   </div>
 </template>
 
@@ -46,7 +46,9 @@ export default {
       code: "",
       isfocu: null,
       password: "",
-      phoneRegexp: /^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\d{8}$/
+      phoneRegexp: /^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\d{8}$/,
+      message: "获取验证码",
+      timeState: false
     };
   },
   methods: {
@@ -58,29 +60,65 @@ export default {
     },
     // 获取验证码
     getCode() {
-      if (!this.phoneRegexp.test(this.name)) {
+      if (this.timeState == false) {
+        if (!this.phoneRegexp.test(this.name)) {
+          this.$Toast({
+            content: "手机号码格式错误",
+            type: "warning"
+          });
+          return;
+        }
+        this.$API
+          .Smscode({
+            i: 8,
+            c: "entry",
+            a: "wxapp",
+            m: "mask",
+            do: "Smscode",
+            tel: this.name
+          })
+          .then(res => {
+            console.log(res, "请求验证码");
+            if (res.code == 1) {
+              console.log();
+              let num = 60;
+              this.getTime(num);
+              this.$Toast({
+                content: "信息已发送",
+                type: "success"
+              });
+            } else {
+              this.$Toast({
+                content: "请重新发送",
+                type: "warning"
+              });
+            }
+          });
+      } else {
         this.$Toast({
-          content: "手机号码格式错误",
+          content: "信息已发送",
           type: "warning"
         });
-        return;
       }
-      this.$API
-        .Smscode({
-          i: 8,
-          c: "entry",
-          a: "wxapp",
-          m: "mask",
-          do: "Smscode",
-          tel: this.name
-        })
-        .then(res => {
-          console.log(res, "请求验证码");
-          if (res.code == 1) {
-            
-            console.log();
-          }
-        });
+    },
+    getTime(num1) {
+      let num = num1;
+      this.setTime = setInterval(() => {
+        if (num > 0) {
+          console.log(num);
+
+          // this.canSend = false;
+          this.message = "重发(" + num + ")";
+          this.timeState = true;
+          num--;
+        } else {
+          console.log(99999);
+          this.timeState = false;
+          clearInterval(this.setTime);
+          this.message = "重新发送";
+          // this.canSend = true;
+        }
+      }, 1000);
     },
     toGet() {
       if (!this.phoneRegexp.test(this.name)) {
@@ -98,15 +136,19 @@ export default {
           m: "mask",
           do: "RegorFind",
           phone: this.name,
-          code:this.code,
-          psw:this.password,
-          uid:wx.getStorageSync("sessionId") == ''?'':wx.getStorageSync("sessionId"),
-          pid:wx.getStorageSync("pid") == ''?'':wx.getStorageSync("pid")
+          code: this.code,
+          psw: this.password,
+          uid:
+            wx.getStorageSync("sessionId") == ""
+              ? ""
+              : wx.getStorageSync("sessionId"),
+          pid: wx.getStorageSync("pid") == "" ? "" : wx.getStorageSync("pid")
         })
         .then(res => {
           console.log(res, "注册");
           if (res.code == 1) {
             console.log();
+            this.switchTab("/pages/home/index");
           }
         });
     }
