@@ -8,28 +8,29 @@
           <i></i>
         </div>
         <input type="number" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入您的手机号码" v-model="phoneNumber" @focus='focu(0)' @blur="blur">
-        <button type="button" @click="send()" :disabled="isSend">{{isSend ? time + 'S' : '获取验证码'}}</button>
+        <!-- <button type="button" @click="send()" :disabled="isSend">{{isSend ? time + 'S' : '获取验证码'}}</button> -->
       </li>
       <li class="password" :class="isfocu == 1 && 'active'">
         <div>
           <i></i>
         </div>
-        <input type="number" maxlength="4" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入您收到的验证码" v-model="code" @focus='focu(1)' @blur="blur">
+        <input type="number" maxlength="8" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入您的密码" v-model="code" @focus='focu(1)' @blur="blur">
       </li>
     </ul>
     <div class="btn">
       <button type="button" @click="login()" :disabled="!phoneNumber || !code">登录</button>
     </div>
-    <p class="agree">登录即代表您同意我们的
+    <!-- <p class="agree">登录即代表您同意我们的
       <i @click="pageTo('/pages/login/agreement')">服务协议</i> 和
       <i @click="pageTo('/pages/login/Privacy')">隐私政策</i>
-    </p>
+    </p> -->
 
     <i-toast id="toast" />
-    <!-- <div class="jump">
-      <span @click="pageTo('/pages/login/codeLogin')">手机验证码登录</span>
+    <div class="jump">
+      <!-- <span @click="pageTo('/pages/login/codeLogin')">手机验证码登录</span> -->
       <span @click="pageTo('/pages/login/register')">新用户注册</span>
-    </div> -->
+      <span @click="pageTo('/pages/login/forget')">忘记密码</span>
+    </div>
   </div>
 </template>
 
@@ -93,25 +94,20 @@ export default {
         return;
       }
       this.$API
-        .login({
+        .toLogin({
           i: 8,
           c: "entry",
           a: "wxapp",
           m: "mask",
-          do: "Openid",
+          do: "Login",
           // do参数?
-
-          code: wx.getStorageSync("code"),
-          headerimg: wx.getStorageSync("headerimg"),
-          nickname: wx.getStorageSync("nickname")
+          phone: this.phoneNumber,
+          psw: this.code
         })
         .then(res => {
           console.log(res, "请求验证码");
           if (res.code == 1) {
-            
-            wx.setStorageSync("sessionId", res.data.id);
-            wx.setStorageSync("openid", res.data.openid);
-            console.log(res.data.id,wx.getStorageSync('sessionId'),'马买哦平');
+
             this.switchTab("/pages/home/index");
           }
         });
@@ -129,11 +125,45 @@ export default {
       //     console.log(res.data);
       //   }
       // });
-      
+    },
+    getId() {
+      this.$API
+        .login({
+          i: 8,
+          c: "entry",
+          a: "wxapp",
+          m: "mask",
+          do: "Openid",
+          // do参数?
+
+          code: wx.getStorageSync("code"),
+          headerimg: wx.getStorageSync("headerimg"),
+          nickname: wx.getStorageSync("nickname")
+        })
+        .then(res => {
+          console.log(res, "请求验证码");
+          if (res.code == 1) {
+            wx.setStorageSync("sessionId", res.data.id);
+            wx.setStorageSync("openid", res.data.openid);
+            console.log(
+              res.data.id,
+              wx.getStorageSync("sessionId"),
+              "马买哦平"
+            );
+            // this.switchTab("/pages/home/index");
+          }
+        });
     }
   },
+
   onUnload() {
     clearInterval(this.timer);
+  },
+  onReady() {
+    let vm = this;
+    setTimeout(function() {
+      vm.getId();
+    }, 1000);
   }
 };
 </script>
@@ -235,16 +265,16 @@ export default {
       display: inline-block;
     }
   }
-  // .jump{
-  //   padding:  18px 38px 0;
-  //   display: flex;
-  //   justify-content: space-between;
-  //   span{
-  //     font-size:12px;
-  //     font-family:PingFang-SC-Regular;
-  //     font-weight:400;
-  //     color:#242121;
-  //   }
-  // }
+  .jump {
+    padding: 18px 38px 0;
+    display: flex;
+    justify-content: space-between;
+    span {
+      font-size: 12px;
+      font-family: PingFang-SC-Regular;
+      font-weight: 400;
+      color: #242121;
+    }
+  }
 }
 </style>

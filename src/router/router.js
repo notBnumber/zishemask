@@ -85,7 +85,10 @@ module.exports = [
   {
     path: "pages/login/forget",
     config: {
-      "enablePullDownRefresh": false
+      "enablePullDownRefresh": false,
+      "usingComponents": {
+        "i-toast": "/iView/toast/index"
+      }
     }
   },
   // 绑定手机
@@ -106,7 +109,10 @@ module.exports = [
   {
     path: "pages/login/register",
     config: {
-      "enablePullDownRefresh": false
+      "enablePullDownRefresh": false,
+      "usingComponents": {
+        "i-toast": "/iView/toast/index"
+      }
     }
   },
 
@@ -354,6 +360,19 @@ module.exports = [
     path: "pages/my/dayday",
     config: {
       "navigationBarTitleText": "签到",
+      "navigationBarTextStyle": "white",
+      "navigationBarBackgroundColor": "#E9323C",
+      "usingComponents": {
+        "i-modal": "/iView/modal/index",
+        "i-swipeout": "/iView/swipeout/index",
+        "i-toast": "/iView/toast/index",
+      }
+    }
+  },
+  {
+    path: "pages/my/changepwd",
+    config: {
+      "navigationBarTitleText": "设置密码",
       "navigationBarTextStyle": "white",
       "navigationBarBackgroundColor": "#E9323C",
       "usingComponents": {

@@ -53,7 +53,8 @@
     "pages/my/shareqrcode",
     "pages/my/earningsdetail",
     "pages/my/vipcard",
-    "pages/my/dayday"
+    "pages/my/dayday",
+    "pages/my/changepwd"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

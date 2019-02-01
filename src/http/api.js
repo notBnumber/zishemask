@@ -65,6 +65,21 @@ GetDetailOrder = this.requestPost('')
 // 取消订单
 CancelMyOrder = this.requestPost('')
 
+
+//获取验证码
+Smscode = this.requestPost('')
+
+
+
+
+
+RegorFind = this.requestPost('')
+
+
+toLogin = this.requestPost('')
+
+
+
 doPay = this.requestPost('')
   // 首页轮播图
   ads = this.requestPost('/api/shop/index/ads')
