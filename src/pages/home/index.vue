@@ -63,7 +63,7 @@
       </ul> -->
     <!-- 上图 -->
     <div class="topDiv">
-      <img src="https://jin.itxiaolong.cn/icon/index.jpg" alt="" @click="pageTo('/pages/login/hua')">
+      <img src="https://jin.itxiaolong.cn/icon/index.jpg" alt="">
     </div>
     <div class="bottomDiv">
       <div class="detailBtn" @click="pageTo('/pages/sort/details', {id: item.gID})" v-for="( item , index ) of bottomBtn" :key="index">

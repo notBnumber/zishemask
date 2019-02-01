@@ -15,7 +15,8 @@ module.exports = [
       "navigationBarTitleText": "首页",
       "usingComponents": {
         "i-toast": "/iView/toast/index",
-        'painter': '/static/Painter/painter'
+        'painter': '/static/Painter/painter',
+          "i-spin": "/iView/spin/index",
       }
     }
   },

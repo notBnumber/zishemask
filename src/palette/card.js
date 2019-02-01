@@ -13,42 +13,48 @@ export default class LastMayday {
 
   _template () {
     return ({
-      background: 'https://qhyxpicoss.kujiale.com/2018/06/12/LMPUSDAKAEBKKOASAAAAAAY8_981x600.png',
-      width: '654rpx',
-      height: '400rpx',
+      background: 'https://jin.itxiaolong.cn/icon/qrcodebj.jpg',
+      width: '700rpx',
+      height: '1050rpx',
       borderRadius: '20rpx',
-      views: [{
-        type: 'image',
-        url: this.cardInfo.avatar,
-        css: {
-          top: '48rpx',
-          right: '48rpx',
-          width: '192rpx',
-          height: '192rpx',
-          borderRadius: '10rpx',
-          align: 'right'
-        }
-      },
-      {
-        type: 'qrcode',
-        content: 'https://github.com/Kujiale-Mobile',
-        css: {
-          left: '70rpx',
-          bottom: '30rpx',
-          width: '130rpx',
-          height: '130rpx'
-        }
-      },
-      {
-        type: 'text',
-        text: '酷家乐 移动前端',
-        css: {
-          left: '50rpx',
-          top: '48rpx',
-          fontSize: '40rpx',
-          align: 'left'
-        }
-      }
+      views: [
+          {
+            type: 'image',
+            url: this.cardInfo.avatar,//头像
+            css: {
+              top: '30rpx',
+              left: '180rpx',
+              width: '132rpx',
+              height: '132rpx',
+              borderRadius: '10rpx',
+              align: 'right'
+            }
+            },
+          {
+              type: 'image',
+              url: this.cardInfo.myqrcode,//二维码
+              css: {
+                  left: '480rpx',
+                  top: '500rpx',
+                  width: '250rpx',
+                  height: '250rpx',
+                  borderRadius: '10rpx',
+                  align: 'right'
+              }
+          },
+          {
+            type: 'text',
+            text: this.cardInfo.nickname,//昵称
+            css: {
+                left: '200rpx',
+                top: '50rpx',
+                fontSize: '35rpx',
+                align: 'left',
+                color:'white',
+                maxLines:"1",
+                width:'350rpx'
+            }
+          }
       ]
     })
   }
