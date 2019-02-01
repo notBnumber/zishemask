@@ -43,14 +43,8 @@ export default {
         })
       console.log('on save click')
     },
-      onLoad() {
-          let that=this;
-          setTimeout(function () {
-              that.spinShow=false;
-          },1000)
-
-      },
       onUnload() {
+          console.log('onUnload')
           this.spinShow=true;
       },
       onHide(){
@@ -59,6 +53,7 @@ export default {
       },
     onImgOk (e) {
       this.shareImg = e.mp.detail.path
+        this.spinShow=false;
       // 两种路径是一样的
       console.log(e.mp.detail.path)
       console.log(e.target.path)
