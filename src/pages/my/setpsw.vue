@@ -1,7 +1,10 @@
 <template>
   <!-- 个人信息 -->
   <div class="add-template">
-    <div class="box">
+    <div class="box" style="overflow: hidden">
+      <div class="boxtitle">
+          请输入支付密码确认身份
+      </div>
       <div class="code-input-main">
         <div class="code-input-main-item">{{code[0]}}</div>
         <div class="code-input-main-item">{{code[1]}}</div>
@@ -11,33 +14,36 @@
         <div class="code-input-main-item">{{code[5]}}</div>
         <input class="code-input-input" v-model="code" maxlength="6" type="number" @change="getinput"/>
       </div>
-      <div class='keyboard' @click.stop='_handleKeyPress'>
-        <div class='key-row'>
-          <div class='key-cell' data-num='7'>7</div>
-          <div class='key-cell' data-num='8'>8</div>
-          <div class='key-cell' data-num='9'>9</div>
-          <div class='key-cell' data-num='D'>C</div>
-        </div>
-        <div class='key-row'>
-          <div class='key-cell' data-num='4'>4</div>
-          <div class='key-cell' data-num='5'>5</div>
-          <div class='key-cell' data-num='6'>6</div>
-          <div class='key-cell' data-num='C'>清空</div>
-        </div>
-        <div class='key-row'>
-          <div class='key-cell' data-num='1'>1</div>
-          <div class='key-cell' data-num='2'>2</div>
-          <div class='key-cell' data-num='3'>3</div>
-          <div class='key-cell' data-num='-1'></div>
-        </div>
-        <div class='key-row'>
-          <div class='key-cell disabled' data-num='-1'></div>
-          <div class='key-cell' data-num='.'>.</div>
-          <div class='key-cell' data-num='0'>0</div>
-          <div class='key-cell' data-num='S'>确认</div>
-        </div>
+      <div class="mykey">
+        <div class='keyboard' @click.stop='_handleKeyPress'>
+          <div class='key-row'>
+            <div class='key-cell' data-num='7'>7</div>
+            <div class='key-cell' data-num='8'>8</div>
+            <div class='key-cell' data-num='9'>9</div>
+            <div class='key-cell' data-num='D'>C</div>
+          </div>
+          <div class='key-row'>
+            <div class='key-cell' data-num='4'>4</div>
+            <div class='key-cell' data-num='5'>5</div>
+            <div class='key-cell' data-num='6'>6</div>
+            <div class='key-cell' data-num='C'>清空</div>
+          </div>
+          <div class='key-row'>
+            <div class='key-cell' data-num='1'>1</div>
+            <div class='key-cell' data-num='2'>2</div>
+            <div class='key-cell' data-num='3'>3</div>
+            <div class='key-cell noborder1' data-num='S'></div>
+          </div>
+          <div class='key-row'>
+            <div class='key-cell disabled' data-num='-1'></div>
+            <div class='key-cell' data-num='.'>.</div>
+            <div class='key-cell' data-num='0'>0</div>
+            <div class='key-cell noborder' data-num='S' style="padding-top:-60px;">确认</div>
+          </div>
 
+        </div>
       </div>
+
     </div>
     <i-toast id="toast" />
   </div>
@@ -70,7 +76,7 @@
                 switch (String(num)) {
                     //小数点
                     case '.':
-                        this._handleDecimalPoint();
+                        //this._handleDecimalPoint();
                         break;
                     //删除键
                     case 'D':
@@ -146,9 +152,6 @@
             //处理数字
             _handleNumberKey(num) {
                 console.log(num,'点击到')
-                let getcode=new Array();
-                getcode.push(num)
-                console.log(getcode,'数组')
                 this.code+=num
                 let S = this.psw;
                 //如果有小数点且小数点位数不小于2
@@ -157,12 +160,12 @@
                 //没有小数点
                 if (!(S.indexOf('.') > -1)) {
                     //如果第一位是0，只能输入小数点
-                    if (num == 0 && S.length == 0)
-                        this.psw = '0.';
-                    else {
-                        if (S.length && Number(S.charAt(0)) === 0) return;
+//                    if (num == 0 && S.length == 0)
+//                        this.psw = '0.';
+//                    else {
+                       // if (S.length && Number(S.charAt(0)) === 0) return;
                         this.psw = S + num;
-                    }
+                    //}
                 }
             }
         }
@@ -170,6 +173,16 @@
 </script>
 
 <style scoped lang='scss'>
+  .boxtitle{
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 10px;
+  }
+  .mykey{
+    position: absolute;
+    width: 100%;
+    bottom:0px;
+  }
   .code-input-input {
     height: 80px;
     width: 100%;
@@ -188,7 +201,7 @@
   }
   .code-input-main-item {
     font-family: time-font-myself;
-    width: 150px;
+    width: 140px;
     height: 50px;
     line-height: 50px;
     opacity: 0.8;
@@ -204,8 +217,16 @@
   .key-cell{
     display: flex;
     justify-content: space-around;
+    line-height: 40px;
     width: 100%;
+    height: 40px;
     padding: 10px;
-    border: 1px red solid;
+    border: 1px #AFAFAF solid;
+  }
+  .noborder{
+    border-top: none;
+  }
+  .noborder1{
+    border-bottom: none;
   }
 </style>

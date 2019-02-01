@@ -3,7 +3,7 @@
   <div class="address-template">
     <i-spin fix v-if="spinShow"></i-spin>
     <div class="bodys">
-      <poster :drawing="drawinginfo" :savebtnText="savebtnText" :bindcompleted="docompleted"></poster>
+      <poster :drawing="drawinginfo" :savebtnText="savebtnText" bindcompleted="docompleted"></poster>
     </div>
   </div>
 </template>
@@ -26,6 +26,11 @@ export default {
         setActive(index) {
             this.tabActive = index;
         },
+
+
+    },
+    docompleted(){
+          console.log('完成事件');
 
     },
     onLoad() {

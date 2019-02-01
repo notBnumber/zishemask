@@ -33,7 +33,7 @@
           </div>
         </div>
 
-        <div class="contentTwo">
+        <div class="contentTwo" @click="pageTo('/pages/my/setpsw')">
           <img src="https://jin.itxiaolong.cn/icon/teamicon.png" alt="">
           <div class="cao">
             <p>支付密码</p>
