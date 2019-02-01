@@ -89,7 +89,7 @@ export default {
               });
             } else {
               this.$Toast({
-                content: "请重新发送",
+                content: res.msg,
                 type: "warning"
               });
             }
@@ -128,6 +128,34 @@ export default {
         });
         return;
       }
+      // this.$API
+      //   .RegorFind({
+      //     i: 8,
+      //     c: "entry",
+      //     a: "wxapp",
+      //     m: "mask",
+      //     do: "RegorFind",
+      //     phone: this.name,
+      //     code: this.code,
+      //     psw: this.password,
+      //     uid: wx.getStorageSync("sessionId") == ""? "": wx.getStorageSync("sessionId"),
+      //     pid: wx.getStorageSync("pid") == "" ? "" : wx.getStorageSync("pid")
+      //   })
+      //   .then(res => {
+      //     console.log('.////');
+
+      //     if (res.code == 1) {
+      //       this.switchTab("/pages/home/index");
+      //     } else {
+      //       console.log(res);
+
+      //       this.$Toast({
+      //         content: res.msg,
+      //         type: "warning"
+      //       });
+      //     }
+      //   });
+
       this.$API
         .RegorFind({
           i: 8,
@@ -138,23 +166,24 @@ export default {
           phone: this.name,
           code: this.code,
           psw: this.password,
-          uid:
-            wx.getStorageSync("sessionId") == ""
-              ? ""
-              : wx.getStorageSync("sessionId"),
+          uid: wx.getStorageSync("sessionId") == ""? "": wx.getStorageSync("sessionId"),
           pid: wx.getStorageSync("pid") == "" ? "" : wx.getStorageSync("pid")
         })
         .then(res => {
-          console.log(res, "注册");
+          console.log(res);// 打印不出来 
           if (res.code == 1) {
-            console.log();
+            wx.setStorageSync('is',true)
             this.switchTab("/pages/home/index");
           } else {
+            console.log(2222);
+            
             this.$Toast({
               content: res.msg,
-              type: "error"
+              type: "warning"
             });
           }
+          console.log(3333);
+          
         });
     }
   },

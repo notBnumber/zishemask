@@ -59,9 +59,9 @@ export default {
             //   wx.setStorageSync('sessionId', response.data.sessionId)
             //   wx.switchTab({url: '/pages/purchase/purchase'})
             // })
+        vm.pageTo("/pages/login/login");
           }
         });
-        vm.pageTo("/pages/login/login");
       }
     }
   },

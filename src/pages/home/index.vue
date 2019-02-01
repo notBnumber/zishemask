@@ -196,6 +196,13 @@ export default {
     let vm = this;
     console.log(this.$store.state.test);
     // vm.init()
+  },
+  onShow() {
+    console.log(wx.getStorageSync('is'));
+    
+    // if (wx.getStorageSync('is') == '') {
+    //   this.pageTo('/pages/login/login')
+    // }
   }
 };
 </script>

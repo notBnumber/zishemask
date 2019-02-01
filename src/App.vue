@@ -5,7 +5,7 @@ export default {
     let vm = this;
     wx.getSetting({
       success(res) {
-        if (!res.authSetting["scope.userInfo"]) {
+        if (!res.authSetting["scope.userInfo"] ) {
           // 未授权, 则跳转至授权页
           vm.replaceTo("/pages/login/wxLogin");
         } else {
@@ -22,6 +22,9 @@ export default {
               // })
             }
           });
+          if (wx.getStorageSync('is') == '') {
+            vm.replaceTo("/pages/login/login");
+          }
         }
       }
     });

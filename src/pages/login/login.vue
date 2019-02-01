@@ -105,9 +105,11 @@ export default {
           psw: this.code
         })
         .then(res => {
-          console.log(res, "请求验证码");
+          console.log(res);
+          
           if (res.code == 1) {
             this.switchTab("/pages/home/index");
+            wx.setStorageSync('is',true)
           } else {
             this.$Toast({
               content: res.msg,
