@@ -56,7 +56,8 @@
     "pages/my/vipcard",
     "pages/my/dayday",
     "pages/my/changepwd",
-    "pages/my/userinfo"
+    "pages/my/userinfo",
+    "pages/login/hua"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

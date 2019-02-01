@@ -89,7 +89,7 @@ export default {
       if (!this.phoneRegexp.test(this.phoneNumber)) {
         this.$Toast({
           content: "手机号码格式错误",
-          type: "warning"
+          type: "error"
         });
         return;
       }
@@ -107,8 +107,12 @@ export default {
         .then(res => {
           console.log(res, "请求验证码");
           if (res.code == 1) {
-
             this.switchTab("/pages/home/index");
+          } else {
+            this.$Toast({
+              content: res.msg,
+              type: "warning"
+            });
           }
         });
       // wx.request({
