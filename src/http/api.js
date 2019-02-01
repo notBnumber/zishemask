@@ -78,7 +78,8 @@ RegorFind = this.requestPost('')
 
 toLogin = this.requestPost('')
 
-
+// 生成海报
+Qrcodeinfo = this.requestPost('')
 
 doPay = this.requestPost('')
   // 首页轮播图
