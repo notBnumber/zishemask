@@ -174,21 +174,40 @@ export default {
  },
   onLoad: function(options) {
     var scene = decodeURIComponent(options.scene);
-    console.log("扫进了的参数" + scene);
     if("undefined"!=scene){
-        this.$Toast({
-            content: "扫码进来的"+scene,
-            type: "success"
-        });
+//        this.$Toast({
+//            content: "扫码进来的"+scene,
+//            type: "success"
+//        });
         let uid=wx.getStorageSync('sessionId');
-        if(uid==scene){
-          //不可推荐自己
-        }else{
-            if(uid){
-                //如果用户已经登录过了，那么现在扫推荐码再进行就可以直接调用绑定用户接口进行用户锁定
-            }else{
-                //用户未登录，跳转到登录页面，把scene保存session.登录成功后再调用绑定用户接口进行绑定
+        if(uid){
+            //直接绑定用户
+            if(uid!=scene){
+                console.log(scene,'得到pid')
+                this.$API
+                    .bang({
+                        i: 8,
+                        c: "entry",
+                        a: "wxapp",
+                        m: "mask",
+                        do: "Savaid",
+                        uid: uid,
+                        pid: scene,
+                    })
+                    .then(res => {
+                        console.log(res, "首页中绑定用户");
+                        //if (res.code == 1) {
+                            this.$Toast({
+                                content: res.msg,
+                                type: "success"
+                            });
+                        //}
+                    });
             }
+        }else{
+            //用户还没授权，先把pdi本地保存先
+            console.log(scene,'已保存pid')
+            wx.setStorageSync("pid", scene);
         }
     }
   },

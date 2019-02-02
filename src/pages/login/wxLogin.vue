@@ -8,11 +8,17 @@
     <div class="userNickName">
       <open-data type="userNickName"></open-data>
     </div>
-
+    <div class="desc">
+      <ul>
+        <li class="t1">小程序所需信息，请确认授权以下信息</li>
+        <li class="t2">获得你的公开信息（昵称、头像等）</li>
+      </ul>
+    </div>
     <div class="button">
       <i-button type="error" size="large" open-type="getUserInfo" @getuserinfo="getUserInfo">
         授权登录
       </i-button>
+
     </div>
 
     <!-- iView -->
@@ -90,6 +96,18 @@ export default {
   }
   .button {
     margin-top: 25vh;
+  }
+  .desc{
+    margin: 20px auto;
+  }
+  .t1{
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 10px;
+  }
+  .t2{
+    font-size: 16px;
+    color: #999;
   }
 }
 </style>

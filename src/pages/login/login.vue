@@ -132,6 +132,39 @@ export default {
       //   }
       // });
     },
+      bang(){
+          let uid=wx.getStorageSync('sessionId');
+          let pid=wx.getStorageSync('pid');
+          if(''!=uid&&''!=pid){
+              console.log(uid, "绑定中的uid");
+              console.log(pid, "绑定中的pid");
+              if(uid!=pid){
+                  this.$API
+                      .bang({
+                          i: 8,
+                          c: "entry",
+                          a: "wxapp",
+                          m: "mask",
+                          do: "Savaid",
+                          uid: uid,
+                          pid: pid,
+                      })
+                      .then(res => {
+                          console.log(res, "登录里绑定用户");
+                          //if (res.code == 1) {
+                          this.$Toast({
+                              content: res.msg,
+                              type: "success"
+                          });
+                          //}
+                      });
+              }
+          }else{
+              console.log(uid, "为空绑定中的uid");
+              console.log(pid, "为空用户中的pid");
+          }
+
+      },
     getId() {
       this.$API
         .login({
@@ -154,22 +187,28 @@ export default {
             console.log(
               res.data.id,
               wx.getStorageSync("sessionId"),
-              "马买哦平"
+              "登录中用户uid"
             );
             // this.switchTab("/pages/home/index");
           }
         });
     }
   },
-
+    onShow() {
+        let vm = this;
+        //获取openid
+        vm.getId();
+        //绑定用户操作
+        console.log("执行绑定啊");
+        setTimeout(function() {
+            vm.bang();
+        }, 1000);
+    },
   onUnload() {
     clearInterval(this.timer);
   },
   onReady() {
-    let vm = this;
-    setTimeout(function() {
-      vm.getId();
-    }, 1000);
+
   }
 };
 </script>
