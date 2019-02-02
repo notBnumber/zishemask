@@ -15,7 +15,7 @@
           <i></i>
         </div>
         <input type="number" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入验证码" v-model="code" @focus='focu(1)' @blur="blur">
-        <button type="button" @click="getCode">发送验证码</button>
+        <button type="button" @click="getCode">{{message}}</button>
       </li>
       <li class="password" :class="isfocu == 2 && 'active'">
         <div>
@@ -50,7 +50,9 @@ export default {
       password: "",
       repeatpass: "",
       isfocu: null,
-      phoneRegexp: /^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\d{8}$/
+      phoneRegexp: /^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\d{8}$/,
+        message: "获取验证码",
+        timeState: false
     };
   },
   methods: {
@@ -61,29 +63,66 @@ export default {
       this.isfocu = null;
     },
     getCode() {
-      if (!this.phoneRegexp.test(this.name)) {
-        this.$Toast({
-          content: "手机号码格式错误",
-          type: "warning"
-        });
-        return;
-      }
-      this.$API
-        .Smscode({
-          i: 8,
-          c: "entry",
-          a: "wxapp",
-          m: "mask",
-          do: "Smscode",
-          tel: this.name
-        })
-        .then(res => {
-          console.log(res, "请求验证码");
-          if (res.code == 1) {
-            console.log();
-          }
-        });
+        if (this.timeState == false) {
+            if (!this.phoneRegexp.test(this.name)) {
+                this.$Toast({
+                    content: "手机号码格式错误",
+                    type: "warning"
+                });
+                return;
+            }
+            this.$API
+                .Smscode({
+                    i: 8,
+                    c: "entry",
+                    a: "wxapp",
+                    m: "mask",
+                    do: "Smscode",
+                    tel: this.name
+                })
+                .then(res => {
+                    console.log(res, "请求验证码");
+                    if (res.code == 1) {
+                        console.log();
+                        let num = 60;
+                        this.getTime(num);
+                        this.$Toast({
+                            content: "信息已发送",
+                            type: "success"
+                        });
+                    } else {
+                        this.$Toast({
+                            content: res.msg,
+                            type: "warning"
+                        });
+                    }
+                });
+        }else {
+            this.$Toast({
+                content: "信息已发送",
+                type: "warning"
+            });
+        }
     },
+      getTime(num1) {
+          let num = num1;
+          this.setTime = setInterval(() => {
+              if (num > 0) {
+                  console.log(num);
+
+                  // this.canSend = false;
+                  this.message = "重发(" + num + ")";
+                  this.timeState = true;
+                  num--;
+              } else {
+                  console.log(99999);
+                  this.timeState = false;
+                  clearInterval(this.setTime);
+                  this.message = "重新发送";
+                  // this.canSend = true;
+              }
+          }, 1000);
+      },
     changePwd() {
       if (!this.phoneRegexp.test(this.name)) {
         this.$Toast({

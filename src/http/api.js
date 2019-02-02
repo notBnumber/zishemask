@@ -80,7 +80,10 @@ toLogin = this.requestPost('')
 
 // 生成海报
 Qrcodeinfo = this.requestPost('')
-
+//投诉电话
+tousucall = this.requestPost('')
+  //绑定用户
+bang = this.requestPost('')
 doPay = this.requestPost('')
   // 首页轮播图
   ads = this.requestPost('/api/shop/index/ads')

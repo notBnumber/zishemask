@@ -7,20 +7,20 @@
         <div>
           <i></i>
         </div>
-        <input type="text" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入手机号" v-model="name" @focus='focu(0)' @blur="blur">
+        <input type="number" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入手机号" v-model="name" @focus='focu(0)' @blur="blur">
       </li>
       <li class="code" :class="isfocu == 1 && 'active'">
         <div>
           <i></i>
         </div>
-        <input type="text" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入验证码" v-model="code" @focus='focu(1)' @blur="blur">
+        <input type="number" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入验证码" v-model="code" @focus='focu(1)' @blur="blur">
         <button type="button" @click="getCode">{{message}}</button>
       </li>
       <li class="password" :class="isfocu == 2 && 'active'">
         <div>
           <i></i>
         </div>
-        <input type="text" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入密码" v-model="password" @focus='focu(2)' @blur="blur">
+        <input type="password" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入密码" v-model="password" @focus='focu(2)' @blur="blur">
       </li>
     </ul>
     <!-- <p class="agree">登录即代表您同意我们的
@@ -185,7 +185,7 @@ export default {
           console.log(3333);
           
         });
-    }
+    },
   },
   mounted() {
     //do something after mounting vue instance

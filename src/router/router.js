@@ -460,6 +460,7 @@ module.exports = [
                 "i-modal": "/iView/modal/index",
                 "i-swipeout": "/iView/swipeout/index",
                 "i-toast": "/iView/toast/index",
+                "i-action-sheet": "/iView/action-sheet/index",
             }
         }
     },

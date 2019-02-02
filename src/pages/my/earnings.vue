@@ -7,8 +7,17 @@
           <label>￥2562.00</label>
         </div>
         <div class="top_m">
-          <span>全部</span>
-          <span>2019-01-2</span>
+          <span @click="showtype">{{typemsg}}</span>
+
+            <picker
+                  mode="date"
+                  value="date"
+                  start="2015-09-01"
+                  end="2020-09-01"
+                  @change="bindDateChange">
+              <span>{{date}}</span>
+            </picker>
+
         </div>
         <div class="top_f">
           <span>
@@ -56,11 +65,68 @@ export default {
     return {
       addList: [],
         tabActive: 0,
-      isDownRefresh: false
+        isDownRefresh: false,
+        typemsg:'全部',
+        date:'2015-01-21'
     };
   },
+    onShow(){
+        this.init();
+        console.log(this.getCurrentMonthFirst(),'当月第一天')
+    },
     methods:{
+        init(){
+            this.date=this.getCurrentMonthFirst();
+            this.typemsg='全部';
+        },
+      showtype(){
+          let that=this;
+          wx.showActionSheet({
+              itemList: ['全部','直推奖励', '间推奖励', '红包发放'],
+              success(res) {
+                  console.log(res.tapIndex,'选中id')
+                  switch (res.tapIndex){
+                      case 0:
+                          that.typemsg='全部'
+                          break;
+                      case 1:
+                          that.typemsg='直推奖励'
+                          break;
+                      case 2:
+                          that.typemsg='间推奖励'
+                          break;
+                      case 3:
+                          that.typemsg='红包发放'
+                          break;
+                  }
 
+//                  wx.showToast({
+//                      title: '选择了' + res.tapIndex,
+//                      duration: 1000
+//                  })
+              },
+              fail(res) {
+                  console.log(res.errMsg,'什么')
+              }
+          })
+      },
+        bindDateChange(e) {
+            console.log('picker发送选择改变，携带值为', e.mp.detail.value)
+            this.date= e.mp.detail.value
+        },
+        getCurrentMonthFirst(){
+            var date = new Date();
+            date.setDate(1);
+            var month = parseInt(date.getMonth()+1);
+            var day = date.getDate();
+            if (month < 10) {
+                month = '0' + month
+            }
+            if (day < 10) {
+                day = '0' + day
+            }
+            return date.getFullYear() + '-' + month + '-' + day;
+        }
     }
 
 };

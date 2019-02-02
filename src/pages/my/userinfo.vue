@@ -9,21 +9,25 @@
             <span>性别：</span>
             <Radio :label="1" :value="1"  class="myradio">男</Radio>
             <Radio :label="0" :value="0" class="myradio">女</Radio>
-            <!--<Radio v-for="item in sexlist"  :value="item.value" :key="item.value" class="myradio">-->
-              <!--<span>{{item.label}}</span>-->
-            <!--</Radio>-->
           </RadioGroup>
           <i-input  type="number" title="QQ" placeholder="请输入QQ"/>
           <i-input  type="text" title="微信" placeholder="请输入微信" />
-          <i-input type="text" title="生日" placeholder="请输入生日"/>
           <i-input  title="手机号" placeholder="请输入手机号" />
+          <div class="briday">
+            <label>生日：</label>
+            <picker
+                    mode="date"
+                    value="date"
+                    start="1970-09-01"
+                    end="2018-09-01"
+                    @change="bindDateChange">
+              <span>{{briday}}</span>
+            </picker>
+          </div>
           <div class="area">
-            <span>所在地区：</span>
+            <label>所在地区：</label>
             <picker mode="region" @change="bindRegionChange">
-              <div class="chooseaddress">
-                {{region}}
-                <i></i>
-              </div>
+              <span>{{region}}</span>
             </picker>
           </div>
 
@@ -51,7 +55,7 @@
                 phone: "",
                 qq: "",
                 wx: "",
-                briday:"",
+                briday:"选择您的生日",
                 detail: "",
                 address: {},
                 fuckDefault: 0
@@ -74,6 +78,10 @@
             changeModel(e) {
             console.log(e.mp.detail.value,'选择中性别')
 
+            },
+            bindDateChange(e) {
+                console.log('日期携带值为', e.mp.detail.value)
+                this.briday= e.mp.detail.value
             },
             submit() {
                 if (!this.name) {
@@ -171,12 +179,20 @@
         color: #242121;
       }
     }
-    .area{
+
+    .briday,.area{
       display: flex;
-      justify-content: space-between;
-      padding:5px 16px;
+      justify-content: flex-start;
+      padding:10px;
       color:#495060;
-      font-size: 16px;
+      font-size: 17px;
+      label{
+        margin-left: 10px;
+      }
+      span{
+        padding-left: 30px;
+        color: #757575;
+      }
     }
     .btn {
       position: fixed;

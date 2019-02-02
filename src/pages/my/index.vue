@@ -100,7 +100,7 @@
         </li>
         <li @click="docall">
           <span>
-            <i class="complaints"></i>投诉:18773115706</span>
+            <i class="complaints"></i>投诉:{{toustel}}</span>
           <i class="arrow"></i>
         </li>
         <!--<li @click="xieyi">-->
@@ -124,32 +124,68 @@ export default {
       nickName: "",
       modal1: false,
       timer: null,
-      isLogin: false
+      isLogin: false,
+        toustel:''
     };
   },
   methods: {
     getUserInfo() {
       let vm = this;
-      wx.getUserInfo({
-        success(res) {
-          vm.avatarUrl = res.userInfo.avatarUrl;
-          vm.nickName = res.userInfo.nickName;
-        },
-        fail(err) {
-          wx.showToast({
-            title: "获取用户信息失败",
-            icon: "none"
-          });
-          vm.timer = setTimeout(() => {
-            vm.modalOpen("modal1");
-          }, 1500);
-        }
-      });
+        this.$API
+            .tousucall({
+                i: 8,
+                c: "entry",
+                a: "wxapp",
+                m: "mask",
+                do: "Qrcodeinfo",
+                uid: wx.getStorageSync("sessionId")
+            })
+            .then(res => {
+                console.log(res, "头像昵称");
+                if (res.code == 1) {
+                    vm.avatarUrl = res.data.headerimg;
+                    vm.nickName = res.data.nickName;
+                }
+            });
+      //以下方法微信即将废弃
+//      wx.getUserInfo({
+//        success(res) {
+//          vm.avatarUrl = res.userInfo.avatarUrl;
+//          vm.nickName = res.userInfo.nickName;
+//        },
+//        fail(err) {
+//          wx.showToast({
+//            title: "获取用户信息失败",
+//            icon: "none"
+//          });
+//          vm.timer = setTimeout(() => {
+//            vm.modalOpen("modal1");
+//          }, 1500);
+//        }
+//      });
     },
       docall(){
+        let that=this;
           wx.makePhoneCall({
-              phoneNumber: '18773115706' //仅为示例，并非真实的电话号码
+              phoneNumber: that.toustel //仅为示例，并非真实的电话号码
           })
+      },
+      getcall(){
+          this.$API
+              .tousucall({
+                  i: 8,
+                  c: "entry",
+                  a: "wxapp",
+                  m: "mask",
+                  do: "Tousu",
+                  uid: wx.getStorageSync("sessionId")
+              })
+              .then(res => {
+                  console.log(res, "投诉电话");
+                  if (res.code == 1) {
+                      this.toustel = res.data.tel;
+                  }
+              });
       },
       xieyi(){
 //          wx.showActionSheet({
@@ -166,17 +202,17 @@ export default {
 //              }
 //          })
       },
-    getSetting() {
-      let vm = this;
-      wx.getSetting({
-        success(res) {
-          console.log(res, "是否授权");
-          if (!res.authSetting["scope.userInfo"]) {
-            vm.getUserInfo();
-          }
-        }
-      });
-    },
+//    getSetting() {
+//      let vm = this;
+//      wx.getSetting({
+//        success(res) {
+//          console.log(res, "是否授权");
+//          if (!res.authSetting["scope.userInfo"]) {
+//            vm.getUserInfo();
+//          }
+//        }
+//      });
+//    },
     goSetting(name) {
       let vm = this;
       wx.openSetting({
@@ -192,12 +228,15 @@ export default {
     }
   },
   onShow() {
+      console.log('onShow')
+      this.getcall();
     if (wx.getStorageSync("sessionId")) {
       this.isLogin = true;
     }
-    this.getSetting();
+    this.getUserInfo();
   },
   onUnload() {
+      console.log('onUnload')
     clearTimeout(this.timer);
   }
 };
