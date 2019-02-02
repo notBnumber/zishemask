@@ -16,7 +16,7 @@ module.exports = [
       "usingComponents": {
         "i-toast": "/iView/toast/index",
         'painter': '/static/Painter/painter',
-          "i-spin": "/iView/spin/index",
+        "i-spin": "/iView/spin/index",
       }
     }
   },
@@ -314,21 +314,21 @@ module.exports = [
       }
     }
   },
-    {
-        path: "pages/my/userinfo",
-        config: {
-            "navigationBarTitleText": "个人信息",
-            "usingComponents": {
-                "i-modal": "/iView/modal/index",
-                "i-swipeout": "/iView/swipeout/index",
-                "i-toast": "/iView/toast/index",
-                "i-input": "/iView/input/index",
-                "i-radio": "/iView/radio/index",
-                "i-panel": "/iView/panel/index",
-                "i-radio-group": "/iView/radio-group/index",
-            }
-        }
-    },
+  {
+    path: "pages/my/userinfo",
+    config: {
+      "navigationBarTitleText": "个人信息",
+      "usingComponents": {
+        "i-modal": "/iView/modal/index",
+        "i-swipeout": "/iView/swipeout/index",
+        "i-toast": "/iView/toast/index",
+        "i-input": "/iView/input/index",
+        "i-radio": "/iView/radio/index",
+        "i-panel": "/iView/panel/index",
+        "i-radio-group": "/iView/radio-group/index",
+      }
+    }
+  },
   {
     path: "pages/my/pyramid",
     config: {
@@ -357,19 +357,19 @@ module.exports = [
       }
     }
   },
-    {
-        path: "pages/my/setpsw",
-        config: {
-            "navigationBarTitleText": "设置密码",
-            "navigationBarTextStyle": "white",
-            "navigationBarBackgroundColor": "#E9323C",
-            "usingComponents": {
-                "i-modal": "/iView/modal/index",
-                "i-swipeout": "/iView/swipeout/index",
-                "i-toast": "/iView/toast/index",
-            }
-        }
-    },
+  {
+    path: "pages/my/setpsw",
+    config: {
+      "navigationBarTitleText": "设置密码",
+      "navigationBarTextStyle": "white",
+      "navigationBarBackgroundColor": "#E9323C",
+      "usingComponents": {
+        "i-modal": "/iView/modal/index",
+        "i-swipeout": "/iView/swipeout/index",
+        "i-toast": "/iView/toast/index",
+      }
+    }
+  },
   {
     path: "pages/my/vipcard",
     config: {
@@ -405,77 +405,107 @@ module.exports = [
       "usingComponents": {
         "i-modal": "/iView/modal/index",
         "i-swipeout": "/iView/swipeout/index",
+        "i-toast": "/iView/toast/index"
+      }
+    }
+  },
+  {
+    path: "pages/my/shenqing",
+    config: {
+      "navigationBarTitleText": "申请资料",
+      "navigationBarTextStyle": "white",
+      "navigationBarBackgroundColor": "#E9323C",
+      "usingComponents": {
+        "i-modal": "/iView/modal/index",
+        "i-swipeout": "/iView/swipeout/index",
+        "i-toast": "/iView/toast/index",
+        "i-input": "/iView/input/index",
+        "i-radio": "/iView/radio/index",
+        "i-panel": "/iView/panel/index",
+        "i-radio-group": "/iView/radio-group/index",
+        "i-checkbox-group": "/iView/checkbox-group/index",
+        "i-checkbox": "/iView/checkbox/index"
+      }
+    }
+  },
+  {
+    path: "pages/my/teamdetail",
+    config: {
+      "navigationBarTitleText": "我的团队",
+      "navigationBarTextStyle": "white",
+      "navigationBarBackgroundColor": "#E9323C",
+      "usingComponents": {
+        "i-modal": "/iView/modal/index",
+        "i-swipeout": "/iView/swipeout/index",
         "i-toast": "/iView/toast/index",
       }
     }
   },
-    {
-        path: "pages/my/teamdetail",
-        config: {
-            "navigationBarTitleText": "我的团队",
-            "navigationBarTextStyle": "white",
-            "navigationBarBackgroundColor": "#E9323C",
-            "usingComponents": {
-                "i-modal": "/iView/modal/index",
-                "i-swipeout": "/iView/swipeout/index",
-                "i-toast": "/iView/toast/index",
-            }
-        }
-    },
-    {
-        path: "pages/my/shareqrcode",
-        config: {
-            "navigationBarTitleText": "我的专属码",
-            "navigationBarTextStyle": "white",
-            "navigationBarBackgroundColor": "#E9323C",
-            "usingComponents": {
-                "i-modal": "/iView/modal/index",
-                "i-swipeout": "/iView/swipeout/index",
-                "i-toast": "/iView/toast/index",
-                "i-spin": "/iView/spin/index",
-                "poster": "plugin://poster/poster"
-            }
-        }
-    },
-    {
-        path: "pages/my/teaminfo",
-        config: {
-            "navigationBarTitleText": "队员信息",
-            "navigationBarTextStyle": "white",
-            "navigationBarBackgroundColor": "#E9323C",
-            "usingComponents": {
-                "i-modal": "/iView/modal/index",
-                "i-swipeout": "/iView/swipeout/index",
-                "i-toast": "/iView/toast/index",
-            }
-        }
-    },
-    {
-        path: "pages/my/earnings",
-        config: {
-            "navigationBarTitleText": "累积收益",
-            "navigationBarTextStyle": "white",
-            "navigationBarBackgroundColor": "#E9323C",
-            "usingComponents": {
-                "i-modal": "/iView/modal/index",
-                "i-swipeout": "/iView/swipeout/index",
-                "i-toast": "/iView/toast/index",
-            }
-        }
-    },
-    {
-        path: "pages/my/earningsdetail",
-        config: {
-            "navigationBarTitleText": "收益详细",
-            "navigationBarTextStyle": "white",
-            "navigationBarBackgroundColor": "#E9323C",
-            "usingComponents": {
-                "i-modal": "/iView/modal/index",
-                "i-swipeout": "/iView/swipeout/index",
-                "i-toast": "/iView/toast/index",
-            }
-        }
-    },
+  {
+    path: "pages/my/mynote",
+    config: {
+      "navigationBarTitleText": "消费记录",
+      "usingComponents": {
+        "i-modal": "/iView/modal/index",
+        "i-swipeout": "/iView/swipeout/index",
+        "i-toast": "/iView/toast/index",
+      }
+    }
+  },
+  {
+    path: "pages/my/shareqrcode",
+    config: {
+      "navigationBarTitleText": "我的专属码",
+      "navigationBarTextStyle": "white",
+      "navigationBarBackgroundColor": "#E9323C",
+      "usingComponents": {
+        "i-modal": "/iView/modal/index",
+        "i-swipeout": "/iView/swipeout/index",
+        "i-toast": "/iView/toast/index",
+        "i-spin": "/iView/spin/index",
+        "poster": "plugin://poster/poster"
+      }
+    }
+  },
+  {
+    path: "pages/my/teaminfo",
+    config: {
+      "navigationBarTitleText": "队员信息",
+      "navigationBarTextStyle": "white",
+      "navigationBarBackgroundColor": "#E9323C",
+      "usingComponents": {
+        "i-modal": "/iView/modal/index",
+        "i-swipeout": "/iView/swipeout/index",
+        "i-toast": "/iView/toast/index",
+      }
+    }
+  },
+  {
+    path: "pages/my/earnings",
+    config: {
+      "navigationBarTitleText": "累积收益",
+      "navigationBarTextStyle": "white",
+      "navigationBarBackgroundColor": "#E9323C",
+      "usingComponents": {
+        "i-modal": "/iView/modal/index",
+        "i-swipeout": "/iView/swipeout/index",
+        "i-toast": "/iView/toast/index",
+      }
+    }
+  },
+  {
+    path: "pages/my/earningsdetail",
+    config: {
+      "navigationBarTitleText": "收益详细",
+      "navigationBarTextStyle": "white",
+      "navigationBarBackgroundColor": "#E9323C",
+      "usingComponents": {
+        "i-modal": "/iView/modal/index",
+        "i-swipeout": "/iView/swipeout/index",
+        "i-toast": "/iView/toast/index",
+      }
+    }
+  },
   {
     path: "pages/my/power",
     config: {

@@ -3,7 +3,7 @@
   <div class="my-template">
     <div class="head">
       <div class="head-left" v-if="isLogin">
-        <div class="leftDiv">记录</div>
+        <div class="leftDiv" @click="pageTo('/pages/my/mynote')">记录</div>
         <div class="monDiv">
           <img src="https://jin.itxiaolong.cn/icon/mymoneyicon.png" alt="">
           <p>大米</p>

@@ -57,7 +57,9 @@
     "pages/my/dayday",
     "pages/my/changepwd",
     "pages/my/userinfo",
-    "pages/login/hua"
+    "pages/login/hua",
+    "pages/my/shenqing",
+    "pages/my/mynote"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

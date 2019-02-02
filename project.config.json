@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 10,
 			"list": [
 				{
 					"id": -1,
@@ -83,7 +83,19 @@
 				{
 					"id": -1,
 					"name": "海报",
-					"pathName": "pages/login/hua"
+					"pathName": "pages/login/hua",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "申请",
+					"pathName": "pages/my/shenqing",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "消费记录",
+					"pathName": "pages/my/mynote"
 				}
 			]
 		}
