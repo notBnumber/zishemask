@@ -234,7 +234,8 @@ export default {
   }
   .cao {
     font-size: 14px;
-    color: #f5f6f6;
+    color: #9D9D9D;
+      margin-left: 20px;
   }
     .cao1 {
     font-size: 14px;
