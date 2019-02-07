@@ -64,6 +64,7 @@ axios.defaults.adapter = function (config) {
             //   }
             // })
           } else if (code === 0) {
+            resolve(data.data)   
             const msg = data.data.msg
             console.log('错误');
             

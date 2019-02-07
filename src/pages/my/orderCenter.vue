@@ -88,7 +88,7 @@ export default {
                this.stateList = res.data
 
             
-          } else if (res.code == 0){
+          } else {
             console.log(99999999);
             this.stateList = []
             
