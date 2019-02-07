@@ -69,6 +69,7 @@ export default {
               content: res.msg,
               type: "success"
             });
+            this.$emit("del");
           } else {
             this.$Toast({
               content: res.msg,
@@ -76,7 +77,7 @@ export default {
             });
           }
         });
-      this.$emit("closeCollect", this.index);
+      // this.$emit("closeCollect", this.index);
       this.modalClose("modal1");
     },
     toggleCollect(gID) {

@@ -9,7 +9,7 @@
     </div>
     <ul class="shopCart-list">
       <li class="shopCart-item" v-for="(item, index) in goodsList" :key="index">
-        <shopCartItem :info="item" :isSelected="flagArr[index]" :index="index" @toggleSelect="toggleSelect"></shopCartItem>
+        <shopCartItem :info="item" :isSelected="flagArr[index]" :index="index" @toggleSelect="toggleSelect" @del='del'></shopCartItem>
       </li>
     </ul>
     <div class="footer">
@@ -135,6 +135,9 @@ export default {
         }
       }
       console.log("单选", this.goodsList);
+    },
+    del() {
+      this.init()
     },
     // 过滤
     toBuy() {

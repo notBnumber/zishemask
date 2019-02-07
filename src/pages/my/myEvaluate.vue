@@ -1,6 +1,6 @@
 <template>
   <!-- 我的评价 -->
-  <div class="myEvaluate-template" >
+  <div class="myEvaluate-template">
     <div class="box" v-for="(item, index1) in goodsList" :key="index1" @click="pageTo('/pages/sort/details',{id:item.gID})">
       <div class="box-top">
         <i class="pic" :style="{backgroundImage: 'url('+item.Itemcover+')'}"></i>
@@ -14,6 +14,7 @@
             <i class="icon">+{{item.integral}}积分</i>
           </p>
         </div>
+        <div class="del" @click.stop="del(item.gID)">删除</div>
       </div>
 
       <!-- <CommEvaluate></CommEvaluate> -->
@@ -34,7 +35,7 @@ export default {
         "http://t2.hddhhn.com/uploads/tu/201812/661/4.jpg",
         "http://t2.hddhhn.com/uploads/tu/201812/661/6.jpg"
       ],
-      goodsList:[]
+      goodsList: []
     };
   },
   props: {},
@@ -53,14 +54,31 @@ export default {
           console.log(res, "搜索结果");
           this.goodsList = res.data;
         });
+    },
+    del(id) {
+      this.$API
+        .Delfootprint({
+          i: 8,
+          c: "entry",
+          a: "wxapp",
+          m: "mask",
+          do: "Delfootprint",
+          id: id,
+         uid: wx.getStorageSync("sessionId")
+        })
+        .then(res => {
+          if (res.code == 1) {
+            this.init();
+          } else {
+            // this.pageTo('/pages/shopCart/payResult', {isSuccess: false})
+          }
+        });
     }
   },
   onShow() {
-    this.init()
+    this.init();
   },
-  onReady() {
-  
-  },
+  onReady() {},
   onUnload() {}
 };
 </script>
@@ -84,6 +102,7 @@ export default {
       display: flex;
       align-items: center;
       box-sizing: border-box;
+      position: relative;
       i.pic {
         @include bg-icon(100px);
         border-radius: 5px;
@@ -97,6 +116,7 @@ export default {
         justify-content: space-around;
         height: 100px;
         overflow: hidden;
+
         div {
           width: 100%;
           font-size: 13px;
@@ -134,6 +154,11 @@ export default {
             color: #888888;
           }
         }
+      }
+      .del {
+        position: absolute;
+        top: 10px;
+        right: 10px;
       }
     }
   }

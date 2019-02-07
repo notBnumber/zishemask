@@ -12,7 +12,7 @@
     <!-- Order -->
     <ul class="order-list" >
       <li class="order-item" v-for="(item, index) in stateList" :key="index">
-        <orderItem :state="item"></orderItem>
+        <orderItem :state="item" :ii = 'item.state'></orderItem>
       </li>
     </ul>
     <!-- <ul class="order-list" v-if="tabActive==1">

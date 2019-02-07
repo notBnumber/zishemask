@@ -85,6 +85,34 @@ tousucall = this.requestPost('')
   //绑定用户
 bang = this.requestPost('')
 doPay = this.requestPost('')
+// 确认收货
+OkMyOrder = this.requestPost('')
+
+
+// 删除足迹
+Delfootprint = this.requestPost('')
+
+// 删除购物车
+Delshopcat = this.requestPost('')
+
+
+// 删除收藏
+Delcollection = this.requestPost('')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   // 首页轮播图
   ads = this.requestPost('/api/shop/index/ads')
   // 商品列表

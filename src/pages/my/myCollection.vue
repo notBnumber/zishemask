@@ -3,7 +3,7 @@
   <div class="collection-template">
     <div v-if="itemsList.length > 0">
       <div class="box" v-for="(item, index) in itemsList" :key="index">
-        <collectionItem :info="item" :index="index" @closeCollect="closeCollect" :isClose="isCloseArr[index]"></collectionItem>
+        <collectionItem :info="item" :index="index" @closeCollect="closeCollect" @del='del' :isClose="isCloseArr[index]"></collectionItem>
       </div>
     </div>
     <div class="show" v-else>
@@ -41,30 +41,34 @@ export default {
   },
   methods: {
     // 删除收藏
-    del(id) {
-      this.$API
-        .Collection({
-          i: 8,
-          c: "entry",
-          a: "wxapp",
-          m: "mask",
-          do: "Collection",
-          gid: id,
-          uid: wx.getStorageSync("sessionId")
-        })
-        .then(res => {
-          if (res.code == 1) {
-            this.$Toast({
-              content: "取消收藏成功",
-              type: "success"
-            });
-          } else {
-            this.$Toast({
-              content: "取消收藏失败",
-              type: "warning"
-            });
-          }
-        });
+    del() {
+      
+      this.getList()
+
+      // this.$API
+      //   .Collection({
+      //     i: 8,
+      //     c: "entry",
+      //     a: "wxapp",
+      //     m: "mask",
+      //     do: "Collection",
+      //     gid: id,
+      //     uid: wx.getStorageSync("sessionId")
+      //   })
+      //   .then(res => {
+      //     if (res.code == 1) {
+
+      //       this.$Toast({
+      //         content: "取消收藏成功",
+      //         type: "success"
+      //       });
+      //     } else {
+      //       this.$Toast({
+      //         content: "取消收藏失败",
+      //         type: "warning"
+      //       });
+      //     }
+      //   });
     },
     isshow(id) {
       this.modal = true;
@@ -91,6 +95,8 @@ export default {
           console.log(res, "我的收藏");
           if (res.code == 1) {
             this.itemsList = res.data;
+          }else {
+            this.itemsList = []
           }
         });
     },

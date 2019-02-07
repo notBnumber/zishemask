@@ -1,5 +1,6 @@
 <template>
   <div class="shopCartItem-component">
+    <div class="del" @click.stop="del(info.gID)">删除</div>
     <i class="select-icon" @click.stop="selected()" :class="[isSelected && 'active']"></i>
     <div class="goods-image" :style="{backgroundImage: 'url('+info.Itemcover+')'}"></div>
     <div class="goods-info">
@@ -88,6 +89,29 @@ export default {
   },
 
   methods: {
+    // 删除
+    del(id) {
+      this.$API
+        .Delshopcat({
+          i: 8,
+          c: "entry",
+          a: "wxapp",
+          m: "mask",
+          do: "Delshopcat",
+          state: 1,
+          gid: id,
+          uid: wx.getStorageSync("sessionId"),
+        })
+        .then(res => {
+          if (res.code == 1) {
+            this.$emit("del");
+            // this.$Toast({
+            //   content: "加入购物车成功",
+            //   type: "success"
+            // });
+          }
+        });
+    },
     reduce(id) {
       this.info.num = Number(this.info.num);
       if (this.info.num > 0) {
@@ -170,6 +194,12 @@ export default {
   display: flex;
   align-items: center;
   border-bottom: 1px solid #eaeaea;
+  position: relative;
+  .del {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
   i.select-icon {
     @include icon(17px);
     background: #f5f5f5;
