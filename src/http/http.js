@@ -65,6 +65,8 @@ axios.defaults.adapter = function (config) {
             // })
           } else if (code === 0) {
             const msg = data.data.msg
+            console.log('错误');
+            
             wx.showToast({
               title: `${msg}`,
               icon: 'none',

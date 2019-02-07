@@ -79,11 +79,19 @@ export default {
           state:this.tabActive
         })
         .then(res => {
+          console.log(res);
+          
           if (res.code == 1) {
             console.log("提交成功");
-            this.stateList = res.data
-          } else {
-            // this.pageTo('/pages/shopCart/payResult', {isSuccess: false})
+            // this.stateList = res.data
+            // console.log(this.stateList.length,'jjjjjjjjjj');
+               this.stateList = res.data
+
+            
+          } else if (res.code == 0){
+            console.log(99999999);
+            this.stateList = []
+            
           }
         });
     }
