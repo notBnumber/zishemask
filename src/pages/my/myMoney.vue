@@ -9,7 +9,7 @@
           <p>大米</p>
           <p>￥80.00</p>
         </div>
-        <div class="rightDiv">提现</div>
+        <div class="rightDiv"  @click="pageTo('/pages/my/getMoney')">提现</div>
       </div>
       <!-- <button class="login" @click="goLogin('/pages/login/login')" v-if="!isLogin">登录/注册</button> -->
       <!-- <div class="head-pic" @click="pageTo('/pages/my/noticeCenter')" v-if="isLogin">

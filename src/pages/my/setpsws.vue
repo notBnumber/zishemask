@@ -3,7 +3,7 @@
   <div class="add-template">
     <div class="box" style="overflow: hidden">
       <div class="boxtitle">
-          请输入支付密码确认身份
+          请输入密码
       </div>
       <div class="code-input-main">
         <div class="code-input-main-item">{{code[0]}}</div>
@@ -45,7 +45,7 @@
       </div>
 
     </div>
-    <p  class="ppp1"  @click="pageTo('/pages/my/forgetpwd')">忘记密码?</p>
+    <!-- <p  class="ppp1"  @click="pageTo('/pages/my/forgetpwd')">忘记密码?</p> -->
     <i-toast id="toast" />
   </div>
 </template>

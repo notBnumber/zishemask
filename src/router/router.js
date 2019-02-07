@@ -102,6 +102,15 @@ module.exports = [
       }
     }
   },
+  {
+    path: "pages/login/forgetpwd",
+    config: {
+      "enablePullDownRefresh": false,
+      "usingComponents": {
+        "i-toast": "/iView/toast/index"
+      }
+    }
+  },
   // 绑定手机
   {
     path: "pages/login/bindphone",
@@ -330,6 +339,36 @@ module.exports = [
     }
   },
   {
+    path: "pages/my/editmoneycard",
+    config: {
+      "navigationBarTitleText": "账号绑定",
+      "usingComponents": {
+        "i-modal": "/iView/modal/index",
+        "i-swipeout": "/iView/swipeout/index",
+        "i-toast": "/iView/toast/index",
+        "i-input": "/iView/input/index",
+        "i-radio": "/iView/radio/index",
+        "i-panel": "/iView/panel/index",
+        "i-radio-group": "/iView/radio-group/index",
+      }
+    }
+  },
+  {
+    path: "pages/my/getMoney",
+    config: {
+      "navigationBarTitleText": "提现",
+      "usingComponents": {
+        "i-modal": "/iView/modal/index",
+        "i-swipeout": "/iView/swipeout/index",
+        "i-toast": "/iView/toast/index",
+        "i-input": "/iView/input/index",
+        "i-radio": "/iView/radio/index",
+        "i-panel": "/iView/panel/index",
+        "i-radio-group": "/iView/radio-group/index",
+      }
+    }
+  },
+  {
     path: "pages/my/pyramid",
     config: {
       "navigationBarTitleText": "我的分销",
@@ -361,6 +400,19 @@ module.exports = [
     path: "pages/my/setpsw",
     config: {
       "navigationBarTitleText": "设置密码",
+      "navigationBarTextStyle": "white",
+      "navigationBarBackgroundColor": "#E9323C",
+      "usingComponents": {
+        "i-modal": "/iView/modal/index",
+        "i-swipeout": "/iView/swipeout/index",
+        "i-toast": "/iView/toast/index",
+      }
+    }
+  },
+  {
+    path: "pages/my/setpsws",
+    config: {
+      "navigationBarTitleText": "确认密码",
       "navigationBarTextStyle": "white",
       "navigationBarBackgroundColor": "#E9323C",
       "usingComponents": {
@@ -445,6 +497,28 @@ module.exports = [
     path: "pages/my/mynote",
     config: {
       "navigationBarTitleText": "消费记录",
+      "usingComponents": {
+        "i-modal": "/iView/modal/index",
+        "i-swipeout": "/iView/swipeout/index",
+        "i-toast": "/iView/toast/index",
+      }
+    }
+  },
+  {
+    path: "pages/my/getMoneyNote",
+    config: {
+      "navigationBarTitleText": "提现记录",
+      "usingComponents": {
+        "i-modal": "/iView/modal/index",
+        "i-swipeout": "/iView/swipeout/index",
+        "i-toast": "/iView/toast/index",
+      }
+    }
+  },
+  {
+    path: "pages/my/moneycard",
+    config: {
+      "navigationBarTitleText": "账号管理",
       "usingComponents": {
         "i-modal": "/iView/modal/index",
         "i-swipeout": "/iView/swipeout/index",

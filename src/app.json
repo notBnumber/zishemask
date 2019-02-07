@@ -10,6 +10,7 @@
     "pages/login/Privacy",
     "pages/login/agreement",
     "pages/login/forget",
+    "pages/login/forgetpwd",
     "pages/login/bindphone",
     "pages/login/codeLogin",
     "pages/login/register",
@@ -50,6 +51,7 @@
     "pages/my/fuckvip",
     "pages/my/myMoney",
     "pages/my/setpsw",
+    "pages/my/setpsws",
     "pages/my/earnings",
     "pages/my/shareqrcode",
     "pages/my/earningsdetail",
@@ -59,7 +61,11 @@
     "pages/my/userinfo",
     "pages/login/hua",
     "pages/my/shenqing",
-    "pages/my/mynote"
+    "pages/my/mynote",
+    "pages/my/getMoney",
+    "pages/my/getMoneyNote",
+    "pages/my/moneycard",
+    "pages/my/editmoneycard"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

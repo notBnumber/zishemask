@@ -8,7 +8,7 @@
         <span class="color">+{{message.integral}}积分</span>,
         <span class="size">已售{{message.TotalQty}}</span>
       </div>
-      <button v-if="state==3" @click="pageTo('/pages/my/submitAfterSale')">申请售后</button>
+      <button v-if="state==2" @click="pageTo('/pages/my/submitAfterSale')">申请售后</button>
     </div>
     <div class="content">
       <div class="price">¥{{message.money}}</div>

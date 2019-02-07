@@ -18,12 +18,15 @@
     <div class="left">
       共{{state.goodlist.length}}件商品&nbsp;&nbsp;&nbsp;&nbsp;小计&nbsp;<span>¥{{state.money}}</span>
     </div>
+    <!-- <div   class="right"  @click="pageTo('/pages/my/submitAfterSale')">
+      申请售后
+    </div> -->
     <div class="right">
-      <div class="btn" v-if="state === 1">
-        <button @click.stop="cancelOrder()">取消订单</button>
-        <button>付款</button>
+      <div class="btn" >
+        <button   @click="pageTo('/pages/my/submitAfterSale')">申请售后</button>
+        <!-- <button>付款</button> -->
       </div>
-      <div class="btn" v-else-if="state === 2">
+      <!-- <div class="btn" v-else-if="state === 2">
         <button @click.stop="refund()">申请退款</button>
       </div>
       <div class="btn" v-else-if="state === 3">
@@ -35,7 +38,7 @@
       </div>
       <div class="btn" v-else-if="state === 0 || state === 5">
         <button @click.stop="deleteOrder()">删除订单</button>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
