@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 12,
+			"current": 13,
 			"list": [
 				{
 					"id": -1,
@@ -107,7 +107,13 @@
 				{
 					"id": -1,
 					"name": "提现",
-					"pathName": "pages/my/getMoney"
+					"pathName": "pages/my/getMoney",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "售后",
+					"pathName": "pages/my/submitAfterSale"
 				}
 			]
 		}

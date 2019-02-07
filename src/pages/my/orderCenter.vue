@@ -76,7 +76,7 @@ export default {
           m: "mask",
           do: "GetOrderlist",
           uid: wx.getStorageSync("sessionId"),
-          state:this.tabIndex
+          state:this.tabActive
         })
         .then(res => {
           if (res.code == 1) {
