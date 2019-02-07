@@ -26,7 +26,7 @@
         <button   @click="pageTo('/pages/my/submitAfterSale',{id:state.id})">申请售后</button>
         <!-- <button>付款</button> -->
       </div>
-      <div class="btn" v-else-if="state === 3" >
+      <div class="btn" v-else-if="state === 3">
         <button   >确认收货</button>
         <!-- <button>付款</button> -->
       </div>
