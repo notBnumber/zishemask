@@ -58,20 +58,18 @@ export default {
     setActive(index) {
       this.tabActive = index;
       console.log(this.tabActive);
-      
+
       if (this.tabActive == 0) {
-        this.list = []
         if (this.list.length == 0) {
           this.list = this.info.one;
         } else {
           this.list = this.list.concat(this.info.one);
         }
       } else {
-        this.list = []
+        this.list = [];
         if (this.list.length == 0) {
           this.list = this.info.two;
-          console.log(this.list,'二级');
-          
+          console.log(this.list, "二级");
         } else {
           this.list = this.list.concat(this.info.two);
         }
@@ -104,12 +102,20 @@ export default {
     },
     handleinput() {
       console.log("聚焦", this.words);
-      this.inits();
-      this.setActive(this.tabActive);
+      if (this.tabActive == 0) {
+        this.inits();
+        this.setActive(this.tabActive);
+      }
     }
   },
-  onShow() {
-    this.inits();
+  // onShow() {
+  //   this.inits();
+  // }
+  mounted () {
+    this.list = []
+    this.page = 1
+     this.info = {}
+    this.inits()
   }
 };
 </script>
