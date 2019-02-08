@@ -51,7 +51,7 @@ export default {
       info: {},
       list: [],
       words: "",
-      page: 0
+      page: 1
     };
   },
   methods: {
