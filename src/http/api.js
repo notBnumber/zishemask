@@ -99,11 +99,15 @@ Delshopcat = this.requestPost('')
 // 删除收藏
 Delcollection = this.requestPost('')
 
+// 我的分销
+
+Gettream = this.requestPost('')
 
 
-
-
-
+// 我的团队
+Team = this.requestPost('')
+// 队员信息
+teaminfodetail = this.requestPost('')
 
 
 

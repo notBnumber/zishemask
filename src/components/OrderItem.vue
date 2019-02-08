@@ -88,13 +88,13 @@ export default {
           a: "wxapp",
           m: "mask",
           do: "OkMyOrder",
-          id :this.state.id
+          id: this.state.id,
+          ordernumber: this.state.order_num
         })
         .then(res => {
           if (res.code == 1) {
-            this.init()
+            this.$emit("okOrder");
           } else {
-            // this.pageTo('/pages/shopCart/payResult', {isSuccess: false})
           }
         });
     },

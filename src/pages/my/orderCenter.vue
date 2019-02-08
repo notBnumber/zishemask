@@ -12,7 +12,7 @@
     <!-- Order -->
     <ul class="order-list" >
       <li class="order-item" v-for="(item, index) in stateList" :key="index">
-        <orderItem :state="item" :ii = 'item.state'></orderItem>
+        <orderItem :state="item" :ii = 'item.state' @okOrder='okOrder'></orderItem>
       </li>
     </ul>
     <!-- <ul class="order-list" v-if="tabActive==1">
@@ -63,6 +63,10 @@ export default {
     };
   },
   methods: {
+    // 确认收货
+    okOrder() {
+      this.init()
+    },
     setActive(index) {
       this.tabActive = index;
       this.init()

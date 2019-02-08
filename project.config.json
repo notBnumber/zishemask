@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 13,
+			"current": 14,
 			"list": [
 				{
 					"id": -1,
@@ -113,7 +113,14 @@
 				{
 					"id": -1,
 					"name": "售后",
-					"pathName": "pages/my/submitAfterSale"
+					"pathName": "pages/my/submitAfterSale",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "团队",
+					"pathName": "pages/my/teamdetail",
+					"scene": null
 				}
 			]
 		}

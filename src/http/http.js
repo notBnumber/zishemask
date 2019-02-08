@@ -73,6 +73,8 @@ axios.defaults.adapter = function (config) {
               icon: 'none',
               duration: 2000
             });
+          } else {
+            resolve(data.data)   
           }
         },
         fail(err) {

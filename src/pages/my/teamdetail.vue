@@ -3,35 +3,35 @@
   <div class="address-template">
     <div class="bodys">
       <div class="top">
-        <input type="text" placeholder="请输入用户名或者用户ID" />
+        <input type="text" placeholder="请输入用户名或者用户ID" v-model="words" v-on:input="handleinput()" />
       </div>
       <div class="title">
         <span v-bind:class="tabActive==1?'title_left': 'title_left ischose'" @click="setActive(0)">
           <ul>
-            <li>一级团队(221)</li>
-            <li>合伙人(20)粉丝(202)</li>
+            <li>一级团队( {{info.onecount==null?0:info.onecount}} )</li>
+            <li>合伙人( {{info.onehhcount==null?0:info.onehhcount}} )粉丝( {{info.onefscount==null?0:info.onefscount}} )</li>
           </ul>
         </span>
         <span v-bind:class="tabActive==0?'title_right': 'title_right ischose'" @click="setActive(1)">
           <ul>
-             <li>二级团队(221)</li>
-            <li>合伙人(20)粉丝(202)</li>
+            <li>二级团队( {{info.twocount==null?0:info.twocount}} )</li>
+            <li>合伙人( {{info.twocounthh==null?0:info.twocounthh}} )粉丝( {{info.twocountfs==null?0:info.twocountfs}} )</li>
           </ul>
         </span>
       </div>
       <div class="main">
         <ul>
-          <li class="main_li" v-for="(item, index) in 10"  :key="index"  @click="pageTo('/pages/my/teaminfo')">
-            <span class="main_left"><img src="https://jin.itxiaolong.cn/icon/index.jpg"/></span>
+          <li class="main_li" v-for="(item, index) in list" :key="index" @click="pageTo('/pages/my/teaminfo',{address:item.address,birthday:item.birthday,nickname:item.nickname,qq:item.qq,sex:item.sex,user_name:item.user_name,wechat:item.wechat,headerimg:item.headerimg,tjname:item.tjname})">
+            <span class="main_left"><img :src="item.headerimg" /></span>
             <span class="main_right">
               <ul>
-                <li>it小龙</li>
-                <li class="li_main">推荐人：傻逼哥</li>
-                <li>2019-01-29</li>
+                <li>{{item.nickname}}</li>
+                <li class="li_main">推荐人：{{item.tjname}}</li>
+                <li>{{item.addtime}}</li>
               </ul>
             </span>
-            <span  class="main_footer">
-              <img src="https://jin.itxiaolong.cn/icon/moreicon.png"/>
+            <span class="main_footer">
+              <img src="https://jin.itxiaolong.cn/icon/moreicon.png" />
             </span>
           </li>
         </ul>
@@ -43,109 +43,142 @@
 
 <script>
 export default {
-
   data() {
     return {
       addList: [],
-        tabActive: 0,
-      isDownRefresh: false
+      tabActive: 0,
+      isDownRefresh: false,
+      info:{},
+      list:[],
+      words:''
     };
   },
-    methods:{
-        setActive(index) {
-            this.tabActive = index;
-//            this.$Toast({
-//                content: "选中"+index,
-//                type: "warning"
-//            });
-        },
+  methods: {
+    setActive(index) {
+      this.tabActive = index;
+      if (this.tabActive == 0)  {
+        this.list = this.info.one 
+      } else {
+        this.list = this.info.two
+      }
+      //            this.$Toast({
+      //                content: "选中"+index,
+      //                type: "warning"
+      //            });
+    },
+    init() {
+      this.$API
+        .Team({
+          i: 8,
+          c: "entry",
+          a: "wxapp",
+          m: "mask",
+          do: "Team",
+          uid: wx.getStorageSync("sessionId"),
+          keywords:this.words
+        })
+        .then(res => {
+          if (res.code == 1) {
+            this.info = res.data
+            console.log(this.info);
+            this.setActive(0)
+          } else {
+          }
+        });
+    },
+    handleinput(){
+      console.log('聚焦',this.words)
+      this.init()
     }
-
+  },
+  onShow() {
+    this.init();
+  }
 };
 </script>
 
 <style scoped lang='scss'>
-  .bodys{
-    width: 100%;
-  }
-  .top{
-    width: 100%;
-    height: 50px;
-    background-color: #E9323C;
-    display: flex;
-    justify-content: center;
-    line-height: 50px;
-    align-items: center;
-    input{
-      background-color: white;
-      width: 80%;
-      border-radius: 15px;
-     font-size: 12px;
-      padding-left: 15px;
-    }
-  }
-  .title{
-    width: 90%;
-    height: 70px;
-    display: flex;
-    font-size: 13px;
-    align-content: space-around;
-  }
-  .title_left,.title_right{
-    width: 45%;
-    text-align: center;
-    margin-left: 25px;
-
-    margin-bottom: 5px;
-    ul li{
-      margin-top: 8px;
-    }
-  }
-  .main_li{
-    border-radius: 15px;
-    padding: 5px;
+.bodys {
+  width: 100%;
+}
+.top {
+  width: 100%;
+  height: 50px;
+  background-color: #e9323c;
+  display: flex;
+  justify-content: center;
+  line-height: 50px;
+  align-items: center;
+  input {
     background-color: white;
-    margin-top: 10px;
-    img{
-      width: 75px;
-      height: 75px;
-      border-radius: 50%;
-    }
-  }
-  .ischose{
-    border-bottom: 2px #E9323C solid;
-    color:#E9323C ;
-  }
-  .main_right{
-    display: flex;
-    align-items: center;
-    margin-left: 18px;
-  }
-  .main_footer{
-    position: absolute;
-    right: 35px;
-    padding-top: 30px;
-    img{
-      width: 20px;
-      height: 20px;
-    }
-  }
-  .main_right li:last-child{
-    color: #B1ADAA;
+    width: 80%;
+    border-radius: 15px;
     font-size: 12px;
+    padding-left: 15px;
   }
-  .li_main{
-    color: #898989;
-    font-size: 15px;
-  }
-  .main{
-    width: 90%;
-    height: 100%;
-    padding: 8px;
-    margin-left: 15px;
-    ul li{
-      display: flex;
-    }
+}
+.title {
+  width: 90%;
+  height: 70px;
+  display: flex;
+  font-size: 13px;
+  align-content: space-around;
+}
+.title_left,
+.title_right {
+  width: 45%;
+  text-align: center;
+  margin-left: 25px;
 
+  margin-bottom: 5px;
+  ul li {
+    margin-top: 8px;
   }
+}
+.main_li {
+  border-radius: 15px;
+  padding: 5px;
+  background-color: white;
+  margin-top: 10px;
+  img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+  }
+}
+.ischose {
+  border-bottom: 2px #e9323c solid;
+  color: #e9323c;
+}
+.main_right {
+  display: flex;
+  align-items: center;
+  margin-left: 18px;
+}
+.main_footer {
+  position: absolute;
+  right: 35px;
+  padding-top: 30px;
+  img {
+    width: 20px;
+    height: 20px;
+  }
+}
+.main_right li:last-child {
+  color: #b1adaa;
+  font-size: 12px;
+}
+.li_main {
+  color: #898989;
+  font-size: 15px;
+}
+.main {
+  width: 90%;
+  height: 100%;
+  padding: 8px;
+  margin-left: 15px;
+  ul li {
+    display: flex;
+  }
+}
 </style>
