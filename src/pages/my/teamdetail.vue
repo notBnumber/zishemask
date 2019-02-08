@@ -118,7 +118,7 @@ export default {
             console.log(this.info);
             this.setActive(this.tabActive);
             this.list = this.list.concat(res.data.one);
-            this.addList = res.data.two;
+            this.addList = this.addList.concat(res.data.two);
           } else {
           }
         });
