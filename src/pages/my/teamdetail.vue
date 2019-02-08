@@ -50,7 +50,8 @@ export default {
       isDownRefresh: false,
       info:{},
       list:[],
-      words:''
+      words:'',
+      page:0
     };
   },
   methods: {
@@ -66,7 +67,7 @@ export default {
       //                type: "warning"
       //            });
     },
-    init() {
+    inits() {
       this.$API
         .Team({
           i: 8,
@@ -75,7 +76,8 @@ export default {
           m: "mask",
           do: "Team",
           uid: wx.getStorageSync("sessionId"),
-          keywords:this.words
+          keywords:this.words,
+          page:this.page
         })
         .then(res => {
           if (res.code == 1) {
@@ -88,11 +90,11 @@ export default {
     },
     handleinput(){
       console.log('聚焦',this.words)
-      this.init()
+      this.inits()
     }
   },
   onShow() {
-    this.init();
+    this.inits();
   }
 };
 </script>

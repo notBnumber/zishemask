@@ -8,13 +8,13 @@ export const downRefresh = {
       pageSize: 5
     }
   },
-  // onPageScroll(e) {
-  //   if(e.scrollTop > 0 ) {
-  //     this.isFixedSearch = true
-  //   }else {
-  //     this.isFixedSearch = false
-  //   }
-  // },
+  onPageScroll(e) {
+    if(e.scrollTop > 0 ) {
+      this.isFixedSearch = true
+    }else {
+      this.isFixedSearch = false
+    }
+  },
   // onPullDownRefresh() {
   //   let vm = this;
   //   this.isDownRefresh = true;
@@ -29,7 +29,11 @@ export const downRefresh = {
   //     clearTimeout(vm.timer);
   //   }, 2500)
   // },
-  // onReachBottom() {
-  //   console.log("触底事件触发");
-  // }
+  onReachBottom() {
+    console.log("触底事件触发",this.page);
+    this.page++
+    this.inits();
+    console.log(this.page,'刷新');
+    
+  }
 }
