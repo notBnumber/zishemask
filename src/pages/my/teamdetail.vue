@@ -125,19 +125,22 @@ export default {
     },
     handleinput() {
       console.log("聚焦", this.words);
-      if (this.tabActive == 0) {
+      // if (this.tabActive == 0) {
+        this.list = []
+        this.addList = []
         this.inits();
-        this.setActive(this.tabActive);
-      }
+        // this.setActive(this.tabActive);
+      // }
     }
   },
   // onShow() {
   //   this.inits();
   // }
-  mounted() {
+  onShow() {
     this.list = [];
     this.page = 1;
     // this.info = {};
+    this.tabActive = 0
     this.addList = [];
     this.inits();
     this.fuck = this.list;
