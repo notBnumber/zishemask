@@ -57,15 +57,21 @@ export default {
   methods: {
     setActive(index) {
       this.tabActive = index;
+      console.log(this.tabActive);
+      
       if (this.tabActive == 0) {
+        this.list = []
         if (this.list.length == 0) {
           this.list = this.info.one;
         } else {
           this.list = this.list.concat(this.info.one);
         }
       } else {
+        this.list = []
         if (this.list.length == 0) {
           this.list = this.info.two;
+          console.log(this.list,'二级');
+          
         } else {
           this.list = this.list.concat(this.info.two);
         }
