@@ -135,7 +135,7 @@ export default {
   //   this.inits();
   // }
   mounted() {
-    // this.list = [];
+    this.list = [];
     this.page = 1;
     // this.info = {};
     this.addList = [];
