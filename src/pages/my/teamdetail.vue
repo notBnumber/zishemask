@@ -8,14 +8,14 @@
       <div class="title">
         <span v-bind:class="tabActive==1?'title_left': 'title_left ischose'" @click="setActive(0)">
           <ul>
-            <li>一级团队( {{info.onecount==null?0:info.onecount}} )</li>
-            <li>合伙人( {{info.onehhcount==null?0:info.onehhcount}} )粉丝( {{info.onefscount==null?0:info.onefscount}} )</li>
+            <li>一级团队({{info.onecount==null?0:info.onecount}})</li>
+            <li>合伙人({{info.onehhcount==null?0:info.onehhcount}})粉丝({{info.onefscount==null?0:info.onefscount}})</li>
           </ul>
         </span>
         <span v-bind:class="tabActive==0?'title_right': 'title_right ischose'" @click="setActive(1)">
           <ul>
-            <li>二级团队( {{info.twocount==null?0:info.twocount}} )</li>
-            <li>合伙人( {{info.twocounthh==null?0:info.twocounthh}} )粉丝( {{info.twocountfs==null?0:info.twocountfs}} )</li>
+            <li>二级团队({{info.twocount==null?0:info.twocount}})</li>
+            <li>合伙人({{info.twocounthh==null?0:info.twocounthh}})粉丝({{info.twocountfs==null?0:info.twocountfs}})</li>
           </ul>
         </span>
       </div>
