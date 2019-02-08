@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 14,
+			"current": 15,
 			"list": [
 				{
 					"id": -1,
@@ -120,6 +120,13 @@
 					"id": -1,
 					"name": "团队",
 					"pathName": "pages/my/teamdetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "累积收益",
+					"pathName": "pages/my/earnings",
 					"scene": null
 				}
 			]

@@ -17,8 +17,8 @@
 
       </i-panel>
       <div class="bbtn">
-        <div class="bbtn1"   @click="pageTo('/pages/my/getMoneyNote')">提现记录</div>
-        <div class="bbtn2"  @click="pageTo('/pages/my/moneycard')">提现账号管理</div>
+        <div class="bbtn1" @click="pageTo('/pages/my/getMoneyNote')">提现记录</div>
+        <div class="bbtn2" @click="pageTo('/pages/my/moneycard')">提现账号管理</div>
         <div class="bbtn3">确认提现账号</div>
       </div>
 
@@ -36,11 +36,30 @@ export default {
     };
   },
   methods: {
+    //
+    init() {
+      this.$API
+        .GetCard({
+          i: 8,
+          c: "entry",
+          a: "wxapp",
+          m: "mask",
+          do: "GetCard",
+          uid: wx.getStorageSync("sessionId"),
+        })
+        .then(res => {
+          if (res.code == 1) {
+            
+          } else {
+          }
+        });
+    },
     changeModel(e) {
       console.log(e);
     }
   },
   onShow() {
+    this.init();
     //do something after mounting vue instance
   }
 };
@@ -117,23 +136,23 @@ export default {
       color: #000;
     }
     .bbtn2 {
-      background-color: #1E90FF;
+      background-color: #1e90ff;
       border-radius: 5px;
       overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
-            padding: 7px 10px;
+      padding: 7px 10px;
       box-sizing: border-box;
     }
     .bbtn3 {
-      background-color: #EE0000;
+      background-color: #ee0000;
       border-radius: 5px;
       overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
-            padding: 7px 10px;
+      padding: 7px 10px;
       box-sizing: border-box;
     }
   }

@@ -110,10 +110,10 @@ Team = this.requestPost('')
 teaminfodetail = this.requestPost('')
 
 
-
-
-
-
+// 累积收益
+MyEarnings = this.requestPost('')
+// 获取银行卡
+GetCard = this.requestPost('')
 
 
 

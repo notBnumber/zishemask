@@ -8,34 +8,42 @@
             <img src="https://jin.itxiaolong.cn/icon/teammoneyicon.png"/>
             <label>佣金金额</label>
           </span>
-          <span style="color: red;">￥0.00</span>
+          <span style="color: red;">￥{{info.rmoney}}元</span>
         </div>
         <div class="info_title">详细</div>
         <div class="info_detail">
           <ul>
             <li>
               <span>类型:</span>
-              <span>直推奖金</span>
+              <span v-if="info.rtype ==1">直推</span>
+              <span v-if="info.rtype ==2">间推</span>
+              <span v-if="info.rtype ==3">银卡</span>
+              <span v-if="info.rtype ==4">金卡</span>
+              <span v-if="info.rtype ==5">市代</span>
+              <span v-if="info.rtype ==6">省代</span>
+              <span v-if="info.rtype ==7">提现</span>
+              <span v-if="info.rtype ==8">红包</span>
             </li>
             <li>
               <span>时间:</span>
-              <span>2019-01-20</span>
+              <span>{{info.raddtime}}</span>
             </li>
             <li>
               <span>交易单号:</span>
-              <span>2019584487878</span>
+              <span>{{info.rordernumber}}</span>
             </li>
             <li>
               <span>买家:</span>
-              <span>小龙啊</span>
+              <span>{{info.rbuyername}}</span>
             </li>
             <li>
               <span>状态:</span>
-              <span>已完成</span>
+              <span v-if="info.rsettlement ==0">待结算</span>
+              <span v-if="info.rsettlement ==1">已结算</span>
             </li>
             <li>
               <span>备注:</span>
-              <span>代理升级，奖励：xx元</span>
+              <span>{{info.rcomment}}</span>
             </li>
           </ul>
         </div>
@@ -49,15 +57,19 @@
     export default {
         data() {
             return {
-                isDownRefresh: false
+                isDownRefresh: false,
+                info:{}
             };
         },
         methods:{
             setActive(index) {
                 this.tabActive = index;
             },
-        }
-
+        },
+      onShow() {
+        console.log(this.$route.query,'99');
+        this.info = this.$route.query
+      }
     };
 </script>
 
