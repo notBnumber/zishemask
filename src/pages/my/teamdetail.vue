@@ -20,8 +20,23 @@
         </span>
       </div>
       <div class="main">
-        <ul>
+        <ul v-if="tabActive==0">
           <li class="main_li" v-for="(item, index) in list" :key="index" @click="pageTo('/pages/my/teaminfo',{address:item.address,birthday:item.birthday,nickname:item.nickname,qq:item.qq,sex:item.sex,user_name:item.user_name,wechat:item.wechat,headerimg:item.headerimg,tjname:item.tjname})">
+            <span class="main_left"><img :src="item.headerimg" /></span>
+            <span class="main_right">
+              <ul>
+                <li>{{item.nickname}}</li>
+                <li class="li_main">推荐人：{{item.tjname}}</li>
+                <li>{{item.addtime}}</li>
+              </ul>
+            </span>
+            <span class="main_footer">
+              <img src="https://jin.itxiaolong.cn/icon/moreicon.png" />
+            </span>
+          </li>
+        </ul>
+        <ul v-if="tabActive==1">
+          <li class="main_li" v-for="(item, index) in addList" :key="index" @click="pageTo('/pages/my/teaminfo',{address:item.address,birthday:item.birthday,nickname:item.nickname,qq:item.qq,sex:item.sex,user_name:item.user_name,wechat:item.wechat,headerimg:item.headerimg,tjname:item.tjname})">
             <span class="main_left"><img :src="item.headerimg" /></span>
             <span class="main_right">
               <ul>
@@ -51,7 +66,8 @@ export default {
       info: {},
       list: [],
       words: "",
-      page: 1
+      page: 1,
+      fuck: []
     };
   },
   methods: {
@@ -60,24 +76,29 @@ export default {
       console.log(this.tabActive);
 
       if (this.tabActive == 0) {
-        if (this.list.length == 0) {
-          this.list = this.info.one;
-        } else {
-          this.list = this.list.concat(this.info.one);
-        }
+        // if (this.list.length == 0) {
+        //   console.log("没有");
+        //   this.list = this.info.one;
+        // } else {
+        //   console.log("有", this.list);
+
+        //   this.list = this.fuck.concat(this.list);
+        //   // console.log(this.list);
+        // }
       } else {
-        this.list = [];
-        if (this.list.length == 0) {
-          this.list = this.info.two;
-          console.log(this.list, "二级");
-        } else {
-          this.list = this.list.concat(this.info.two);
-        }
+        // this.list = [];
+        // if (this.list.length == 0) {
+        //   this.list = this.info.two;
+        //   console.log(this.list, "二级");
+        // } else {
+        //   this.list = this.list.concat(this.info.two);
+        // }
+        // this.list = this.info.two;
       }
-      //            this.$Toast({
-      //                content: "选中"+index,
-      //                type: "warning"
-      //            });
+      //  this.$Toast({
+      //      content: "选中"+index,
+      //      type: "warning"
+      //  });
     },
     inits() {
       this.$API
@@ -96,6 +117,8 @@ export default {
             this.info = res.data;
             console.log(this.info);
             this.setActive(this.tabActive);
+            this.list = this.list.concat(res.data.one);
+            this.addList = res.data.two;
           } else {
           }
         });
@@ -111,11 +134,13 @@ export default {
   // onShow() {
   //   this.inits();
   // }
-  mounted () {
-    this.list = []
-    this.page = 1
-     this.info = {}
-    this.inits()
+  mounted() {
+    // this.list = [];
+    this.page = 1;
+    // this.info = {};
+    this.addList = [];
+    this.inits();
+    this.fuck = this.list;
   }
 };
 </script>

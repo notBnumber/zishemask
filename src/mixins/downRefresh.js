@@ -31,6 +31,7 @@ export const downRefresh = {
   // },
   onReachBottom() {
     console.log("触底事件触发",this.page);
+    // this.fuck = this.lists
     this.page++
     this.inits();
     console.log(this.page,'刷新');
