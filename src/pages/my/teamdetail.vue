@@ -48,19 +48,27 @@ export default {
       addList: [],
       tabActive: 0,
       isDownRefresh: false,
-      info:{},
-      list:[],
-      words:'',
-      page:0
+      info: {},
+      list: [],
+      words: "",
+      page: 0
     };
   },
   methods: {
     setActive(index) {
       this.tabActive = index;
-      if (this.tabActive == 0)  {
-        this.list = this.info.one 
+      if (this.tabActive == 0) {
+        if (this.list.length == 0) {
+          this.list = this.info.one;
+        } else {
+          this.list = this.list.concat(this.info.one);
+        }
       } else {
-        this.list = this.info.two
+        if (this.list.length == 0) {
+          this.list = this.info.two;
+        } else {
+          this.list = this.list.concat(this.info.two);
+        }
       }
       //            this.$Toast({
       //                content: "选中"+index,
@@ -76,21 +84,22 @@ export default {
           m: "mask",
           do: "Team",
           uid: wx.getStorageSync("sessionId"),
-          keywords:this.words,
-          page:this.page
+          keywords: this.words,
+          page: this.page
         })
         .then(res => {
           if (res.code == 1) {
-            this.info = res.data
+            this.info = res.data;
             console.log(this.info);
-            this.setActive(0)
+            this.setActive(this.tabActive);
           } else {
           }
         });
     },
-    handleinput(){
-      console.log('聚焦',this.words)
-      this.inits()
+    handleinput() {
+      console.log("聚焦", this.words);
+      this.inits();
+      this.setActive(this.tabActive);
     }
   },
   onShow() {
