@@ -4,7 +4,7 @@
     <div class="bodys">
       <div class="top">
         <div class="top_h">
-          <label>￥{{userInfo.alltotal==''?0:userInfo.alltotal}}</label>
+          <label>￥{{userInfo.alltotal==null?0:userInfo.alltotal}}</label>
         </div>
         <div class="top_m">
           <span @click="showtype">{{typemsg}}</span>
@@ -18,13 +18,13 @@
           <span>
             <ul>
               <li>待结算</li>
-              <li>￥{{userInfo.nodealtotal==''?0:userInfo.nodealtotal}}</li>
+              <li>￥{{userInfo.nodealtotal==null?0:userInfo.nodealtotal}}</li>
             </ul>
           </span>
           <span>
             <ul>
               <li>已结算</li>
-              <li>￥{{userInfo.dealtotal==''?0:userInfo.dealtotal}}</li>
+              <li>￥{{userInfo.dealtotal==null?0:userInfo.dealtotal}}</li>
             </ul>
           </span>
         </div>

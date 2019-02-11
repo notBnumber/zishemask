@@ -115,7 +115,10 @@ MyEarnings = this.requestPost('')
 // 获取银行卡
 GetCard = this.requestPost('')
 
-
+// 新增银行卡
+Card = this.requestPost('')
+// 申请区域商
+Sqproorcity = this.requestPost('')
 
   // 首页轮播图
   ads = this.requestPost('/api/shop/index/ads')

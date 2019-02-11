@@ -4,8 +4,8 @@
 
     <!-- Order -->
     <ul class="order-list">
-      <li class="order-item" v-for="(item, index) in 5" :key="index">
-        <orderAfterSaleItem></orderAfterSaleItem>
+      <li class="order-item" v-for="(item, index) in stateList" :key="index">
+        <orderAfterSaleItem :state="item"></orderAfterSaleItem>
       </li>
     </ul>
   </div>
@@ -20,12 +20,44 @@
     },
     data(){
       return {
+        stateList: []
       }
     },
     methods: {
+          init() {
+      this.$API
+        .GetOrderlist({
+          i: 8,
+          c: "entry",
+          a: "wxapp",
+          m: "mask",
+          do: "GetOrderlist",
+          uid: wx.getStorageSync("sessionId"),
+          state:6
+        })
+        .then(res => {
+          console.log(res);
+          
+          if (res.code == 1) {
+            console.log("提交成功");
+            // this.stateList = res.data
+            // console.log(this.stateList.length,'jjjjjjjjjj');
+               this.stateList = res.data
+
+            
+          } else {
+            console.log(99999999);
+            this.stateList = []
+            
+          }
+        });
+    }
     },
     onReady() {
       //do something after mounting vue instance
+    },
+    onShow() {
+      this.init()
     }
   }
 </script>

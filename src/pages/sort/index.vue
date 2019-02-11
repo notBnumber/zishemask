@@ -220,8 +220,9 @@ export default {
       padding: 17px;
       box-sizing: border-box;
       display: flex;
-      flex-wrap: wrap;
       overflow-y: scroll;
+      flex-direction: column;
+      justify-content: flex-start;
       -webkit-overflow-scrolling: touch;
       &::-webkit-scrollbar {
         display: none;
@@ -231,16 +232,16 @@ export default {
         flex-direction: column;
         margin-right: 15px;
         margin-bottom: 10px;
-        width: 70px;
+        width: 170px;
         float: left;
         &:nth-child(3n + 3) {
           margin-right: 0;
         }
         i {
-          @include bg-icon(70px);
+          @include bg-icon(170px);
         }
         span {
-          font-size: 12px;
+          font-size: 18px;
           font-family: PingFang-SC-Bold;
           font-weight: bold;
           color: rgba(68, 68, 68, 1);

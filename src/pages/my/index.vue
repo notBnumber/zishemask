@@ -109,6 +109,9 @@
           <!--<i class="arrow"></i>-->
         <!--</li>-->
       </ul>
+      <div class="outLogin" @click="outLogin">
+        退出登录
+      </div>
     </div>
   </div>
 </template>
@@ -129,6 +132,12 @@ export default {
     };
   },
   methods: {
+    outLogin() {
+      this.replaceTo("/pages/login/wxLogin");
+      //  wx.setStorageSync('sessionId', response.data.sessionId)
+
+      wx.clearStorage()
+    },
     getUserInfo() {
       let vm = this;
         this.$API
@@ -459,6 +468,19 @@ export default {
         }
       }
     }
+    .outLogin {
+      margin: auto;
+      margin-top: 15px;
+      background-color: #ed1731;
+      height: 50px;
+      width: 60%;
+      line-height: 50px;
+      text-align: center;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      color: #fff;
+    }
+
   }
 }
 </style>

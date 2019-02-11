@@ -5,13 +5,13 @@
     <span class="order-state">申请审核中</span>
   </div>
   <ul class="goods-list">
-    <li class="goods-item" v-for="(item, index) in 2" :key="index" @click="pageTo('/pages/my/afterSaleDetail')">
-      <orderGoodsItem></orderGoodsItem>
+    <li class="goods-item" v-for="(item, index) in state.goodlist" :key="index" @click="pageTo('/pages/my/afterSaleDetail')">
+      <orderGoodsItem :message='item'></orderGoodsItem>
     </li>
   </ul>
   <div class="footer">
     <div class="btn">
-      <button>查看详情</button>
+      <!-- <button>查看详情</button> -->
     </div>
   </div>
 </div>
@@ -30,11 +30,16 @@ export default {
     }
   },
   props: {
-
+    state:{}
   },
   methods: {
 
   },
+  created() {
+    console.log(this.state);
+    
+    
+  }
 }
 </script>
 

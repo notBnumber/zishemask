@@ -1,48 +1,54 @@
 <template>
-    <!-- 个人信息 -->
-    <div class="add-template">
-        <div class="box">
+  <!-- 个人信息 -->
+  <div class="add-template">
+    <div class="box">
 
-            <i-panel>
-                <i-input title="姓名" placeholder="请填写收货人的名字" />
-                <!-- <i-input  type="number" title="QQ" placeholder="请输入QQ"/> -->
-                <!-- <i-input  type="text" title="微信" placeholder="请输入微信" /> -->
+      <div class="inp">
+        <span>姓名：</span>
+        <input title="姓名" placeholder="请填写收货人的名字" v-model="name"/>
+      </div>
+      <!-- <i-input  type="number" title="QQ" placeholder="请输入QQ"/> -->
+      <!-- <i-input  type="text" title="微信" placeholder="请输入微信" /> -->
+      <div class="inp">
+        <span>手机号码：</span>
+        <input title="手机号" placeholder="请输入收货人的手机号码" v-model="phone"/>
+      </div>
+      <div class="area">
+        <span>常住地址:</span>
+        <picker mode="region" @change="bindRegionChange">
+          <div class="chooseaddress">
+            {{region}}
+            <i></i>
+          </div>
+        </picker>
+      </div>
 
-                <i-input title="手机号" placeholder="请输入收货人的手机号码" />
-                <div class="area">
-                    <span>常住地址:</span>
-                    <picker mode="region" @change="bindRegionChange">
-                        <div class="chooseaddress">
-                            {{region}}
-                            <i></i>
-                        </div>
-                    </picker>
-                </div>
-
-                <!-- <i-input value="已设置密码" title="密码" disabled /> -->
-                <i-input type="text" title="备注" placeholder="备注" />
-                <!-- <i-checkbox-group v-model="sexs" @change="changeModel" class="sexradio">
+      <!-- <i-input value="已设置密码" title="密码" disabled /> -->
+      <div class="inp">
+        <span>备注：</span>
+        <input type="text" title="备注" placeholder="请输入备注"  v-model="beizhu">
+      </div>
+      <!-- <i-checkbox-group v-model="sexs" @change="changeModel" class="sexradio">
                     <i-checkbox  value="1" class="myradio">
                         <span>阅读区域团队协议</span>
                     </i-checkbox>
                 </i-checkbox-group> -->
-                <!-- <i-checkbox-group  @change="handleFruitChange">
+      <!-- <i-checkbox-group  @change="handleFruitChange">
                         <i-checkbox  value="阅读区域团队协议">
                             <span></span>
                         </i-checkbox>
                     </i-checkbox-group> -->
-                <label for="label" class="cao">
-                    <input type="checkbox" id="label" v-model="ckeckVal" @click="clickMe" class="cao1">
-                    <span @click.stop="cao">阅读区域团队协议</span>
-                </label>
-            </i-panel>
+      <label for="label" class="cao">
+        <input type="checkbox" id="label" v-model="ckeckVal" @click="clickMe" class="cao1">
+        <span @click.stop="cao">阅读区域团队协议</span>
+      </label>
 
-        </div>
-        <div class="btn">
-            <button class="login-out" @click="submit">提交申请</button>
-        </div>
-        <i-toast id="toast" />
     </div>
+    <div class="btn">
+      <button class="login-out" @click="submit">提交申请</button>
+    </div>
+    <i-toast id="toast" />
+  </div>
 </template>
 
 <script>
@@ -61,7 +67,8 @@ export default {
       detail: "",
       address: {},
       fuckDefault: 0,
-      ckeckVal: false
+      ckeckVal: false,
+      beizhu:""
     };
   },
   methods: {
@@ -99,7 +106,7 @@ export default {
     },
     submit() {
       if (!this.name) {
-        this.$Toast({ content: "请输入收货人姓名" });
+        this.$Toast({ content: "请输入姓名" });
         return;
       }
       if (!this.phone) {
@@ -115,23 +122,26 @@ export default {
         this.$Toast({ content: "请选择地区" });
         return;
       }
-      if (!this.detail) {
-        this.$Toast({ content: "请输入详细地址" });
+      if(this.ckeckVal == false) {
+        this.$Toast({ content: "未同意区域团队协议" });
         return;
       }
+      // if (!this.detail) {
+      //   this.$Toast({ content: "请输入详细地址" });
+      //   return;
+      // }
       this.$API
-        .Addaddress({
+        .Sqproorcity({
           i: 8,
           c: "entry",
           a: "wxapp",
           m: "mask",
-          do: "Addaddress",
+          do: "Sqproorcity",
           uid: wx.getStorageSync("sessionId"),
           name: this.name,
           phone: this.phone,
           address: this.region,
-          detailadd: this.detail,
-          is_default: this.fuckDefault
+          comment: this.beizhu,
         })
         .then(res => {
           console.log(res, "设置地址");
@@ -140,6 +150,7 @@ export default {
             setTimeout(() => {
               this.goBack();
             }, 1000);
+
           }
         });
 
@@ -177,6 +188,14 @@ export default {
   .box {
     background-color: #fff;
     padding: 0 15px 25px;
+    .inp{
+      display: flex;
+      justify-content: flex-start;
+      margin-top: 15px;
+      input{
+        font-size: 16px;
+      }
+    }
   }
   .setting {
     margin-top: 13px;
@@ -193,9 +212,10 @@ export default {
     }
   }
   .area {
+    margin-top: 15px;
     display: flex;
     justify-content: space-between;
-    padding: 5px 16px;
+    padding: 5px 0px;
     color: #495060;
     font-size: 16px;
   }
@@ -234,11 +254,12 @@ export default {
   }
   .cao {
     font-size: 14px;
-    color: #9D9D9D;
-      margin-left: 20px;
+    color: #9d9d9d;
+    margin-top: 15px;
   }
-    .cao1 {
+  .cao1 {
     font-size: 14px;
+     margin-top: 15px;
   }
 }
 </style>

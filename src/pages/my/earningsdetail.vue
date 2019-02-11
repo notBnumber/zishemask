@@ -8,7 +8,7 @@
             <img src="https://jin.itxiaolong.cn/icon/teammoneyicon.png"/>
             <label>佣金金额</label>
           </span>
-          <span style="color: red;">￥{{info.rmoney}}元</span>
+          <span style="color: red;">￥{{info.rmoney == null?0:info.rmoney}}元</span>
         </div>
         <div class="info_title">详细</div>
         <div class="info_detail">

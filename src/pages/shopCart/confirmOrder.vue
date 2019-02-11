@@ -132,7 +132,8 @@ export default {
             aid:this.addId,
             money:Number(this.allPrice) + Number(this.freight),
             totalfreght:this.freight,
-            arr:JSON.stringify(this.detail)
+            arr:JSON.stringify(this.detail),
+            type:1
           })
           .then(res => {
             if (res.code == 1) {

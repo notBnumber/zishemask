@@ -3,13 +3,13 @@
   <div class="add-template">
     <div class="box">
 
-      <i-panel>
+      <i-panel >
         <RadioGroup v-model="sexs" @change="changeModel" class="sexradio">
           <div class="jj">
             <img src="https://jin.itxiaolong.cn/icon/btn3.png" alt="">
             <div>
               <p class="p1">银行卡</p>
-              <p class="p2">138****1111</p>
+              <p class="p2">{{info.phone}}</p>
             </div>
           </div>
           <Radio :label="1" :value="1" class="myradio"></Radio>
@@ -18,7 +18,7 @@
       </i-panel>
       <div class="bbtn">
         <div class="bbtn1" @click="pageTo('/pages/my/getMoneyNote')">提现记录</div>
-        <div class="bbtn2" @click="pageTo('/pages/my/moneycard')">提现账号管理</div>
+        <div class="bbtn2" @click="pageTo('/pages/my/moneycard',{id:info.id,branch:info.branch,name:info.name,openbranch:info.openbranch,phone:info.phone,uniacid:info.uniacid,phone1:info.phone1})">提现账号管理</div>
         <div class="bbtn3">确认提现账号</div>
       </div>
 
@@ -32,7 +32,8 @@ import { $Toast } from "@/iView/base/index";
 export default {
   data() {
     return {
-      sexs: 1
+      sexs: 1,
+      info:[]
     };
   },
   methods: {
@@ -49,7 +50,12 @@ export default {
         })
         .then(res => {
           if (res.code == 1) {
+            this.info = res.data
+            this.info.phone1 = this.info.phone
+            console.log(this.phone1);
             
+            let str = this.info.phone.split('');
+            this.info.phone = str[0]+str[1]+str[2]+'****'+str[7]+str[8]+str[9]+str[10]
           } else {
           }
         });
@@ -76,8 +82,8 @@ export default {
     // background-color: #fff;
     // padding: 0 15px 25px;
   }
-
   .sexradio {
+    margin-top: 15px;
     background-color: #fff;
     padding: 0 15px 25px;
     color: #495060;
@@ -123,6 +129,7 @@ export default {
     box-sizing: border-box;
     font-size: 16px;
     color: #fff;
+    margin-top: 10px;
     .bbtn1 {
       background-color: #fff;
       border-radius: 5px;

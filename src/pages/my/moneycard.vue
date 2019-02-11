@@ -4,16 +4,16 @@
     <div class="box">
 
       <i-panel>
-        <div  class="sexradio"  @click="pageTo('/pages/my/editmoneycard')">
+        <div  class="sexradio"  @click="pageTo('/pages/my/editmoneycard',{id:info.id,branch:info.branch,name:info.name,openbranch:info.openbranch,phone:info.phone,uniacid:info.uniacid,phone1:info.phone1})">
           <div class="jj">
             <img src="https://jin.itxiaolong.cn/icon/btn3.png" alt="">
             <div>
               <p class="p1">银行卡</p>
-              <p class="p2">138****1111</p>
+              <p class="p2">{{info.phone}}</p>
             </div>
           </div>
-            <p class="pp1">修改&nbsp;></p>
-          
+            <p class="pp1" v-if="info.name ==''">新增&nbsp;></p>
+           <p class="pp1" else >修改&nbsp;></p>
         </div>
 
       </i-panel>
@@ -28,7 +28,8 @@ import { $Toast } from "@/iView/base/index";
 export default {
   data() {
     return {
-      sexs: 1
+      sexs: 1,
+      info:{}
     };
   },
   methods: {
@@ -38,6 +39,10 @@ export default {
   },
   onShow() {
     //do something after mounting vue instance
+    console.log(this.$route.query);
+    this.info = this.$route.query
+    // let str = this.info.phone.split('');
+    //         this.info.phone = str[0]+str[1]+str[2]+'****'+str[7]+str[8]+str[9]+str[10]
   }
 };
 </script>
@@ -55,8 +60,9 @@ export default {
   }
 
   .sexradio {
+    margin-top: 15px;
     background-color: #fff;
-    padding: 0 15px 25px;
+    padding:  25px 25px;
     color: #495060;
     font-size: 16px;
     // height: 50px;
