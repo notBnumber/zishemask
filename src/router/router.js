@@ -111,6 +111,24 @@ module.exports = [
       }
     }
   },
+  {
+    path: "pages/login/editzhifupwd",
+    config: {
+      "enablePullDownRefresh": false,
+      "usingComponents": {
+        "i-toast": "/iView/toast/index"
+      }
+    }
+  },
+  {
+    path: "pages/login/newzhifupwd",
+    config: {
+      "enablePullDownRefresh": false,
+      "usingComponents": {
+        "i-toast": "/iView/toast/index"
+      }
+    }
+  },
   // 绑定手机
   {
     path: "pages/login/bindphone",

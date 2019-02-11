@@ -120,6 +120,12 @@ Card = this.requestPost('')
 // 申请区域商
 Sqproorcity = this.requestPost('')
 
+// 是否有密码
+Getpaypsw  = this.requestPost('')
+ForgetOrAddpaypsw = this.requestPost('')
+// 忘记 新增支付密码
+
+
   // 首页轮播图
   ads = this.requestPost('/api/shop/index/ads')
   // 商品列表

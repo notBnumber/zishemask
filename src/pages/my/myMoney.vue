@@ -9,7 +9,7 @@
           <p>大米</p>
           <p>￥80.00</p>
         </div>
-        <div class="rightDiv"  @click="pageTo('/pages/my/getMoney')">提现</div>
+        <div class="rightDiv" @click="pageTo('/pages/my/getMoney')">提现</div>
       </div>
       <!-- <button class="login" @click="goLogin('/pages/login/login')" v-if="!isLogin">登录/注册</button> -->
       <!-- <div class="head-pic" @click="pageTo('/pages/my/noticeCenter')" v-if="isLogin">
@@ -33,7 +33,7 @@
           </div>
         </div>
 
-        <div class="contentTwo" @click="pageTo('/pages/my/setpsw')">
+        <div class="contentTwo" @click="isPwd">
           <img src="https://jin.itxiaolong.cn/icon/teamicon.png" alt="">
           <div class="cao">
             <p>支付密码</p>
@@ -60,7 +60,26 @@ export default {
     };
   },
   methods: {
-    jjjj(index) {}
+    jjjj(index) {},
+    isPwd() {
+      // this.pageTo('/pages/my/setpsw')
+      this.$API
+        .Getpaypsw({
+          i: 8,
+          c: "entry",
+          a: "wxapp",
+          m: "mask",
+          do: "Getpaypsw",
+          uid: wx.getStorageSync("sessionId")
+        })
+        .then(res => {
+          if (res.code == 1) {
+            this.pageTo('/pages/my/setpsw')
+          } else {
+            this.pageTo('/pages/login/newzhifupwd')
+          }
+        });
+    }
   }
 };
 </script>
@@ -155,7 +174,7 @@ export default {
         padding-left: 10px;
         box-sizing: border-box;
         height: 70px;
-        border: 1px solid #E5E5E5;
+        border: 1px solid #e5e5e5;
         border-left: none;
         display: flex;
         justify-content: center;
@@ -185,7 +204,7 @@ export default {
         height: 70px;
         padding-left: 10px;
         box-sizing: border-box;
-        border: 1px solid #E5E5E5;
+        border: 1px solid #e5e5e5;
         border-left: none;
         border-right: none;
         display: flex;
