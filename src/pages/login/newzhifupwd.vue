@@ -79,10 +79,11 @@ export default {
             a: "wxapp",
             m: "mask",
             do: "Smscode",
-            uid:
-              wx.getStorageSync("sessionId") == ""
-                ? ""
-                : wx.getStorageSync("sessionId")
+              tel: this.name
+//            uid:
+//              wx.getStorageSync("sessionId") == ""
+//                ? ""
+//                : wx.getStorageSync("sessionId")
           })
           .then(res => {
             console.log(res, "请求验证码");
