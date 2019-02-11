@@ -45,7 +45,7 @@
       </div>
 
     </div>
-    <p  class="ppp1"  @click="pageTo('/pages/my/forgetpwd')">忘记密码?</p>
+    <p  class="ppp1"  @click="pageTo('/pages/login/forgetpwd')">忘记密码?</p>
     <i-toast id="toast" />
   </div>
 </template>
