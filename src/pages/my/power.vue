@@ -17,13 +17,13 @@
 
         </div>
         <div class="headBottom">
-          <div class="shenfen">
-            <img src="https://cssy.hn90qc.com/icon/vip2.png" alt="">
-            <span>:合伙人</span>
-          </div>
+          <!--<div class="shenfen">-->
+            <!--<img src="https://cssy.hn90qc.com/icon/vip2.png" alt="">-->
+            <!--<span>:合伙人</span>-->
+          <!--</div>-->
           <div class="shenfen">
             <img src="https://cssy.hn90qc.com/icon/leve_icon.png" alt="">
-            <span>:钻石合伙人</span>
+            <span>:普通用户</span>
           </div>
         </div>
         <!-- <img src="https://cssy.hn90qc.com/icon/leve_icon.png" alt=""> -->

@@ -48,14 +48,14 @@
           <div class="one">
             <progress percent="20" show-info />
             <div class="jb">
-              <p>推广成交量</p>
+              <p>个人累积消费</p>
               <p>19/99人</p>
             </div>
           </div>
           <div class="one">
             <progress percent="20" show-info />
             <div class="jb">
-              <p>推广成交量</p>
+              <p>推广销售额</p>
               <p>19/99人</p>
             </div>
           </div>
