@@ -22,7 +22,7 @@
           </div>
 
         </div>
-        <!-- <img src="https://jin.itxiaolong.cn/icon/leve_icon.png" alt=""> -->
+        <!-- <img src="https://cssy.hn90qc.com/icon/leve_icon.png" alt=""> -->
       </div>
       <!-- <button class="login" @click="goLogin('/pages/login/login')" v-if="!isLogin">登录/注册</button> -->
       <!-- <div class="head-pic" @click="pageTo('/pages/my/noticeCenter')" v-if="isLogin">

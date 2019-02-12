@@ -72,7 +72,7 @@ export default {
     init() {
       this.$API
         .teaminfodetail({
-          i: 8,
+          i: 2,
           c: "entry",
           a: "wxapp",
           m: "mask",

@@ -83,7 +83,7 @@ export default {
     init() {
       this.$API
         .Getcart({
-          i: 8,
+          i: 2,
           c: "entry",
           a: "wxapp",
           m: "mask",

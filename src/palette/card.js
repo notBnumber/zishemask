@@ -13,7 +13,7 @@ export default class LastMayday {
 
   _template () {
     return ({
-      background: 'https://jin.itxiaolong.cn/icon/qrcodebj.jpg',
+      background: 'https://cssy.hn90qc.com/icon/qrcodebj.jpg',
       width: '700rpx',
       height: '1050rpx',
       borderRadius: '20rpx',
@@ -34,10 +34,10 @@ export default class LastMayday {
               type: 'image',
               url: this.cardInfo.myqrcode,//二维码
               css: {
-                  left: '480rpx',
-                  top: '500rpx',
-                  width: '250rpx',
-                  height: '250rpx',
+                  left: '510rpx',
+                  top: '480rpx',
+                  width: '300rpx',
+                  height: '300rpx',
                   borderRadius: '10rpx',
                   align: 'right'
               }

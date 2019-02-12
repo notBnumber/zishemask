@@ -24,7 +24,7 @@
       </div>
       <div class="inp">
         <span>
-          银行卡号：</span><input v-model="info.uniacid" type="number" title="银行卡号" placeholder="请输入银行卡号" maxlength="20" />
+          银行卡号：</span><input v-model="info.cardnumber" type="number" title="银行卡号" placeholder="请输入银行卡号" maxlength="50" />
       </div>
 
       <!-- </i-panel> -->
@@ -47,7 +47,7 @@ export default {
         phone1: "",
         openbranch: "",
         branch: "",
-        uniacid: ""
+          cardnumber: ""
       },
       add: false,
       region: "请选择地区",
@@ -87,7 +87,7 @@ export default {
       if (this.add == true) {
         this.$API
           .Card({
-            i: 8,
+            i: 2,
             c: "entry",
             a: "wxapp",
             m: "mask",
@@ -97,7 +97,7 @@ export default {
             phone: this.info.phone1,
             openbranch: this.info.openbranch,
             branch: this.info.branch,
-            cardnumber: this.info.uniacid
+            cardnumber: this.info.cardnumber
           })
           .then(res => {
             if (res.code == 1) {
@@ -108,7 +108,7 @@ export default {
       } else {
               this.$API
         .Card({
-          i: 8,
+          i: 2,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -118,7 +118,7 @@ export default {
           phone: this.info.phone1,
           openbranch: this.info.openbranch,
           branch: this.info.branch,
-          cardnumber: this.info.uniacid,
+          cardnumber: this.info.cardnumber,
           id:this.info.id
         })
         .then(res => {

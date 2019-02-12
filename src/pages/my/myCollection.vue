@@ -47,7 +47,7 @@ export default {
 
       // this.$API
       //   .Collection({
-      //     i: 8,
+      //     i: 2,
       //     c: "entry",
       //     a: "wxapp",
       //     m: "mask",
@@ -84,7 +84,7 @@ export default {
     getList() {
       this.$API
         .Getcollection({
-          i: 8,
+          i: 2,
           c: "entry",
           a: "wxapp",
           m: "mask",

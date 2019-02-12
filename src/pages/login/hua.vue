@@ -13,7 +13,7 @@ const userInfo = {
   avatar:
     "https://wx.qlogo.cn/mmopen/vi_32/171rpAQ2g2v0MV7WIcp7edYibXEcIjicpZNUgJ28ib5kQyD4mjLt7mr55y1tEB9z2KMWBqicYCwaCv29ErnJGFmVgQ/132",
   nickname: "",
-  myqrcode: "https://jin.itxiaolong.cn/addons/mask/img/1.jpeg"
+  myqrcode: ""
 };
 
 const template = card.do(userInfo);
@@ -66,7 +66,7 @@ export default {
     getData() {
       this.$API
         .Qrcodeinfo({
-          i: 8,
+          i: 2,
           c: "entry",
           a: "wxapp",
           m: "mask",

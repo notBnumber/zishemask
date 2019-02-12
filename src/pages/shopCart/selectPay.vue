@@ -6,12 +6,12 @@
     </div>
     <div class="big">
       <div class="yue">
-        <img src="https://jin.itxiaolong.cn/icon/yuepay.png" alt="">
+        <img src="https://cssy.hn90qc.com/icon/yuepay.png" alt="">
         <p>余额支付</p>
         <p>></p>
       </div>
       <div class="yue" @click="wxPay()">
-        <img src="https://jin.itxiaolong.cn/icon/wxpay.png" alt="">
+        <img src="https://cssy.hn90qc.com/icon/wxpay.png" alt="">
         <p>微信支付</p>
         <p>></p>
       </div>
@@ -32,7 +32,7 @@ export default {
       // 打印
       this.$API
         .doPay({
-          i: 8,
+          i: 2,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -70,7 +70,9 @@ export default {
                 //   }
                 // });
               },
-              fail: function(e) {}
+              fail: function(e) {
+                  console.log(e,'支付失败')
+              }
             });
           } else {
             // this.pageTo('/pages/shopCart/payResult', {isSuccess: false})

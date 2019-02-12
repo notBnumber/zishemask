@@ -95,7 +95,7 @@ export default {
       }
       this.$API
         .toLogin({
-          i: 8,
+          i: 2,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -141,7 +141,7 @@ export default {
               if(uid!=pid){
                   this.$API
                       .bang({
-                          i: 8,
+                          i: 2,
                           c: "entry",
                           a: "wxapp",
                           m: "mask",
@@ -168,7 +168,7 @@ export default {
     getId() {
       this.$API
         .login({
-          i: 8,
+          i: 2,
           c: "entry",
           a: "wxapp",
           m: "mask",

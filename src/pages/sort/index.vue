@@ -59,7 +59,7 @@ export default {
     initLeft() {
       this.$API
         .left({
-          i: 8,
+          i: 2,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -74,7 +74,7 @@ export default {
     initRight() {
       this.$API
         .right({
-          i: 8,
+          i: 2,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -241,7 +241,7 @@ export default {
           @include bg-icon(170px);
         }
         span {
-          font-size: 18px;
+          font-size: 13px;
           font-family: PingFang-SC-Bold;
           font-weight: bold;
           color: rgba(68, 68, 68, 1);
