@@ -23,7 +23,7 @@ axios.defaults.adapter = function (config) {
   // console.log(newdata,'jjjdjfj');
 
   
-  // i: 8,
+  // i: 2,
   // c: "entry",
   // a: "wxapp",
   // m: "mask",

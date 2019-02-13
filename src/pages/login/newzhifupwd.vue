@@ -138,7 +138,7 @@ export default {
       }
       this.$API
         .ForgetOrAddpaypsw({
-          i: 8,
+          i: 2,
           c: "entry",
           a: "wxapp",
           m: "mask",
