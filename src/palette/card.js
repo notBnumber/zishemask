@@ -52,7 +52,8 @@ export default class LastMayday {
                 align: 'left',
                 color:'black',
                 maxLines:"1",
-                width:'350rpx'
+                width:'350rpx',
+                fontWeight:"bold"
             }
           }
       ]
