@@ -135,6 +135,20 @@ UpdateInfo = this.requestPost('')
     VipindexInfo=this.requestPost('')
     //我的会员卡信息
     Myvip=this.requestPost('')
+// 大米用户等级
+Getwallet = this.requestPost('')
+// 记录接口
+Getrecord = this.requestPost('')
+// 提下你记录接口
+Getwithdrawal = this.requestPost('')
+// 会员卡
+Vipcardinfo = this.requestPost('')
+// 判断是否已签到
+TodaySingin = this.requestPost('')
+// 列表
+SinginList = this.requestPost('')
+// 签到
+Singin = this.requestPost('')
   // 首页轮播图
   ads = this.requestPost('/api/shop/index/ads')
   // 商品列表

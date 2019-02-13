@@ -10,8 +10,8 @@
                 </div>
                  <RadioGroup v-model="info.sex" @change="changeModel" class="sexradio">
                     <span>性别：</span>
-                    <Radio :label="0" :value="0" class="myradio" checked="">男</Radio>
-                    <Radio :label="1" :value="1" class="myradio">女</Radio>
+                    <Radio :label="0" :value="0" class="myradio" :checked="isCheck">男</Radio>
+                    <Radio :label="1" :value="1" class="myradio" :checked="isChecks">女</Radio>
                 </RadioGroup>
                 <!--<div class="inp">-->
                     <!--<span>-->
@@ -89,6 +89,22 @@ export default {
       detail: "ss",
       fuckDefault: '1'
     };
+  },
+  computed: {
+    isCheck  () {
+        if(this.info.sex == 0) {
+            return true
+        } else {
+            return false
+        }
+    },
+    isChecks  () {
+        if(this.info.sex == 1) {
+            return true
+        } else {
+            return false
+        }
+    }
   },
   methods: {
     init() {
@@ -172,9 +188,9 @@ export default {
           console.log(res, "设置地址");
           if (res.code == 1) {
             // this.$Toast({ content: "添加成功", type: "success" });
-            // setTimeout(() => {
-            //   this.goBack();
-            // }, 1000);
+            setTimeout(() => {
+              this.goBack();
+            }, 1000);
           }
         });
 
