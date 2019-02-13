@@ -8,7 +8,7 @@
         <div>
           <i></i>
         </div>
-        <input type="number" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入账号" v-model="name" @focus='focu(0)' @blur="blur">
+        <input type="number" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入手机号码" v-model="name" @focus='focu(0)' @blur="blur">
       </li>
       <li class="code" :class="isfocu == 1 && 'active'">
         <div>

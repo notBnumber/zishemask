@@ -241,7 +241,7 @@ export default {
           @include bg-icon(170px);
         }
         span {
-          font-size: 18px;
+          font-size: 13px;
           font-family: PingFang-SC-Bold;
           font-weight: bold;
           color: rgba(68, 68, 68, 1);
