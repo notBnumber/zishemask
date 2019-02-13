@@ -7,7 +7,7 @@
         <div class="monDiv">
           <img src="https://cssy.hn90qc.com/icon/mymoneyicon.png" alt="">
           <p>大米</p>
-          <p>￥80.00</p>
+          <p>￥{{info.wallet}}</p>
         </div>
         <div class="rightDiv" @click="pageTo('/pages/my/getMoney')">提现</div>
       </div>
@@ -23,7 +23,7 @@
         功能
       </div>
       <div class="mainContent">
-        <div class="contentOne" @click="pageTo('/pages/my/vipcard')">
+        <div class="contentOne" @click="tovip">
           <img src="https://cssy.hn90qc.com/icon/teamicon.png" alt="">
 
           <div class="cao">
@@ -42,6 +42,7 @@
         </div>
       </div>
     </div>
+    <i-toast id="toast" />
   </div>
 </template>
 
@@ -56,7 +57,8 @@ export default {
   data() {
     return {
       addList: [],
-      isLogin: true
+      isLogin: true,
+      info: {}
     };
   },
   methods: {
@@ -74,12 +76,42 @@ export default {
         })
         .then(res => {
           if (res.code == 1) {
-            this.pageTo('/pages/my/setpsw')
+            this.pageTo("/pages/my/setpsw");
           } else {
-            this.pageTo('/pages/login/newzhifupwd')
+            this.pageTo("/pages/login/newzhifupwd");
           }
         });
+    },
+    init() {
+      this.$API
+        .Getwallet({
+          i: 2,
+          c: "entry",
+          a: "wxapp",
+          m: "mask",
+          do: "Getwallet",
+          uid: wx.getStorageSync("sessionId")
+        })
+        .then(res => {
+          if (res.code == 1) {
+            this.info = res.data;
+          } else {
+          }
+        });
+    },
+    tovip() {
+      if (this.info.level == 0) {
+        this.$Toast({
+          content: "不是会员，不可领取",
+          type: "warning"
+        });
+      } else {
+        this.pageTo('/pages/my/vipcard')
+      }
     }
+  },
+  onShow() {
+    this.init();
   }
 };
 </script>

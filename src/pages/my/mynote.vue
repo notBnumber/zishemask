@@ -4,7 +4,7 @@
     <div class="bodys">
       <div class="title">
         <!-- v-bind:class="tabActive==1?'title_left': 'title_left ischose'" -->
-        <span  class="title_left" :class="[tabActive==0 && 'ischose']" @click="setActive(0)">
+        <span class="title_left" :class="[tabActive==0 && 'ischose']" @click="setActive(0)">
           <ul>
             <li>全部</li>
           </ul>
@@ -22,15 +22,15 @@
       </div>
       <div class="main">
         <ul>
-          <li class="main_li" v-for="(item, index) in 10" :key="index" >
+          <li class="main_li" v-for="(item, index) in info" :key="index">
             <span class="main_right">
               <ul>
-                <li class="liOne">合伙人如梦</li>
-                <li>2019-01-29</li>
+                <li class="liOne">{{item.rcomment}}</li>
+                <li>{{item.raddtime}}</li>
               </ul>
             </span>
             <span class="main_footer">
-                +50
+              +{{item.rmoney}}
             </span>
           </li>
         </ul>
@@ -46,19 +46,50 @@ export default {
     return {
       addList: [],
       tabActive: 0,
-      isDownRefresh: false
+      isDownRefresh: false,
+      type:2,
+      info:[]
     };
   },
   methods: {
     setActive(index) {
-      console.log(index,'选择');
-      
+      console.log(index, "选择");
+
       this.tabActive = index;
+      if(this.tabActive == 0) {
+        this.type = 2
+      } else if (this.tabActive == 1) {
+        this.type = 0
+      } else if(this.tabActive == 2) {
+        this.type = 1
+      }
+      this.init()
       //            this.$Toast({
       //                content: "选中"+index,
       //                type: "warning"
       //            });
+    },
+    init() {
+      this.$API
+        .Getrecord({
+          i: 2,
+          c: "entry",
+          a: "wxapp",
+          m: "mask",
+          do: "Getrecord",
+          uid: wx.getStorageSync("sessionId"),
+          type:this.type
+        })
+        .then(res => {
+          if (res.code == 1) {
+            this.info = res.data;
+          } else {
+          }
+        });
     }
+  },
+  onShow() {
+    this.init()
   }
 };
 </script>
@@ -118,10 +149,10 @@ export default {
   margin-left: 18px;
 }
 .main_footer {
- padding-top: 8px;
+  padding-top: 8px;
   position: absolute;
   right: 35px;
-    font-size: 14px;
+  font-size: 14px;
   color: #e9323c;
 }
 .main_right li:last-child {
@@ -144,6 +175,5 @@ export default {
 .liOne {
   font-size: 14px;
   color: #898989;
-
 }
 </style>

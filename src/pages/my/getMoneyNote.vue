@@ -5,18 +5,22 @@
 
       <div class="main">
         <div class="main_title">
-        2019-02
+          <div class="birthday">
+            <picker mode="date" value="date" @change="bindDateChange">
+              <span>{{mydate}}</span>
+            </picker>
+          </div>
         </div>
         <ul class="fuck">
-          <li class="main_li" v-for="(item, index) in 10" :key="index" >
+          <li class="main_li" v-for="(item, index) in info" :key="index">
             <span class="main_right">
               <ul>
-                <li class="liOne">合伙人如梦</li>
-                <li>2019-01-29</li>
+                <li class="liOne">{{item.rbuyername}}</li>
+                <li>{{item.raddtime}}</li>
               </ul>
             </span>
             <span class="main_footer">
-                +50
+              +{{item.rmoney}}
             </span>
           </li>
         </ul>
@@ -32,19 +36,59 @@ export default {
     return {
       addList: [],
       tabActive: 0,
-      isDownRefresh: false
+      isDownRefresh: false,
+      mydate:'',
+      nn:'',
+      info:[]
     };
   },
   methods: {
+    bindDateChange(e) {
+      console.log("日期携带值为", e.mp.detail.value);
+      var birthday = e.mp.detail.value;
+      var str = birthday.split('-')
+      this.mydate = e.mp.detail.value;
+      this.init()
+    },
     setActive(index) {
-      console.log(index,'选择');
-      
+      console.log(index, "选择");
+
       this.tabActive = index;
       //            this.$Toast({
       //                content: "选中"+index,
       //                type: "warning"
       //            });
+    },
+    init() {
+      this.$API
+        .Getwithdrawal({
+          i: 2,
+          c: "entry",
+          a: "wxapp",
+          m: "mask",
+          do: "Getwithdrawal",
+          uid: wx.getStorageSync("sessionId"),
+          dates: this.mydate
+        })
+        .then(res => {
+          if (res.code == 1) {
+            this.info = res.data;
+            console.log(this.info);
+            
+          } else {
+          }
+        });
     }
+  },
+  onShow() {
+    var date=new Date;
+ var year=date.getFullYear(); 
+ var month=date.getMonth()+1;
+  var day = date.getDate();   
+ month =(month<10 ? "0"+month:month); 
+  day =(day<10 ? "0"+day:day); 
+  this.mydate = (year.toString()+'-'+month.toString()+'-'+day.toString());
+  this.init()
   }
 };
 </script>
@@ -111,10 +155,10 @@ export default {
   margin-left: 18px;
 }
 .main_footer {
- padding-top: 8px;
+  padding-top: 8px;
   position: absolute;
   right: 35px;
-    font-size: 14px;
+  font-size: 14px;
   color: #e9323c;
 }
 .main_right li:last-child {
@@ -137,6 +181,5 @@ export default {
 .liOne {
   font-size: 14px;
   color: #898989;
-
 }
 </style>
