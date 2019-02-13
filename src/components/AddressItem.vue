@@ -47,7 +47,7 @@
       handleClose(id){
         this.modalClose('modal')
         this.$API.DelAdd({
-          i: 8,
+          i: 2,
           c: "entry",
           a: "wxapp",
           m: "mask",
