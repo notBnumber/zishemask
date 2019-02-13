@@ -18,7 +18,12 @@
         </div>
         <div class="headBottom">
           <div class="shenfen">
-            <span>合伙人</span>
+            <span v-if="level==0">普通用户</span>
+            <span v-if="level==1">代理会员</span>
+            <span v-if="level==2">银卡会员</span>
+            <span v-if="level==3">金卡会员</span>
+            <span v-if="level==4">市代会员</span>
+            <span v-if="level==5">省代会员</span>
           </div>
 
         </div>
@@ -39,18 +44,18 @@
         <div class="bigTwo">
           <div class="one">
             <h2>直接销售额</h2>
-            <progress percent="20" show-info />
+            <progress percent="ztbili" show-info />
             <div class="jb">
               <p>金额成交量</p>
-              <p>19/3990元</p>
+              <p>{{vipinfo.completenum}}/{{vipinfo.zhituinum}}元</p>
             </div>
           </div>
           <div class="one">
             <h2>银卡代理</h2>
-            <progress percent="20" show-info />
+            <progress percent="yinkabili" show-info />
             <div class="jb">
               <p>推广成交量</p>
-              <p>19/99人</p>
+              <p>{{vipinfo.completeyinkanum}}/{{vipinfo.yingkanum}}人</p>
             </div>
           </div>
 
@@ -72,14 +77,50 @@ export default {
   data() {
     return {
       addList: [],
-      isLogin: true
+      isLogin: true,
+        vipinfo:{},
+        level:0,
+        ztbili:0,
+        yinkabili:0
     };
   },
   methods: {
     jjjj(index) {
       console.log(index, "子传的值");
+    },
+      getinfo(){
+          let that=this
+          this.$API
+              .Myvip({
+                  i: 2,
+                  c: "entry",
+                  a: "wxapp",
+                  m: "mask",
+                  do: "Myvip",
+                  uid: wx.getStorageSync("sessionId")
+              })
+              .then(res => {
+                  console.log(res, "vip信息");
+                  if (res.code == 1) {
+                      that.vipinfo = res.data;
+                      that.ztbili = (res.data.completenum/res.data.zhituinum).toFixed(2);
+                      that.yinkabili = (res.data.completeyinkanum/res.data.yingkanum).toFixed(2);
+                      console.log(that.ztbili, "推广比例");
+                      console.log(that.yinkabili, "银卡比例");
+                      console.log(res.data.completenum, "完成数量");
+                      console.log(res.data.zhituinum, "推至金额数量");
+                  }
+              });
+      }
+  },
+    onLoad(e){
+        console.log(e, "onload加载数据");
+    },
+    onShow(){
+        this.getinfo();
+        console.log(this.$route.query.level,'携带参数')
+        this.level=this.$route.query.level
     }
-  }
 };
 </script>
 

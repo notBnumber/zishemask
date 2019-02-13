@@ -131,6 +131,10 @@ Updatepaypsw = this.requestPost('')
 GetUserinfo = this.requestPost('')
 // 编辑个人信息
 UpdateInfo = this.requestPost('')
+  //我的特权页面
+    VipindexInfo=this.requestPost('')
+    //我的会员卡信息
+    Myvip=this.requestPost('')
   // 首页轮播图
   ads = this.requestPost('/api/shop/index/ads')
   // 商品列表
