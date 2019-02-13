@@ -138,7 +138,7 @@ export default {
       }
       this.$API
         .ForgetOrAddpaypsw({
-          i: 2,
+          i: 8,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -155,7 +155,8 @@ export default {
           console.log(res, "注册");
           if (res.code == 1) {
             console.log();
-            this.switchTab("/pages/home/index");
+            // this.switchTab("/pages/home/index");
+            // this.goBack()
           } else {
             this.$Toast({
               content: res.msg,
