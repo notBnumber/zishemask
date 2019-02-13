@@ -8,21 +8,20 @@
                     <span>姓名：</span>
                     <input title="姓名" placeholder="请输入名字" v-model="info.user_name" />
                 </div>
-                <RadioGroup @change="changeModel" class="sexradio">
+                 <RadioGroup v-model="info.sex" @change="changeModel" class="sexradio">
                     <span>性别：</span>
-                    <Radio :label="0" :value="0" class="myradio"  v-model="fuckDefault">男</Radio>
-                    <Radio :label="1" :value="1" class="myradio"  v-model="fuckDefault">女</Radio>
+                    <Radio :label="0" :value="0" class="myradio" checked="">男</Radio>
+                    <Radio :label="1" :value="1" class="myradio">女</Radio>
                 </RadioGroup>
-                <!-- <div class="inp">
-                    <span>
-                        性别:
-                    </span>
-                    <div v-for="(items , index ) in list" :key="index">
-                        <input type="radio" :value="index" v-model="fuckDefault">
-                        <span>{{items.title}}</span>
-                    </div>
-
-                </div> -->
+                <!--<div class="inp">-->
+                    <!--<span>-->
+                        <!--性别:-->
+                    <!--</span>-->
+                    <!--<div v-for="(items , index ) in list" :key="index">-->
+                        <!--<input type="radio" name="radios" :value="index" v-model="fuckDefault">-->
+                        <!--<span>{{items.title}}</span>-->
+                    <!--</div>-->
+                <!--</div>-->
                 <div class="inp">
                     <span>
                         QQ：
@@ -88,7 +87,7 @@ export default {
       },
       list: [{ title: "男" }, { title: "女" }],
       detail: "ss",
-      fuckDefault: 0
+      fuckDefault: '1'
     };
   },
   methods: {
