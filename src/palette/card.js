@@ -35,9 +35,9 @@ export default class LastMayday {
               url: this.cardInfo.myqrcode,//二维码
               css: {
                   left: '510rpx',
-                  top: '480rpx',
-                  width: '300rpx',
-                  height: '300rpx',
+                  top: '337rpx',
+                  width: '310rpx',
+                  height: '310rpx',
                   borderRadius: '10rpx',
                   align: 'right'
               }
@@ -50,7 +50,7 @@ export default class LastMayday {
                 top: '50rpx',
                 fontSize: '35rpx',
                 align: 'left',
-                color:'white',
+                color:'black',
                 maxLines:"1",
                 width:'350rpx'
             }
