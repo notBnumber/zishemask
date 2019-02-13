@@ -36,7 +36,7 @@
       </span>
       <button class="goPay" @click="goPay">立即支付</button>
     </div>
-
+    <i-toast id="toast" />
   </div>
 </template>
 
@@ -140,6 +140,10 @@ export default {
               console.log('提交成功');
               vm.pageTo("/pages/shopCart/selectPay",{money:Number(this.allPrice) + Number(this.freight),id:res.data})
             } else {
+                this.$Toast({
+                    content: res.msg,
+                    type: "warning"
+                });
               // this.pageTo('/pages/shopCart/payResult', {isSuccess: false})
             }
           });

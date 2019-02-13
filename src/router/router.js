@@ -12,7 +12,7 @@ module.exports = [
   {
     path: "pages/login/hua",
     config: {
-      "navigationBarTitleText": "首页",
+      "navigationBarTitleText": "生成海报",
       "usingComponents": {
         "i-toast": "/iView/toast/index",
         'painter': '/static/Painter/painter',
@@ -196,7 +196,10 @@ module.exports = [
     path: "pages/shopCart/confirmOrder",
     config: {
       "navigationBarTitleText": "确认订单",
-      "enablePullDownRefresh": false
+      "enablePullDownRefresh": false,
+        "usingComponents": {
+            "i-toast": "/iView/toast/index",
+        }
     }
   },
   {

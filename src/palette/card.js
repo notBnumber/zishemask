@@ -22,8 +22,8 @@ export default class LastMayday {
             type: 'image',
             url: this.cardInfo.avatar,//头像
             css: {
-              top: '30rpx',
-              left: '180rpx',
+              top: '48rpx',
+              left: '185rpx',
               width: '132rpx',
               height: '132rpx',
               borderRadius: '10rpx',
@@ -46,13 +46,14 @@ export default class LastMayday {
             type: 'text',
             text: this.cardInfo.nickname,//昵称
             css: {
-                left: '200rpx',
+                left: '205rpx',
                 top: '50rpx',
                 fontSize: '35rpx',
                 align: 'left',
                 color:'black',
                 maxLines:"1",
-                width:'350rpx'
+                width:'350rpx',
+                fontWeight:"bold"
             }
           }
       ]
