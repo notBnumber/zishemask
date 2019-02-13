@@ -38,11 +38,11 @@
       <div class="bigDiv">
         <div class="bigTwo">
           <div class="one">
-            <h2>直推人数</h2>
+            <h2>直接销售额</h2>
             <progress percent="20" show-info />
             <div class="jb">
-              <p>推广成交量</p>
-              <p>19/99人</p>
+              <p>金额成交量</p>
+              <p>19/3990元</p>
             </div>
           </div>
           <div class="one">
