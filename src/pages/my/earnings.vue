@@ -47,8 +47,9 @@
               <!-- <span v-if="item.rsettlement==1">已结算</span> -->
               <span >待结算</span>
             </span>
+            <span class="money">￥{{item.rmoney}}</span>
             <span class="main_footer">
-              <img src="https://jin.itxiaolong.cn/icon/moreicon.png" />
+              <img src="https://cssy.hn90qc.com/icon/moreicon.png" />
             </span>
           </li>
         </ul>
@@ -81,7 +82,7 @@ export default {
       this.typemsg = "全部";
       this.$API
         .MyEarnings({
-          i: 8,
+          i: 2,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -282,6 +283,14 @@ export default {
     color: #4d4d4d;
     padding: 5px 15px;
   }
+}
+.money{
+  text-align: center;
+  color: #ED1731;
+  font-size: 13px;
+ display: flex;
+  line-height: 50px;
+  margin-left: 16px;
 }
 .main {
   width: 90%;

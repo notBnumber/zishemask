@@ -17,16 +17,16 @@
 
         </div>
         <div class="headBottom">
+          <!--<div class="shenfen">-->
+            <!--<img src="https://cssy.hn90qc.com/icon/vip2.png" alt="">-->
+            <!--<span>:合伙人</span>-->
+          <!--</div>-->
           <div class="shenfen">
-            <img src="https://jin.itxiaolong.cn/icon/vip2.png" alt="">
-            <span>:合伙人</span>
-          </div>
-          <div class="shenfen">
-            <img src="https://jin.itxiaolong.cn/icon/leve_icon.png" alt="">
-            <span>:钻石合伙人</span>
+            <img src="https://cssy.hn90qc.com/icon/leve_icon.png" alt="">
+            <span>:普通用户</span>
           </div>
         </div>
-        <!-- <img src="https://jin.itxiaolong.cn/icon/leve_icon.png" alt=""> -->
+        <!-- <img src="https://cssy.hn90qc.com/icon/leve_icon.png" alt=""> -->
       </div>
       <!-- <button class="login" @click="goLogin('/pages/login/login')" v-if="!isLogin">登录/注册</button> -->
       <!-- <div class="head-pic" @click="pageTo('/pages/my/noticeCenter')" v-if="isLogin">
@@ -38,7 +38,7 @@
     <div class="main">
       <div class="one" @click="pageTo('/pages/my/toge')">
         <div class="leftImg">
-          <img src="https://jin.itxiaolong.cn/icon/togeticon.png" alt="">
+          <img src="https://cssy.hn90qc.com/icon/togeticon.png" alt="">
         </div>
         <div class="rightDiv" >
           <p class="p1">合伙人</p>
@@ -48,7 +48,7 @@
       </div>
       <div class="one" @click="pageTo('/pages/my/fuckvip')">
         <div class="leftImg">
-          <img src="https://jin.itxiaolong.cn/icon/vipicon.png" alt="">
+          <img src="https://cssy.hn90qc.com/icon/vipicon.png" alt="">
         </div>
         <div class="rightDiv">
           <p class="p1">会员卡</p>
@@ -58,7 +58,7 @@
       </div>
       <div class="one"  @click="pageTo('/pages/my/quyu')">
         <div class="leftImg">
-          <img src="https://jin.itxiaolong.cn/icon/quyuicon.png" alt="">
+          <img src="https://cssy.hn90qc.com/icon/quyuicon.png" alt="">
         </div>
         <div class="rightDiv">
           <p class="p1">区域商</p>

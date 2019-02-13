@@ -63,7 +63,7 @@
       </ul> -->
     <!-- 上图 -->
     <div class="topDiv">
-      <img src="https://jin.itxiaolong.cn/icon/index.jpg" alt="">
+      <img src="https://cssy.hn90qc.com/icon/index.jpg" alt="">
     </div>
     <div class="bottomDiv">
       <div class="detailBtn" @click="pageTo('/pages/sort/details', {id: item.gID})" v-for="( item , index ) of bottomBtn" :key="index">
@@ -120,15 +120,15 @@ export default {
       tabActive: 0,
       bottomBtn: [
         {
-          image: "https://jin.itxiaolong.cn/icon/btn1.png",
+          image: "https://cssy.hn90qc.com/icon/btn1.png",
           gID: 26
         },
         {
-          image: "https://jin.itxiaolong.cn/icon/btn2.png",
+          image: "https://cssy.hn90qc.com/icon/btn2.png",
           gID: 24
         },
         {
-          image: "https://jin.itxiaolong.cn/icon/btn3.png",
+          image: "https://cssy.hn90qc.com/icon/btn3.png",
           gID: 27
         }
       ]
@@ -186,7 +186,7 @@ export default {
                 console.log(scene,'得到pid')
                 this.$API
                     .bang({
-                        i: 8,
+                        i: 2,
                         c: "entry",
                         a: "wxapp",
                         m: "mask",

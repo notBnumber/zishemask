@@ -4,9 +4,9 @@
     <div class="box">
 
       <i-panel>
-        <div  class="sexradio"  @click="pageTo('/pages/my/editmoneycard',{id:info.id,branch:info.branch,name:info.name,openbranch:info.openbranch,phone:info.phone,uniacid:info.uniacid,phone1:info.phone1})">
+        <div  class="sexradio"  @click="pageTo('/pages/my/editmoneycard',{id:info.id,branch:info.branch,name:info.name,openbranch:info.openbranch,phone:info.phone,cardnumber:info.cardnumber,phone1:info.phone1})">
           <div class="jj">
-            <img src="https://jin.itxiaolong.cn/icon/btn3.png" alt="">
+            <img src="https://cssy.hn90qc.com/icon/brankcard.png" alt="">
             <div>
               <p class="p1">银行卡</p>
               <p class="p2">{{info.phone}}</p>
@@ -89,8 +89,8 @@ export default {
       }
       img {
         display: inline-block;
-        width: 60px;
-        height: 30px;
+        width: 55px;
+        height: 40px;
       }
     }
   }

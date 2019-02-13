@@ -73,7 +73,7 @@ export default {
             }
             this.$API
                 .Smscode({
-                    i: 8,
+                    i: 2,
                     c: "entry",
                     a: "wxapp",
                     m: "mask",
@@ -133,7 +133,7 @@ export default {
       }
       this.$API
         .RegorFind({
-          i: 8,
+          i: 2,
           c: "entry",
           a: "wxapp",
           m: "mask",

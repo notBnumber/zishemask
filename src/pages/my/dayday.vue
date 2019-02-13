@@ -1,7 +1,7 @@
 <template>
   <div class="my-template">
     <div class="mImg">
-      <img src="https://jin.itxiaolong.cn/icon/qiandao.jpg" alt="">
+      <img src="https://cssy.hn90qc.com/icon/qiandao.jpg" alt="">
     </div>
     <p class="caonima">今天你已经签到了</p>
 

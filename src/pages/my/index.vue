@@ -18,11 +18,11 @@
             <open-data type="userNickName"></open-data>
           </span>
           <div class="shenfen">
-            <img src="https://jin.itxiaolong.cn/icon/leve_icon.png" alt="">
+            <img src="https://cssy.hn90qc.com/icon/leve_icon.png" alt="">
             <span>:游客</span>
           </div>
         </div>
-        <!-- <img src="https://jin.itxiaolong.cn/icon/leve_icon.png" alt=""> -->
+        <!-- <img src="https://cssy.hn90qc.com/icon/leve_icon.png" alt=""> -->
       </div>
       <button class="login" @click="goLogin('/pages/login/login')" v-if="!isLogin">登录/注册</button>
       <!-- <div class="head-pic" @click="pageTo('/pages/my/noticeCenter')" v-if="isLogin">
@@ -142,7 +142,7 @@ export default {
       let vm = this;
         this.$API
             .tousucall({
-                i: 8,
+                i: 2,
                 c: "entry",
                 a: "wxapp",
                 m: "mask",
@@ -182,7 +182,7 @@ export default {
       getcall(){
           this.$API
               .tousucall({
-                  i: 8,
+                  i: 2,
                   c: "entry",
                   a: "wxapp",
                   m: "mask",
@@ -441,28 +441,28 @@ export default {
             margin-right: 5px;
             @include bg-icon(20px);
             &.evaluate {
-              background-image: url("https://jin.itxiaolong.cn/icon/icon9.png");
+              background-image: url("https://cssy.hn90qc.com/icon/icon9.png");
             }
             &.Collection {
-              background-image: url("https://jin.itxiaolong.cn/icon/icon6.png");
+              background-image: url("https://cssy.hn90qc.com/icon/icon6.png");
             }
             &.address {
-              background-image: url("https://jin.itxiaolong.cn/icon/icon4.png");
+              background-image: url("https://cssy.hn90qc.com/icon/icon4.png");
             }
             &.Help {
-              background-image: url("https://jin.itxiaolong.cn/icon/icon8.png");
+              background-image: url("https://cssy.hn90qc.com/icon/icon8.png");
             }
             &.setting {
-              background-image: url("https://jin.itxiaolong.cn/icon/icon1.png");
+              background-image: url("https://cssy.hn90qc.com/icon/icon1.png");
             }
             &.myRight {
-              background-image: url("https://jin.itxiaolong.cn/icon/icon7.png");
+              background-image: url("https://cssy.hn90qc.com/icon/icon7.png");
             }
             &.distribution {
-              background-image: url("https://jin.itxiaolong.cn/icon/icon2.png");
+              background-image: url("https://cssy.hn90qc.com/icon/icon2.png");
             }
             &.complaints {
-              background-image: url("https://jin.itxiaolong.cn/icon/tousuicon.png");
+              background-image: url("https://cssy.hn90qc.com/icon/tousuicon.png");
             }
           }
         }

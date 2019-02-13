@@ -4,22 +4,22 @@
 
     </div>
     <div class="mImg">
-      <img src="https://jin.itxiaolong.cn/icon/vip.jpg" alt="">
+      <img src="https://cssy.hn90qc.com/icon/vip.jpg" alt="">
     </div>
     <p>使用时请出示此卡</p>
 
 
     <div class="main_title">
       <div class="tab">
-        <p>消费金额</p>
+        <p>消费总额</p>
         <p>0元</p>
       </div>
       <div class="tab">
-        <p>消费金额</p>
-        <p>0元</p>
+        <p>剩余积分</p>
+        <p>0分</p>
       </div>
       <div class="tab notab">
-        <p>消费金额</p>
+        <p>剩余金额</p>
         <p>0元</p>
       </div>
     </div>

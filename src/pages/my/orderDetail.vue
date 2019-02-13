@@ -143,7 +143,7 @@ export default {
           if (res.confirm) {
             VM.$API
               .CancelMyOrder({
-                i: 8,
+                i: 2,
                 c: "entry",
                 a: "wxapp",
                 m: "mask",
@@ -168,7 +168,7 @@ export default {
     init() {
       this.$API
         .GetDetailOrder({
-          i: 8,
+          i: 2,
           c: "entry",
           a: "wxapp",
           m: "mask",

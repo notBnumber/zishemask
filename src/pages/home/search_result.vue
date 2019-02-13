@@ -93,7 +93,7 @@ export default {
       // } else {
         this.$API
           .right({
-            i: 8,
+            i: 2,
             c: "entry",
             a: "wxapp",
             m: "mask",

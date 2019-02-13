@@ -6,7 +6,7 @@
       <i-panel >
         <RadioGroup v-model="sexs" @change="changeModel" class="sexradio">
           <div class="jj">
-            <img src="https://jin.itxiaolong.cn/icon/btn3.png" alt="">
+            <img src="https://cssy.hn90qc.com/icon/brankcard.png" alt="">
             <div>
               <p class="p1">银行卡</p>
               <p class="p2">{{info.phone}}</p>
@@ -18,7 +18,7 @@
       </i-panel>
       <div class="bbtn">
         <div class="bbtn1" @click="pageTo('/pages/my/getMoneyNote')">提现记录</div>
-        <div class="bbtn2" @click="pageTo('/pages/my/moneycard',{id:info.id,branch:info.branch,name:info.name,openbranch:info.openbranch,phone:info.phone,uniacid:info.uniacid,phone1:info.phone1})">提现账号管理</div>
+        <div class="bbtn2" @click="pageTo('/pages/my/moneycard',{id:info.id,branch:info.branch,name:info.name,openbranch:info.openbranch,phone:info.phone,cardnumber:info.cardnumber,phone1:info.phone1})">提现账号管理</div>
         <div class="bbtn3">确认提现账号</div>
       </div>
 
@@ -41,7 +41,7 @@ export default {
     init() {
       this.$API
         .GetCard({
-          i: 8,
+          i: 2,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -112,8 +112,8 @@ export default {
       }
       img {
         display: inline-block;
-        width: 60px;
-        height: 30px;
+        width: 55px;
+        height: 40px;
       }
     }
   }
@@ -139,8 +139,8 @@ export default {
       align-items: center;
       padding: 7px 10px;
       box-sizing: border-box;
-      border: 0.5px solid #333;
-      color: #000;
+      border: 0.5px solid #D6D6D6;
+      color: #585858;
     }
     .bbtn2 {
       background-color: #1e90ff;

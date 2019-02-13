@@ -31,7 +31,7 @@
               </ul>
             </span>
             <span class="main_footer">
-              <img src="https://jin.itxiaolong.cn/icon/moreicon.png" />
+              <img src="https://cssy.hn90qc.com/icon/moreicon.png" />
             </span>
           </li>
         </ul>
@@ -46,7 +46,7 @@
               </ul>
             </span>
             <span class="main_footer">
-              <img src="https://jin.itxiaolong.cn/icon/moreicon.png" />
+              <img src="https://cssy.hn90qc.com/icon/moreicon.png" />
             </span>
           </li>
         </ul>
@@ -103,7 +103,7 @@ export default {
     inits() {
       this.$API
         .Team({
-          i: 8,
+          i: 2,
           c: "entry",
           a: "wxapp",
           m: "mask",
