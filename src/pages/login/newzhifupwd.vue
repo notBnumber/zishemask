@@ -156,7 +156,7 @@ export default {
           if (res.code == 1) {
             console.log();
             // this.switchTab("/pages/home/index");
-            // this.goBack()
+            this.goBack()
           } else {
             this.$Toast({
               content: res.msg,

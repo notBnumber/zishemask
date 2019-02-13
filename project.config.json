@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 17,
+			"current": 18,
 			"list": [
 				{
 					"id": -1,
@@ -141,6 +141,13 @@
 					"id": -1,
 					"name": "选择银行卡",
 					"pathName": "pages/my/getMoney",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "修改支付密码",
+					"pathName": "pages/my/setpsw",
 					"scene": null
 				}
 			]

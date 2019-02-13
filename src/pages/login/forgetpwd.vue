@@ -8,7 +8,7 @@
         <div>
           <i></i>
         </div>
-        <input type="number" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入账号" v-model="name" @focus='focu(0)' @blur="blur">
+        <input type="number" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入手机号码" v-model="name" @focus='focu(0)' @blur="blur">
       </li>
       <li class="code" :class="isfocu == 1 && 'active'">
         <div>
@@ -132,26 +132,26 @@ export default {
         return;
       }
       this.$API
-        .RegorFind({
+        .ForgetOrAddpaypsw({
           i: 2,
           c: "entry",
           a: "wxapp",
           m: "mask",
-          do: "RegorFind",
+          do: "ForgetOrAddpaypsw",
           phone: this.name,
           code: this.code,
-          psw: this.password,
+          paypsw: this.password,
           uid:
             wx.getStorageSync("sessionId") == ""
               ? ""
-              : wx.getStorageSync("sessionId"),
-          pid: wx.getStorageSync("pid") == "" ? "" : wx.getStorageSync("pid")
+              : wx.getStorageSync("sessionId")
         })
         .then(res => {
           console.log(res, "注册");
           if (res.code == 1) {
             console.log();
-            this.switchTab("/pages/home/index");
+            // this.switchTab("/pages/home/index");
+            this.goBack()
           } else {
             this.$Toast({
               content: res.msg,

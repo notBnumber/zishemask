@@ -122,10 +122,15 @@ Sqproorcity = this.requestPost('')
 
 // 是否有密码
 Getpaypsw  = this.requestPost('')
-ForgetOrAddpaypsw = this.requestPost('')
+
 // 忘记 新增支付密码
-
-
+ForgetOrAddpaypsw = this.requestPost('')
+// 修改密码
+Updatepaypsw = this.requestPost('')
+// 获取个人信息
+GetUserinfo = this.requestPost('')
+// 编辑个人信息
+UpdateInfo = this.requestPost('')
   // 首页轮播图
   ads = this.requestPost('/api/shop/index/ads')
   // 商品列表
