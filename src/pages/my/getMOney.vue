@@ -19,7 +19,7 @@
       <div class="bbtn">
         <div class="bbtn1" @click="pageTo('/pages/my/getMoneyNote')">提现记录</div>
         <div class="bbtn2" @click="pageTo('/pages/my/moneycard',{id:info.id,branch:info.branch,name:info.name,openbranch:info.openbranch,phone:info.phone,cardnumber:info.cardnumber,phone1:info.phone1})">提现账号管理</div>
-        <div class="bbtn3">确认提现账号</div>
+        <div class="bbtn3" @click="pageTo('/pages/login/shenqingtixian',{id:info.id})">确认提现账号</div>
       </div>
 
     </div>

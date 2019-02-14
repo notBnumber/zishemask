@@ -68,7 +68,8 @@
     "pages/my/getMoneyNote",
     "pages/my/moneycard",
     "pages/my/editmoneycard",
-    "pages/my/newsetpsw"
+    "pages/my/newsetpsw",
+    "pages/login/shenqingtixian"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

@@ -2,26 +2,26 @@
   <!-- 忘记密码 -->
   <div class="forget-template">
     <!-- <headers isBack></headers> -->
-    <span class="title">忘记支付密码</span>
+    <span class="title">申请提现</span>
     <ul class='ul'>
       <li class="account" :class="isfocu == 0 && 'active'">
         <div>
           <i></i>
         </div>
-        <input type="number" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入手机号码" v-model="name" @focus='focu(0)' @blur="blur">
+        <input type="number" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入提现金额" v-model="name" @focus='focu(0)' @blur="blur">
       </li>
-      <li class="code" :class="isfocu == 1 && 'active'">
+      <!-- <li class="code" :class="isfocu == 1 && 'active'">
         <div>
           <i></i>
         </div>
         <input type="number" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入验证码" v-model="code" @focus='focu(1)' @blur="blur">
         <button type="button" @click="getCode">{{message}}</button>
-      </li>
+      </li> -->
       <li class="password" :class="isfocu == 2 && 'active'">
         <div>
           <i></i>
         </div>
-        <input type="password" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入新密码" v-model="password" @focus='focu(2)' @blur="blur">
+        <input type="password" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入支付密码" v-model="password" @focus='focu(2)' @blur="blur">
       </li>
       <!-- <li class="password" :class="isfocu == 3 && 'active'">
         <div><i></i></div>
@@ -30,7 +30,7 @@
       </li> -->
     </ul>
     <div class="btn">
-      <button type="button" :disabled=" !name || !code || !password " @click="changePwd">更改密码</button>
+      <button type="button" :disabled=" !name  || !password " @click="changePwd">提交申请</button>
     </div>
     <i-toast id="toast" />
   </div>
@@ -51,8 +51,8 @@ export default {
       repeatpass: "",
       isfocu: null,
       phoneRegexp: /^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\d{8}$/,
-        message: "获取验证码",
-        timeState: false
+      message: "获取验证码",
+      timeState: false
     };
   },
   methods: {
@@ -63,84 +63,84 @@ export default {
       this.isfocu = null;
     },
     getCode() {
-        if (this.timeState == false) {
-            if (!this.phoneRegexp.test(this.name)) {
-                this.$Toast({
-                    content: "手机号码格式错误",
-                    type: "warning"
-                });
-                return;
-            }
-            this.$API
-                .Smscode({
-                    i: 2,
-                    c: "entry",
-                    a: "wxapp",
-                    m: "mask",
-                    do: "Smscode",
-                    tel: this.name
-                })
-                .then(res => {
-                    console.log(res, "请求验证码");
-                    if (res.code == 1) {
-                        console.log();
-                        let num = 60;
-                        this.getTime(num);
-                        this.$Toast({
-                            content: "信息已发送",
-                            type: "success"
-                        });
-                    } else {
-                        this.$Toast({
-                            content: res.msg,
-                            type: "warning"
-                        });
-                    }
-                });
-        }else {
-            this.$Toast({
+      if (this.timeState == false) {
+        // if (!this.phoneRegexp.test(this.name)) {
+        //     this.$Toast({
+        //         content: "手机号码格式错误",
+        //         type: "warning"
+        //     });
+        //     return;
+        // }
+        this.$API
+          .Smscode({
+            i: 2,
+            c: "entry",
+            a: "wxapp",
+            m: "mask",
+            do: "Smscode",
+            tel: this.name
+          })
+          .then(res => {
+            console.log(res, "请求验证码");
+            if (res.code == 1) {
+              console.log();
+              let num = 60;
+              // this.getTime(num);
+              this.$Toast({
                 content: "信息已发送",
+                type: "success"
+              });
+            } else {
+              this.$Toast({
+                content: res.msg,
                 type: "warning"
-            });
-        }
-    },
-      getTime(num1) {
-          let num = num1;
-          this.setTime = setInterval(() => {
-              if (num > 0) {
-                  console.log(num);
-
-                  // this.canSend = false;
-                  this.message = "重发(" + num + ")";
-                  this.timeState = true;
-                  num--;
-              } else {
-                  console.log(99999);
-                  this.timeState = false;
-                  clearInterval(this.setTime);
-                  this.message = "重新发送";
-                  // this.canSend = true;
-              }
-          }, 1000);
-      },
-    changePwd() {
-      if (!this.phoneRegexp.test(this.name)) {
+              });
+            }
+          });
+      } else {
         this.$Toast({
-          content: "手机号码格式错误",
-          type: "error"
+          content: "信息已发送",
+          type: "warning"
         });
-        return;
       }
+    },
+    getTime(num1) {
+      let num = num1;
+      this.setTime = setInterval(() => {
+        if (num > 0) {
+          console.log(num);
+
+          // this.canSend = false;
+          this.message = "重发(" + num + ")";
+          this.timeState = true;
+          num--;
+        } else {
+          console.log(99999);
+          this.timeState = false;
+          clearInterval(this.setTime);
+          this.message = "重新发送";
+          // this.canSend = true;
+        }
+      }, 1000);
+    },
+    changePwd() {
+      // if (!this.phoneRegexp.test(this.name)) {
+      //   this.$Toast({
+      //     content: "手机号码格式错误",
+      //     type: "error"
+      //   });
+      //   return;
+      // }
       this.$API
-        .ForgetOrAddpaypsw({
+        .Withdrawal({
           i: 2,
           c: "entry",
           a: "wxapp",
           m: "mask",
-          do: "ForgetOrAddpaypsw",
+          do: "Withdrawal",
           phone: this.name,
-          code: this.code,
           paypsw: this.password,
+          cid: this.$route.query.id,
           uid:
             wx.getStorageSync("sessionId") == ""
               ? ""
@@ -151,7 +151,11 @@ export default {
           if (res.code == 1) {
             console.log();
             // this.switchTab("/pages/home/index");
-            this.goBack()
+            // this.goBack()
+            this.$Toast({ content: res.msg, type: "success" });
+            setTimeout(() => {
+              this.goBack();
+            }, 1000);
           } else {
             this.$Toast({
               content: res.msg,
@@ -164,10 +168,10 @@ export default {
   mounted() {
     //do something after mounting vue instance
   },
-  onShow(){
-    this.name = '',
-    this.code='',
-    this.password=''
+  onShow() {
+    console.log(this.$route.query, "叽叽叽叽");
+
+    (this.name = ""), (this.code = ""), (this.password = "");
   }
 };
 </script>

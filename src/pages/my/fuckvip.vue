@@ -44,7 +44,7 @@
         <div class="bigTwo">
           <div class="one">
             <h2>直接销售额</h2>
-            <progress percent="ztbili" show-info />
+            <progress :percent="ztbili" show-info />
             <div class="jb">
               <p>金额成交量</p>
               <p>{{vipinfo.completenum}}/{{vipinfo.zhituinum}}元</p>
@@ -80,7 +80,7 @@ export default {
       isLogin: true,
         vipinfo:{},
         level:0,
-        ztbili:0,
+        ztbili:0.01,
         yinkabili:0
     };
   },
