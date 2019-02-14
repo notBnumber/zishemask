@@ -5,13 +5,13 @@
 
       <div class="inp">
         <span>姓名：</span>
-        <input title="姓名" placeholder="请填写收货人的名字" v-model="name"/>
+        <input title="姓名" placeholder="请填的名字" v-model="name"/>
       </div>
       <!-- <i-input  type="number" title="QQ" placeholder="请输入QQ"/> -->
       <!-- <i-input  type="text" title="微信" placeholder="请输入微信" /> -->
       <div class="inp">
         <span>手机号码：</span>
-        <input title="手机号" placeholder="请输入收货人的手机号码" v-model="phone"/>
+        <input title="手机号" placeholder="请输入手机号码" v-model="phone"/>
       </div>
       <div class="area">
         <span>常住地址:</span>

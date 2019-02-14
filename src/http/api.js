@@ -136,6 +136,8 @@ GetUserinfo = this.requestPost('')
 UpdateInfo = this.requestPost('')
   //我的特权页面
     VipindexInfo=this.requestPost('')
+    //区域商页面
+    AreaIndexinfo=this.requestPost('')
     //我的会员卡信息
     Myvip=this.requestPost('')
 // 大米用户等级

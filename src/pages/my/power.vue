@@ -62,7 +62,7 @@
         </div>
         <p>></p>
       </div>
-      <div class="one"  @click="pageTo('/pages/my/quyu')">
+      <div class="one"  @click="pageTo('/pages/my/quyu', {level: userinfo.level})">
         <div class="leftImg">
           <img src="https://cssy.hn90qc.com/icon/quyuicon.png" alt="">
         </div>
