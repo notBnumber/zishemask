@@ -23,7 +23,12 @@
           <!--</div>-->
           <div class="shenfen">
             <img src="https://cssy.hn90qc.com/icon/leve_icon.png" alt="">
-            <span>:普通用户</span>
+            <span v-if="userinfo.level==0">:普通用户</span>
+            <span v-if="userinfo.level==1">:代理会员</span>
+            <span v-if="userinfo.level==2">:银卡会员</span>
+            <span v-if="userinfo.level==3">:金卡会员</span>
+            <span v-if="userinfo.level==4">:市代会员</span>
+            <span v-if="userinfo.level==5">:省代会员</span>
           </div>
         </div>
         <!-- <img src="https://cssy.hn90qc.com/icon/leve_icon.png" alt=""> -->
@@ -36,17 +41,18 @@
     <!-- 使用  :xxx = xxx 传值给子组件      @toggleSelect="toggleSelect 接收  toggleSelect子组件的事件   jjjj父组件的事件-->
     <!-- <newpower :info='isDownRefresh' @toggleSelect="jjjj"></newpower> -->
     <div class="main">
-      <div class="one" @click="pageTo('/pages/my/toge')">
+      <div class="one" @click="gotovip()">
         <div class="leftImg">
           <img src="https://cssy.hn90qc.com/icon/togeticon.png" alt="">
         </div>
         <div class="rightDiv" >
           <p class="p1">合伙人</p>
-          <p class="p2">您已成为合伙人</p>
+          <p class="p2" v-if="userinfo.level==0">非合伙人</p>
+          <p class="p2" v-if="userinfo.level>0">您已成为合伙人</p>
         </div>
         <p>></p>
       </div>
-      <div class="one" @click="pageTo('/pages/my/fuckvip')">
+      <div class="one" @click="pageTo('/pages/my/fuckvip', {level: userinfo.level})">
         <div class="leftImg">
           <img src="https://cssy.hn90qc.com/icon/vipicon.png" alt="">
         </div>
@@ -67,7 +73,9 @@
         <p>></p>
       </div>
     </div>
+    <i-toast id="toast" />
   </div>
+
 </template>
 
 <script>
@@ -81,13 +89,47 @@ export default {
   data() {
     return {
       addList: [],
-      isLogin: true
+      isLogin: true,
+        userinfo:{}
     };
   },
   methods: {
     jjjj(index) {
       console.log(index, "子传的值");
+    },
+      gotovip(){
+        if (this.userinfo.level>0){
+            console.log(this.userinfo.level, "身份值");
+            this.pageTo('/pages/my/toge')
+        }else{
+            this.$Toast({
+                content: "你还不是合伙人",
+                type: "warning"
+            });
+        }
+      },
+    getuserinfo(){
+        let that=this
+        this.$API
+            .VipindexInfo({
+                i: 2,
+                c: "entry",
+                a: "wxapp",
+                m: "mask",
+                do: "VipindexInfo",
+                uid: wx.getStorageSync("sessionId")
+            })
+            .then(res => {
+                console.log(res, "我的特权页");
+                if (res.code == 1) {
+                    that.userinfo = res.data;
+                }
+            });
     }
+  },
+  onShow(){
+      this.getuserinfo();
+      console.log('onshow我的特权');
   }
 };
 </script>

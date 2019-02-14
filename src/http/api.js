@@ -134,6 +134,10 @@ Ispaypsw = this.requestPost('')
 GetUserinfo = this.requestPost('')
 // 编辑个人信息
 UpdateInfo = this.requestPost('')
+  //我的特权页面
+    VipindexInfo=this.requestPost('')
+    //我的会员卡信息
+    Myvip=this.requestPost('')
 // 大米用户等级
 Getwallet = this.requestPost('')
 // 记录接口
