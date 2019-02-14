@@ -49,7 +49,8 @@ export default {
       goodsList: [],
       flagArr: [],
       arr: [],
-      WanSalary2: []
+      WanSalary2: [],
+      iss:true
     };
   },
   watch: {
@@ -63,7 +64,27 @@ export default {
       } else {
         this.isAll = false;
       }
+    },
+     scrollTop(curVal, oldVal) {
+      if (this.scrollTop < -100) {
+        this.init()
+      }
     }
+  },
+    onPullDownRefresh() {
+    let vm = this;
+    this.isDownRefresh = true;
+    console.log("开始刷新");
+this.init()
+    this.timer = setTimeout(() => {
+      wx.stopPullDownRefresh({
+        success() {
+          console.log("结束刷新");
+          vm.isDownRefresh = false;
+        }
+      })
+      clearTimeout(vm.timer);
+    }, 2500)
   },
   computed: {
     totalPrice() {

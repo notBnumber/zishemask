@@ -43,13 +43,13 @@
                 <div class="birthday">
                     <label>生日：</label>
                     <picker mode="date" value="date" @change="bindDateChange">
-                        <span>{{info.birthday}}</span>
+                        <span>{{info.birthday == null?'未填':info.birthday}}</span>
                     </picker>
                 </div>
                 <div class="area">
                     <label>所在地区：</label>
                     <picker mode="address" @change="bindaddressChange">
-                        <span>{{info.address}}</span>
+                        <span>{{info.address == null?'未填':info.address}}</span>
                     </picker>
                 </div>
 

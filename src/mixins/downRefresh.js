@@ -19,6 +19,7 @@ export const downRefresh = {
   //   let vm = this;
   //   this.isDownRefresh = true;
   //   console.log("开始刷新");
+
   //   this.timer = setTimeout(() => {
   //     wx.stopPullDownRefresh({
   //       success() {

@@ -1,5 +1,5 @@
 <template>
-  <div class="shopCartItem-component">
+  <div class="shopCartItem-component" @click="pageTo('/pages/sort/details',{id:info.gID})">
     <div class="del" @click.stop="del(info.gID)">删除</div>
     <i class="select-icon" @click.stop="selected()" :class="[isSelected && 'active']"></i>
     <div class="goods-image" :style="{backgroundImage: 'url('+info.Itemcover+')'}"></div>
