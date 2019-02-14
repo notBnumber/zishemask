@@ -127,6 +127,7 @@ export default {
     }
   },
   onShow() {
+    this.types = 0
     this.init();
     this.gets();
   }
