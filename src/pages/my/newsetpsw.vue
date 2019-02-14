@@ -3,7 +3,7 @@
     <div class="add-template">
         <div class="box" style="overflow: hidden">
             <div class="boxtitle">
-                请输入支付密码确认身份
+                请输入新的支付密码
             </div>
             <div class="code-input-main">
                 <div class="code-input-main-item">{{code[0]}}</div>
@@ -45,7 +45,7 @@
             </div>
 
         </div>
-        <p class="ppp1" @click="pageTo('/pages/login/forgetpwd')">忘记密码?</p>
+        <!-- <p class="ppp1" @click="pageTo('/pages/login/forgetpwd')">忘记密码?</p> -->
         <i-toast id="toast" />
     </div>
 </template>
@@ -145,12 +145,12 @@ export default {
       //     type: "warning"
       // });
       this.$API
-        .Ispaypsw({
+        .Updatepaypsw({
           i: 2,
           c: "entry",
           a: "wxapp",
           m: "mask",
-          do: "Ispaypsw",
+          do: "Updatepaypsw",
           paypsw: this.code,
           uid:
             wx.getStorageSync("sessionId") == ""
@@ -163,7 +163,9 @@ export default {
             console.log();
             // this.switchTab("/pages/home/index");
             // this.goBack();
-            this.pageTo('/pages/my/newsetpsw')
+            setTimeout(()=>{
+          this.pageTo("/pages/my/myMoney");
+        },1000)
           } else {
             this.$Toast({
               content: res.msg,

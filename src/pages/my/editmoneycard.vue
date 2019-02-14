@@ -123,7 +123,10 @@ export default {
         })
         .then(res => {
           if (res.code == 1) {
-            this.pageTo("/pages/my/setpsws");
+            // this.pageTo("/pages/my/setpsws");
+              setTimeout(()=>{
+          this.goBack()
+        },1000)
           } else {
           }
         });

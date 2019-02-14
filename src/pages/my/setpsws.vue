@@ -141,10 +141,10 @@
                     return false;
                 }
 
-                this.$Toast({
-                    content: "提交的密码是"+this.code,
-                    type: "warning"
-                });
+                // this.$Toast({
+                //     content: "提交的密码是"+this.code,
+                //     type: "warning"
+                // });
                 // vm.pageTo('/pages/login/forgetpwd')
                 //将 8. 这种转换成 8.00
                 if (S.indexOf('.') > -1 && S.indexOf('.') == (S.length - 1))

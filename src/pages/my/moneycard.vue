@@ -13,7 +13,7 @@
             </div>
           </div>
             <p class="pp1" v-if="info.name ==''">新增&nbsp;></p>
-           <p class="pp1" else >修改&nbsp;></p>
+           <p class="pp1" v-if="info.name !=''" >修改&nbsp;></p>
         </div>
 
       </i-panel>

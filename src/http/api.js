@@ -127,6 +127,9 @@ Getpaypsw  = this.requestPost('')
 ForgetOrAddpaypsw = this.requestPost('')
 // 修改密码
 Updatepaypsw = this.requestPost('')
+// 判读旧密码
+Ispaypsw = this.requestPost('')
+
 // 获取个人信息
 GetUserinfo = this.requestPost('')
 // 编辑个人信息

@@ -67,7 +67,8 @@
     "pages/my/getMoney",
     "pages/my/getMoneyNote",
     "pages/my/moneycard",
-    "pages/my/editmoneycard"
+    "pages/my/editmoneycard",
+    "pages/my/newsetpsw"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

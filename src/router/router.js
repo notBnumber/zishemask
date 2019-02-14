@@ -444,6 +444,19 @@ module.exports = [
     }
   },
   {
+    path: "pages/my/newsetpsw",
+    config: {
+      "navigationBarTitleText": "修改密码",
+      "navigationBarTextStyle": "white",
+      "navigationBarBackgroundColor": "#E9323C",
+      "usingComponents": {
+        "i-modal": "/iView/modal/index",
+        "i-swipeout": "/iView/swipeout/index",
+        "i-toast": "/iView/toast/index",
+      }
+    }
+  },
+  {
     path: "pages/my/vipcard",
     config: {
       "navigationBarTitleText": "会员卡",
