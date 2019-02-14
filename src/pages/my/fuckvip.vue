@@ -80,7 +80,7 @@ export default {
       isLogin: true,
         vipinfo:{},
         level:0,
-        ztbili:0,
+        ztbili:0.01,
         yinkabili:0
     };
   },

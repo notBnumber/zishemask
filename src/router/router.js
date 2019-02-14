@@ -112,6 +112,15 @@ module.exports = [
     }
   },
   {
+    path: "pages/login/shenqingtixian",
+    config: {
+      "enablePullDownRefresh": false,
+      "usingComponents": {
+        "i-toast": "/iView/toast/index"
+      }
+    }
+  },
+  {
     path: "pages/login/editzhifupwd",
     config: {
       "enablePullDownRefresh": false,

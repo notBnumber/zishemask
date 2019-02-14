@@ -154,6 +154,8 @@ TodaySingin = this.requestPost('')
 SinginList = this.requestPost('')
 // 签到
 Singin = this.requestPost('')
+// 申请提现
+Withdrawal = this.requestPost('')
   // 首页轮播图
   ads = this.requestPost('/api/shop/index/ads')
   // 商品列表
