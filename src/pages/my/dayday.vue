@@ -14,11 +14,11 @@
         <p>剩余积分</p>
         <p>{{aa.shengjifeng}}</p>
       </div>
-      <div class="tab" @click="tabs(1)">
+      <div class="tab" @click="tabs(2)">
         <p>签到积分</p>
         <p>{{aa.qiandaojifeng}}</p>
       </div>
-      <div class="tab notab" @click="tabs(2)">
+      <div class="tab notab" @click="tabs(1)">
         <p>消费积分</p>
         <p>{{aa.payjifeng}}</p>
       </div>

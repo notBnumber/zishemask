@@ -46,12 +46,12 @@
                         <span>{{info.birthday == null?'未填':info.birthday}}</span>
                     </picker>
                 </div>
-                <div class="area">
+                <!-- <div class="area">
                     <label>所在地区：</label>
-                    <picker mode="address" @change="bindaddressChange">
+                    <picker mode="address" value="address" @change="bindaddressChange">
                         <span>{{info.address == null?'未填':info.address}}</span>
                     </picker>
-                </div>
+                </div> -->
 
                 <div class="inp">
                     <span>密码：</span>
