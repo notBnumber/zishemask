@@ -52,7 +52,7 @@
           </div>
           <div class="one">
             <h2>银卡代理</h2>
-            <progress percent="yinkabili" show-info />
+            <progress :percent="yinkabili" show-info />
             <div class="jb">
               <p>推广成交量</p>
               <p>{{vipinfo.completeyinkanum}}/{{vipinfo.yingkanum}}人</p>
@@ -103,8 +103,8 @@ export default {
                   console.log(res, "vip信息");
                   if (res.code == 1) {
                       that.vipinfo = res.data;
-                      that.ztbili = (res.data.completenum/res.data.zhituinum).toFixed(2);
-                      that.yinkabili = (res.data.completeyinkanum/res.data.yingkanum).toFixed(2);
+                      that.ztbili = (res.data.completenum/res.data.zhituinum).toFixed(2)*100;
+                      that.yinkabili = (res.data.completeyinkanum/res.data.yingkanum).toFixed(2)*100;
                       console.log(that.ztbili, "推广比例");
                       console.log(that.yinkabili, "银卡比例");
                       console.log(res.data.completenum, "完成数量");
