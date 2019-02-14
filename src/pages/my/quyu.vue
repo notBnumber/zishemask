@@ -37,7 +37,7 @@
     <!-- 使用  :xxx = xxx 传值给子组件      @toggleSelect="toggleSelect 接收  toggleSelect子组件的事件   jjjj父组件的事件-->
     <!-- <newpower :info='isDownRefresh' @toggleSelect="jjjj"></newpower> -->
     <div class="main">
-      <div class="main_title">
+      <div class="main_title" @click="pageTo('/pages/login/Privacy')">
         查看用户协议
       </div>
       <div class="bigDiv">
