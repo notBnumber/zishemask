@@ -159,7 +159,7 @@ export default {
      console.log(ops.target)
    }
    return {
-     title: '紫色魁影',
+     title: '紫色魅影',
      path: 'pages/home/index',
      success: function (res) {
        // 转发成功

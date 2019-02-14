@@ -238,7 +238,7 @@ module.exports = [
     config: {
       "navigationBarTitleText": "个人中心",
       "navigationBarTextStyle": "white",
-      "navigationBarBackgroundColor": "#242121",
+      "navigationBarBackgroundColor": "#ED555F",
       "disableScroll": true,
       "enablePullDownRefresh": false,
       "usingComponents": {
