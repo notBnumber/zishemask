@@ -19,7 +19,13 @@
           </span>
           <div class="shenfen">
             <img src="https://cssy.hn90qc.com/icon/leve_icon.png" alt="">
-            <span>:游客</span>
+            <span v-if="level==0">普通用户</span>
+            <span v-if="level==1">代理会员</span>
+            <span v-if="level==2">银卡会员</span>
+            <span v-if="level==3">金卡会员</span>
+            <span v-if="level==4">市代会员</span>
+            <span v-if="level==5">省代会员</span>
+            <span style="margin-left: 5px;">ID：{{ID}}</span>
           </div>
         </div>
         <!-- <img src="https://cssy.hn90qc.com/icon/leve_icon.png" alt=""> -->
@@ -123,6 +129,8 @@ export default {
   mixins: [modal],
   data() {
     return {
+        ID:'',
+        level:'',
       avatarUrl: "",
       nickName: "",
       modal1: false,
@@ -154,6 +162,8 @@ export default {
                 if (res.code == 1) {
                     vm.avatarUrl = res.data.headerimg;
                     vm.nickName = res.data.nickName;
+                    vm.ID = res.data.id;
+                    vm.level = res.data.level;
                 }
             });
       //以下方法微信即将废弃
@@ -264,7 +274,7 @@ export default {
   }
   .head {
     height: 80px;
-    background-color: #242121;
+    background-color: #ED555F;
     display: flex;
     justify-content: space-between;
     align-items: center;

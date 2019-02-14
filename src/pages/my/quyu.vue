@@ -18,7 +18,12 @@
         </div>
         <div class="headBottom">
           <div class="shenfen">
-            <span>合伙人</span>
+            <span v-if="level==0">普通用户</span>
+            <span v-if="level==1">代理会员</span>
+            <span v-if="level==2">银卡会员</span>
+            <span v-if="level==3">金卡会员</span>
+            <span v-if="level==4">市代会员</span>
+            <span v-if="level==5">省代会员</span>
           </div>
 
         </div>
@@ -39,24 +44,24 @@
         <div class="bigTwo">
           <div class="one">
             <h2>区代</h2>
-            <progress percent="20" show-info />
+            <progress :percent="tgbili" show-info />
             <div class="jb">
               <p>推广成交量</p>
-              <p>19/99人</p>
+              <p>{{vipinfo.tgchengjiaocount}}/{{vipinfo.tgalltotal}}人</p>
             </div>
           </div>
           <div class="one">
-            <progress percent="20" show-info />
+            <progress :percent="100" show-info />
             <div class="jb">
               <p>个人累积消费</p>
-              <p>19/99人</p>
+              <p>{{vipinfo.Personalconsumption}}/0元</p>
             </div>
           </div>
           <div class="one">
-            <progress percent="20" show-info />
+            <progress :percent="100" show-info />
             <div class="jb">
               <p>推广销售额</p>
-              <p>19/99人</p>
+              <p>{{vipinfo.tgmoenycount}}/0元</p>
             </div>
           </div>
           <button type="warn" class="btn"  @click="pageTo('/pages/my/shenqing')">申请</button>
@@ -77,14 +82,48 @@ export default {
   data() {
     return {
       addList: [],
-      isLogin: true
+      isLogin: true,
+        vipinfo:{},
+        level:0,
+        tgbili:0,
+        mybili:0,
+        tgmoneybili:0
     };
   },
   methods: {
     jjjj(index) {
       console.log(index, "子传的值");
+    },
+      getinfo(){
+          let that=this
+          this.$API
+              .AreaIndexinfo({
+                  i: 2,
+                  c: "entry",
+                  a: "wxapp",
+                  m: "mask",
+                  do: "AreaIndexinfo",
+                  uid: wx.getStorageSync("sessionId")
+              })
+              .then(res => {
+                  console.log(res, "vip信息");
+                  if (res.code == 1) {
+                      that.vipinfo = res.data;
+                      that.tgbili = (res.data.tgchengjiaocount/res.data.tgalltotal).toFixed(2)*100;
+                      that.mybili = (res.data.Personalconsumption/0).toFixed(2)*100;
+                      that.tgmoneybili = (res.data.tgmoenycount/0).toFixed(2)*100;
+                      console.log(that.tgbili, "推广比例");
+                      console.log(that.mybili, "个人累积销售比例");
+                      console.log(that.tgmoneybili, "推广销售金额比例");
+                  }
+              });
+      }
+  },
+    onShow(){
+        this.getinfo();
+        console.log(this.$route.query.level,'携带参数')
+        this.level=this.$route.query.level
     }
-  }
 };
 </script>
 
