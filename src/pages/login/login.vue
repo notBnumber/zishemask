@@ -222,7 +222,7 @@ export default {
   background: #ffffff;
   .logo {
     @include bg-icon(100px);
-    background-image: url("~@/assets/img/login_logo@2x.png");
+    background-image: url("https://cssy.hn90qc.com/icon/login_logo.png");
     display: block;
     margin: 5px auto 0;
   }
