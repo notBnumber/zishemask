@@ -14,6 +14,7 @@
         <!-- 这个组件不加载 -->
       </li>
     </ul>
+
     <div class="footer">
       <div class="left">
         共{{state.goodlist.length}}件商品&nbsp;&nbsp;&nbsp;&nbsp;小计&nbsp;
