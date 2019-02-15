@@ -46,9 +46,9 @@
           <img src="https://cssy.hn90qc.com/icon/togeticon.png" alt="">
         </div>
         <div class="rightDiv" >
-          <p class="p1">合伙人</p>
-          <p class="p2" v-if="userinfo.level==0">非合伙人</p>
-          <p class="p2" v-if="userinfo.level>0">您已成为合伙人</p>
+          <p class="p1">代理会员</p>
+          <p class="p2" v-if="userinfo.level==0">非合代理</p>
+          <p class="p2" v-if="userinfo.level>0">您已成为代理</p>
         </div>
         <p>></p>
       </div>
@@ -100,7 +100,7 @@ export default {
       gotovip(){
         if (this.userinfo.level>0){
             console.log(this.userinfo.level, "身份值");
-            this.pageTo('/pages/my/toge')
+            this.pageTo('/pages/my/toge', {level: this.userinfo.level})
         }else{
             this.$Toast({
                 content: "你还不是合伙人",

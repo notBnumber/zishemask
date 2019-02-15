@@ -53,11 +53,11 @@
                     </picker>
                 </div>
 
-                <div class="inp">
-                    <span>密码：</span>
-                    <input value="已设置密码" title="密码" disabled v-if="info.issetpsw == 1" />
-                    <input value="未设置密码" title="密码" disabled v-if="info.issetpsw == 0" />
-                </div>
+                <!--<div class="inp">-->
+                    <!--<span>密码：</span>-->
+                    <!--<input value="已设置密码" title="密码" disabled v-if="info.issetpsw == 1" />-->
+                    <!--<input value="未设置密码" title="密码" disabled v-if="info.issetpsw == 0" />-->
+                <!--</div>-->
 
             </i-panel>
 

@@ -6,7 +6,7 @@
     </i-modal> -->
 
     <div class="head" :style="{justifyContent: [isLogin ? 'space-between' : 'flex-end']}">
-      <div class="head-left" @click="pageTo('/pages/my/mydata')" v-if="isLogin">
+      <div class="head-left" v-if="isLogin">
         <div class="head-left-div">
           <i class="photo-img">
             <open-data type="userAvatarUrl"></open-data>

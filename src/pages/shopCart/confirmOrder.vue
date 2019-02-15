@@ -7,7 +7,7 @@
           <!-- <span>联系电话:{{defaults.}}</span> -->
         </div>
         <div class="address-info">
-          收货地址：{{address==''?'':address.detailadd}}
+          收货地址：{{address==''?'':address.address+address.detailadd}}
         </div>
       </div>
       <i class="more-icon"></i>

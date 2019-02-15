@@ -18,7 +18,12 @@
         </div>
         <div class="headBottom">
           <div class="shenfen">
-            <span>合伙人</span>
+            <span v-if="level==0">普通用户</span>
+            <span v-if="level==1">代理会员</span>
+            <span v-if="level==2">银卡会员</span>
+            <span v-if="level==3">金卡会员</span>
+            <span v-if="level==4">市代会员</span>
+            <span v-if="level==5">省代会员</span>
           </div>
 
         </div>
@@ -58,14 +63,18 @@ export default {
   data() {
     return {
       addList: [],
-      isLogin: true
+      isLogin: true,
+        level:0,
     };
   },
   methods: {
     jjjj(index) {
       console.log(index, "子传的值");
     }
-  }
+  },
+onShow(){
+    this.level=this.$route.query.level
+}
 };
 </script>
 

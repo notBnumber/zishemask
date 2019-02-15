@@ -70,6 +70,8 @@ export default {
       this.tabActive = index;
     },
     init() {
+        let that=this
+        console.log(this.info,'得到的id')
       this.$API
         .teaminfodetail({
           i: 2,
@@ -77,7 +79,7 @@ export default {
           a: "wxapp",
           m: "mask",
           do: "teaminfodetail",
-          uid: wx.getStorageSync("sessionId"),
+          uid: that.info.id,
         })
         .then(res => {
           if (res.code == 1) {
