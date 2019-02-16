@@ -30,11 +30,11 @@
                 <li>{{item.addtime}}</li>
                 <li>
                   <span v-if="item.level==0" class="levelstye">普通用户</span>
-                  <span v-if="item.level==1" class="levelstye">代理会员</span>
-                  <span v-if="item.level==2" class="levelstye">银卡会员</span>
-                  <span v-if="item.level==3" class="levelstye">金卡会员</span>
-                  <span v-if="item.level==4" class="levelstye">市代会员</span>
-                  <span v-if="item.level==5" class="levelstye">省代会员</span>
+                  <span v-if="item.level==1" class="levelstye1">代理会员</span>
+                  <span v-if="item.level==2" class="levelstye2">银卡会员</span>
+                  <span v-if="item.level==3" class="levelstye3">金卡会员</span>
+                  <span v-if="item.level==4" class="levelstye4">市代会员</span>
+                  <span v-if="item.level==5" class="levelstye5">省代会员</span>
                 </li>
               </ul>
             </span>
@@ -53,11 +53,11 @@
                 <li>{{item.addtime}}</li>
                 <li>
                   <span v-if="item.level==0" class="levelstye">普通用户</span>
-                  <span v-if="item.level==1" class="levelstye">代理会员</span>
-                  <span v-if="item.level==2" class="levelstye">银卡会员</span>
-                  <span v-if="item.level==3" class="levelstye">金卡会员</span>
-                  <span v-if="item.level==4" class="levelstye">市代会员</span>
-                  <span v-if="item.level==5" class="levelstye">省代会员</span>
+                  <span v-if="item.level==1" class="levelstye1">代理会员</span>
+                  <span v-if="item.level==2" class="levelstye2">银卡会员</span>
+                  <span v-if="item.level==3" class="levelstye3">金卡会员</span>
+                  <span v-if="item.level==4" class="levelstye4">市代会员</span>
+                  <span v-if="item.level==5" class="levelstye5">省代会员</span>
                 </li>
               </ul>
             </span>
@@ -170,6 +170,36 @@ export default {
 }
 .levelstye{
   background-color: #0F8BC6;color: white;padding: 3px 12px;
+  font-size: 14px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+.levelstye1{
+  background-color: #5FC421;color: white;padding: 3px 12px;
+  font-size: 14px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+.levelstye2{
+  background-color: #C90FCE;color: white;padding: 3px 12px;
+  font-size: 14px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+.levelstye3{
+  background-color: #03FAF7;color: white;padding: 3px 12px;
+  font-size: 14px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+.levelstye4{
+  background-color: #D62E1A;color: white;padding: 3px 12px;
+  font-size: 14px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+.levelstye5{
+  background-color: #FAF703;color: white;padding: 3px 12px;
   font-size: 14px;
   margin-top: 5px;
   border-radius: 5px;

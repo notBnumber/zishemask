@@ -69,11 +69,11 @@
 
     <div class="box">
       <ul>
-        <li @click="pageTo('/pages/my/myEvaluate')">
-          <span>
-            <i class="evaluate"></i>我的足迹</span>
-          <i class="arrow"></i>
-        </li>
+        <!--<li @click="pageTo('/pages/my/myEvaluate')">-->
+          <!--<span>-->
+            <!--<i class="evaluate"></i>我的足迹</span>-->
+          <!--<i class="arrow"></i>-->
+        <!--</li>-->
         <li @click="pageTo('/pages/my/myCollection')">
           <span>
             <i class="Collection"></i>收藏商品</span>

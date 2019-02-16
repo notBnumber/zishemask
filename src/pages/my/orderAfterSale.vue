@@ -8,6 +8,7 @@
         <orderAfterSaleItem :state="item"></orderAfterSaleItem>
       </li>
     </ul>
+    <span v-if="stateList.length==0">空空如也</span>
   </div>
 </template>
 
