@@ -4,7 +4,7 @@
     <div class="header">
       <div class="main">
         <span class="type">
-          {{state == 1 ? '等待买家付款' : state == 2 ? '等待商家发货' : state == 3 ? '商家已发货' : state == 4 ? '待评价' : state == 0 ? '交易完成' : '交易关闭'}}
+          {{stateList.state == 1 ? '等待买家付款' : stateList.state == 2 ? '等待商家发货' : stateList.state == 3 ? '商家已发货'  : stateList.state == 4 ? '交易完成':''}}
         </span>
       </div>
       <div class="tips" v-if="state == 1">还剩
@@ -125,7 +125,7 @@ export default {
         confirmColor: "#ED1731",
         success(res) {
           if (res.confirm) {
-            vm.pageTo("/pages/my/selectAfterSale");
+            vm.pageTo("/pages/my/submitAfterSale",{id:vm.stateList.id});
           } else if (res.cancel) {
             console.log("用户点击取消");
           }

@@ -86,7 +86,7 @@ export default {
         });
     }
   },
-  onReady() {
+  onShow() {
     // this.val = this.[0];
     this.init();
   },
