@@ -51,15 +51,15 @@
       <div class="left">
         <!-- <button>在线客服</button> -->
       </div>
-      <div class="right" v-if="state == 1">
+      <div class="right" v-if="stateList.state == 1">
         <button @click="cancelOrder()">取消订单</button>
-        <button class="red">付款</button>
+        <!-- <button class="red">付款</button> -->
       </div>
-      <div class="right" v-else-if="state == 2">
+      <div class="right" v-else-if="stateList.state == 2">
         <button @click="refund()">申请退款</button>
       </div>
-      <div class="right" v-else-if="state == 3">
-        <button @click="pageTo('/pages/my/selectAfterSale')">批量退款</button>
+      <div class="right" v-else-if="stateList.state == 3">
+        <!-- <button @click="pageTo('/pages/my/selectAfterSale')">批量退款</button> -->
         <button>查看物流</button>
         <button class="red" @click="receipt()">确认收货</button>
       </div>
@@ -67,9 +67,9 @@
         <button>查看物流</button>
         <button @click="pageTo('/pages/my/publishEvaluate')">评价</button>
       </div>
-      <div class="right" v-else-if="state == 0 || state == 5">
+      <!-- <div class="right" v-else-if="state == 0 || state == 5">
         <button @click="deleteOrder()">取消订单</button>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>

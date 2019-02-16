@@ -33,7 +33,7 @@
         </div>
         <div class="btn" v-else-if="ii == 1">
           <button @click="toPay">去支付</button>
-          <button>取消订单</button>
+          <button >取消订单</button>
         </div>
         <!-- <div class="btn" v-else-if="state === 2">
         <button @click.stop="refund()">申请退款</button>

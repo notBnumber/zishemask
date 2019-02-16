@@ -110,6 +110,7 @@ export default {
           if (res.code == 1) {
             this.switchTab("/pages/home/index");
             wx.setStorageSync('is',true)
+            // 成功登录 is为true
           } else {
             this.$Toast({
               content: res.msg,

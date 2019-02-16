@@ -22,6 +22,8 @@ export default {
               // })
             }
           });
+          // 判断是否登录
+
           if (wx.getStorageSync('is') == '') {
             vm.replaceTo("/pages/login/login");
           }
@@ -29,6 +31,7 @@ export default {
       }
     });
   },
+  
   // onShareAppMessage: function(ops) {
   //   if (ops.from === "button") {
   //     // 来自页面内转发按钮
