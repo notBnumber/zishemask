@@ -32,7 +32,7 @@
         </div>
         <div class="down_cen">
           <ul>
-            <li @click="pageTo('/pages/login/hua')"><img src="https://cssy.hn90qc.com/icon/qrcodeicon.png" /></li>
+            <li @click="toqrcode"><img src="https://cssy.hn90qc.com/icon/qrcodeicon.png" /></li>
             <li style="text-align: center;margin-top: 3px;">推广二维码</li>
           </ul>
         </div>
@@ -44,7 +44,7 @@
         </div>
       </div>
     </div>
-
+    <i-toast id="toast" />
   </div>
 </template>
 
@@ -75,7 +75,17 @@ export default {
           } else {
           }
         });
-    }
+    },
+      toqrcode() {
+          if (this.userInfo.level == 0) {
+              this.$Toast({
+                  content: "请升级会员",
+                  type: "warning"
+              });
+          } else {
+              this.pageTo('/pages/login/hua')
+          }
+      }
   },
   onShow() {
     this.init();

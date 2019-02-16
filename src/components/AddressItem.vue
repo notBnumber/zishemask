@@ -6,7 +6,7 @@
         <span>收货人：{{itemList.name}}</span>
         <span>{{itemList.phone}}</span>
       </p>
-      <p class="addres">收货地址：{{itemList.detailadd}}</p>
+      <p class="addres">收货地址：{{itemList.address}}-{{itemList.detailadd}}</p>
       <p class="setting">
         <span v-show="itemList.is_default !=0" style="opacity:0">
           <!-- <i :class="[itemList.isChoice && 'active']" ></i>设为默认 -->

@@ -21,13 +21,21 @@
       </div>
       <div class="main">
         <ul v-if="tabActive==0">
-          <li class="main_li" v-for="(item, index) in list" :key="index" @click="pageTo('/pages/my/teaminfo',{address:item.address,birthday:item.birthday,nickname:item.nickname,qq:item.qq,sex:item.sex,user_name:item.user_name,wechat:item.wechat,headerimg:item.headerimg,tjname:item.tjname})">
+          <li class="main_li" v-for="(item, index) in list" :key="index" @click="pageTo('/pages/my/teaminfo',{id:item.uuid,address:item.address,birthday:item.birthday,nickname:item.nickname,qq:item.qq,sex:item.sex,user_name:item.user_name,wechat:item.wechat,headerimg:item.headerimg,tjname:item.tjname})">
             <span class="main_left"><img :src="item.headerimg" /></span>
             <span class="main_right">
               <ul>
                 <li>{{item.nickname}}</li>
                 <li class="li_main">推荐人：{{item.tjname}}</li>
                 <li>{{item.addtime}}</li>
+                <li>
+                  <span v-if="item.level==0" class="levelstye">普通用户</span>
+                  <span v-if="item.level==1" class="levelstye">代理会员</span>
+                  <span v-if="item.level==2" class="levelstye">银卡会员</span>
+                  <span v-if="item.level==3" class="levelstye">金卡会员</span>
+                  <span v-if="item.level==4" class="levelstye">市代会员</span>
+                  <span v-if="item.level==5" class="levelstye">省代会员</span>
+                </li>
               </ul>
             </span>
             <span class="main_footer">
@@ -36,13 +44,21 @@
           </li>
         </ul>
         <ul v-if="tabActive==1">
-          <li class="main_li" v-for="(item, index) in addList" :key="index" @click="pageTo('/pages/my/teaminfo',{address:item.address,birthday:item.birthday,nickname:item.nickname,qq:item.qq,sex:item.sex,user_name:item.user_name,wechat:item.wechat,headerimg:item.headerimg,tjname:item.tjname})">
+          <li class="main_li" v-for="(item, index) in addList" :key="index" @click="pageTo('/pages/my/teaminfo',{id:item.uuid,address:item.address,birthday:item.birthday,nickname:item.nickname,qq:item.qq,sex:item.sex,user_name:item.user_name,wechat:item.wechat,headerimg:item.headerimg,tjname:item.tjname})">
             <span class="main_left"><img :src="item.headerimg" /></span>
             <span class="main_right">
               <ul>
                 <li>{{item.nickname}}</li>
                 <li class="li_main">推荐人：{{item.tjname}}</li>
                 <li>{{item.addtime}}</li>
+                <li>
+                  <span v-if="item.level==0" class="levelstye">普通用户</span>
+                  <span v-if="item.level==1" class="levelstye">代理会员</span>
+                  <span v-if="item.level==2" class="levelstye">银卡会员</span>
+                  <span v-if="item.level==3" class="levelstye">金卡会员</span>
+                  <span v-if="item.level==4" class="levelstye">市代会员</span>
+                  <span v-if="item.level==5" class="levelstye">省代会员</span>
+                </li>
               </ul>
             </span>
             <span class="main_footer">
@@ -152,6 +168,12 @@ export default {
 .bodys {
   width: 100%;
 }
+.levelstye{
+  background-color: #0F8BC6;color: white;padding: 3px 12px;
+  font-size: 14px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
 .top {
   width: 100%;
   height: 50px;
@@ -215,7 +237,7 @@ export default {
     height: 20px;
   }
 }
-.main_right li:last-child {
+.main_right li:nth-child(3) {
   color: #b1adaa;
   font-size: 12px;
 }

@@ -15,6 +15,7 @@
         <orderItem :state="item" :ii = 'item.state' @okOrder='okOrder'></orderItem>
       </li>
     </ul>
+    <span v-if="stateList.length==0">空空如也</span>
     <!-- <ul class="order-list" v-if="tabActive==1">
       <li class="order-item" v-for="(item, index) in stateList" :key="index">
         <orderItem :state="item"></orderItem>
