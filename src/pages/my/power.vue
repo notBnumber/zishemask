@@ -24,11 +24,11 @@
           <div class="shenfen">
             <img src="https://cssy.hn90qc.com/icon/leve_icon.png" alt="">
             <span v-if="userinfo.level==0">:普通用户</span>
-            <span v-if="userinfo.level==1">:代理会员</span>
-            <span v-if="userinfo.level==2">:银卡会员</span>
-            <span v-if="userinfo.level==3">:金卡会员</span>
-            <span v-if="userinfo.level==4">:市代会员</span>
-            <span v-if="userinfo.level==5">:省代会员</span>
+            <span v-if="userinfo.level==1">:合伙人</span>
+            <span v-if="userinfo.level==2">:银卡合伙人</span>
+            <span v-if="userinfo.level==3">:金卡合伙人</span>
+            <span v-if="userinfo.level==4">:市代合伙人</span>
+            <span v-if="userinfo.level==5">:省代合伙人</span>
           </div>
         </div>
         <!-- <img src="https://cssy.hn90qc.com/icon/leve_icon.png" alt=""> -->
@@ -46,9 +46,9 @@
           <img src="https://cssy.hn90qc.com/icon/togeticon.png" alt="">
         </div>
         <div class="rightDiv" >
-          <p class="p1">代理会员</p>
-          <p class="p2" v-if="userinfo.level==0">非合代理</p>
-          <p class="p2" v-if="userinfo.level>0">您已成为代理</p>
+          <p class="p1">合伙人</p>
+          <p class="p2" v-if="userinfo.level==0">非合伙人</p>
+          <p class="p2" v-if="userinfo.level>0">您已成为合伙人</p>
         </div>
         <p>></p>
       </div>
@@ -58,7 +58,7 @@
         </div>
         <div class="rightDiv">
           <p class="p1">会员卡</p>
-          <p class="p2">银卡代理</p>
+          <p class="p2">银卡合伙人</p>
         </div>
         <p>></p>
       </div>
