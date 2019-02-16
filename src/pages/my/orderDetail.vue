@@ -4,7 +4,7 @@
     <div class="header">
       <div class="main">
         <span class="type">
-          {{stateList.state == 1 ? '等待买家付款' : stateList.state == 2 ? '等待商家发货' : stateList.state == 3 ? '商家已发货'  : stateList.state == 4 ? '交易完成':''}}
+          {{stateList.state == 1 ? '等待买家付款' : stateList.state == 2 ? '等待商家发货' : stateList.state == 3 ? '商家已发货' : stateList.state == 4 ? '交易完成':''}}
         </span>
       </div>
       <div class="tips" v-if="state == 1">还剩
@@ -42,6 +42,12 @@
     <ul class="order-detail">
       <li class="detail">订单号：{{stateList.order_num}}</li>
       <li class="detail">创建时间：{{stateList.time}}</li>
+      <!-- postfeename -->
+      <li class="detail">快递公司：{{stateList.postfeename}}</li>
+      <li class="detail space"  :data-text="stateList.postfeenum">快递号：{{stateList.postfeenum}}
+        <span @click="copyNum">复制</span>
+      </li>
+      
       <!-- <li class="detail" v-if="state !== 1 || state !== 5">支付时间：2018-11-27 12:24</li>
       <li class="detail" v-if="state == 0 || state == 3 || state == 4">发货时间：2018-11-27 12:24</li>
       <li class="detail" v-if="state == 0 || state == 4">收货时间：2018-11-27 12:24</li> -->
@@ -60,7 +66,7 @@
       </div>
       <div class="right" v-else-if="stateList.state == 3">
         <!-- <button @click="pageTo('/pages/my/selectAfterSale')">批量退款</button> -->
-        <button>查看物流</button>
+        <!-- <button>查看物流</button> -->
         <button class="red" @click="receipt()">确认收货</button>
       </div>
       <div class="right" v-else-if="state == 4">
@@ -87,7 +93,24 @@ export default {
       stateList: ""
     };
   },
+
   methods: {
+    copyNum(e) {
+      let vm = this;
+      let str = this.stateList.postfeenum;
+      console.log(e.currentTarget.dataset.text, e);
+
+      wx.setClipboardData({
+        data: str,
+        success: function(res) {
+          wx.getClipboardData({
+            success: function(res) {
+              console.log(res.data); // data
+            }
+          });
+        }
+      });
+    },
     cancelOrder() {
       wx.showModal({
         title: "您将取消订单？",
@@ -125,7 +148,7 @@ export default {
         confirmColor: "#ED1731",
         success(res) {
           if (res.confirm) {
-            vm.pageTo("/pages/my/submitAfterSale",{id:vm.stateList.id});
+            vm.pageTo("/pages/my/submitAfterSale", { id: vm.stateList.id });
           } else if (res.cancel) {
             console.log("用户点击取消");
           }
@@ -315,6 +338,9 @@ export default {
       font-size: 12px;
       @include singleLine;
       line-height: 26px;
+    }
+    li.space {
+      color: #ed1731;
     }
   }
   .footer {

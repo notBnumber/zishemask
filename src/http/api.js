@@ -158,6 +158,17 @@ Singin = this.requestPost('')
 Withdrawal = this.requestPost('')
 // 协议
 Xieyi = this.requestPost('')
+// 余额支付
+YuePay = this.requestPost('')
+
+
+
+
+
+
+
+
+
   // 首页轮播图
   ads = this.requestPost('/api/shop/index/ads')
   // 商品列表

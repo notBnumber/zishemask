@@ -5,7 +5,7 @@
       <p class="p2">{{money}}元</p>
     </div>
     <div class="big">
-      <div class="yue">
+      <div class="yue" @click="yues">
         <img src="https://cssy.hn90qc.com/icon/yuepay.png" alt="">
         <p>余额支付</p>
         <p>></p>
@@ -16,19 +16,40 @@
         <p>></p>
       </div>
     </div>
+    <div class="yues" v-if="yue == true">
+      <span>余额为{{shenyu}}元</span>
+      <span>需要支付{{money}}</span>
+      <input type="password" placeholder="请输入支付密码" v-model="pwd">
+      <div class="button">
+        <div class="left" @click="yue=false">
+          取消
+        </div>
+        <div class="right" @click="toInfo">
+
+          支付
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
-      money:0,
-      sss:false
+      money: 0,
+      sss: false,
+      yue: false,
+      pwd: "",
+      shenyu: ""
     };
   },
   methods: {
     wxPay() {
-      console.log(this.$route.query.id,wx.getStorageSync("openid"),this.$route.query.money);
+      console.log(
+        this.$route.query.id,
+        wx.getStorageSync("openid"),
+        this.$route.query.money
+      );
       // 打印
       this.$API
         .doPay({
@@ -42,7 +63,7 @@ export default {
           money: this.$route.query.money
         })
         .then(res => {
-          let vm = this
+          let vm = this;
           if (res.code == 1) {
             console.log("zhifu 成功");
             // this.stateList = res.data;
@@ -53,9 +74,17 @@ export default {
               paySign: res.data.paySign,
               signType: "MD5",
               success: function(e) {
-                vm.sss = true
-                console.log(e,'支持技术监督局');
-                wx.reLaunch({ url: "/pages/shopCart/payResult?isSuccess="+vm.sss+'&id='+vm.$route.query.id+'&money='+this.$route.query.money});
+                vm.sss = true;
+                console.log(e, "支持技术监督局");
+                wx.reLaunch({
+                  url:
+                    "/pages/shopCart/payResult?isSuccess=" +
+                    vm.sss +
+                    "&id=" +
+                    vm.$route.query.id +
+                    "&money=" +
+                    this.$route.query.money
+                });
                 //支付成功处理
                 // app.util.request({
                 //   url: "entry/wxapp/addmoney",
@@ -71,7 +100,7 @@ export default {
                 // });
               },
               fail: function(e) {
-                  console.log(e,'支付失败')
+                console.log(e, "支付失败");
               }
             });
           } else {
@@ -79,13 +108,58 @@ export default {
           }
         });
 
-      
       // true为成功
+    },
+    yues() {
+      this.yue = !this.yue;
+      console.log(this.yue);
+    },
+    toInfo() {
+      this.$API
+        .YuePay({
+          i: 2,
+          c: "entry",
+          a: "wxapp",
+          m: "mask",
+          do: "YuePay",
+          uid: wx.getStorageSync("sessionId"),
+          money: this.$route.query.money,
+          orderid: this.$route.query.id,
+          paypsw: this.pwd
+        })
+        .then(res => {
+          if (res.code == 1) {
+            setTimeout(() => {
+              this.goBack();
+            }, 1000);
+          } else {
+            // this.pageTo('/pages/shopCart/payResult', {isSuccess: false})
+          }
+        });
+    },
+    init() {
+      this.$API
+        .Getwallet({
+          i: 2,
+          c: "entry",
+          a: "wxapp",
+          m: "mask",
+          do: "Getwallet",
+          uid: wx.getStorageSync("sessionId")
+        })
+        .then(res => {
+          if (res.code == 1) {
+            this.shenyu = res.data.wallet;
+          } else {
+          }
+        });
     }
   },
   onShow() {
     console.log(this.$route.query, "kkk");
-    this.money = this.$route.query.money
+    this.pwd = "";
+    this.money = this.$route.query.money;
+    this.init();
   }
 };
 </script>
@@ -96,6 +170,79 @@ export default {
   padding: 0 5px;
   box-sizing: border-box;
   background-color: rgb(224, 224, 224);
+  position: relative;
+  .yues {
+    z-index: 9999;
+    width: 300px;
+    height: 150px;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 5px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 5px;
+    input {
+      width: 45%;
+      margin-top: 20px;
+      font-size: 15px
+    }
+    input::-webkit-input-placeholder {
+      font-size: 15px;
+      font-family: PingFang-SC-Bold;
+      font-weight: bold;
+      color: rgba(204, 204, 204, 1);
+    }
+    span {
+      font-size: 15px;
+      font-family: PingFang-SC-Regular;
+      font-weight: 400;
+      color: rgba(51, 51, 51, 1);
+    }
+    .xin {
+      font-size: 12px;
+      font-family: PingFang-SC-Regular;
+      font-weight: 400;
+      color: rgba(153, 153, 153, 1);
+      margin-top: 15px;
+      text-align: center;
+    }
+    .button {
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid #eeeeee;
+      .left {
+        width: 50%;
+        height: 53px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 15px;
+        font-family: PingFang-SC-Medium;
+        font-weight: 500;
+        color: rgba(51, 51, 51, 1);
+        border-right: 1px solid #eeeeee;
+      }
+      .right {
+        width: 50%;
+        height: 53px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 15px;
+        font-family: PingFang-SC-Medium;
+        font-weight: 500;
+        color: rgba(54, 173, 255, 1);
+      }
+    }
+  }
   .title {
     width: 100%;
     padding: 15px 10px;
