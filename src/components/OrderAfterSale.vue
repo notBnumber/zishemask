@@ -1,8 +1,8 @@
 <template>
 <div class="orderAfterSale-component">
   <div class="header">
-    <span class="order-class">仅退款</span>
-    <span class="order-state">申请审核中</span>
+    <span class="order-class"></span>
+    <span class="order-state"></span>
   </div>
   <ul class="goods-list">
     <li class="goods-item" v-for="(item, index) in state.goodlist" :key="index" @click="pageTo('/pages/my/afterSaleDetail')">
@@ -36,7 +36,7 @@ export default {
 
   },
   created() {
-    console.log(this.state);
+    console.log(this.state,'进退货');
     
     
   }

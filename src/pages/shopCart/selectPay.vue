@@ -30,6 +30,7 @@
         </div>
       </div>
     </div>
+    <i-toast id="toast" />
   </div>
 </template>
 <script>
@@ -115,6 +116,12 @@ export default {
       console.log(this.yue);
     },
     toInfo() {
+      if (this.paypsw == "") {
+        this.$Toast({
+          content: '请输入密码',
+          type: "warning"
+        });
+      } else P;
       this.$API
         .YuePay({
           i: 2,
@@ -172,7 +179,7 @@ export default {
   background-color: rgb(224, 224, 224);
   position: relative;
   .yues {
-    z-index: 9999;
+    z-index: 1;
     width: 300px;
     height: 150px;
     background: rgba(255, 255, 255, 1);
@@ -188,7 +195,7 @@ export default {
     input {
       width: 45%;
       margin-top: 20px;
-      font-size: 15px
+      font-size: 15px;
     }
     input::-webkit-input-placeholder {
       font-size: 15px;

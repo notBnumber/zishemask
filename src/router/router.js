@@ -229,7 +229,10 @@ module.exports = [
     path: "pages/shopCart/selectPay",
     config: {
       "navigationBarTitleText": "选择支付",
-      "enablePullDownRefresh": false
+      "enablePullDownRefresh": false,
+      "usingComponents": {
+        "i-toast": "/iView/toast/index",
+    }
     }
   },
   // 我的

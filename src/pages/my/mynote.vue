@@ -29,8 +29,11 @@
                 <li>{{item.raddtime}}</li>
               </ul>
             </span>
-            <span class="main_footer">
+            <span class="main_footer" v-if="type==2 || type==0">
               +{{item.rmoney}}
+            </span>
+            <span class="main_footer" v-if="type==1">
+              -{{item.rmoney}}
             </span>
           </li>
         </ul>
@@ -47,8 +50,8 @@ export default {
       addList: [],
       tabActive: 0,
       isDownRefresh: false,
-      type:2,
-      info:[]
+      type: 2,
+      info: []
     };
   },
   methods: {
@@ -56,14 +59,15 @@ export default {
       console.log(index, "选择");
 
       this.tabActive = index;
-      if(this.tabActive == 0) {
-        this.type = 2
+      if (this.tabActive == 0) {
+        this.type = 2;
       } else if (this.tabActive == 1) {
-        this.type = 0
-      } else if(this.tabActive == 2) {
-        this.type = 1
+        this.type = 0;
+      } else if (this.tabActive == 2) {
+        this.type = 1;
       }
-      this.init()
+      this.info = []
+      this.init();
       //            this.$Toast({
       //                content: "选中"+index,
       //                type: "warning"
@@ -78,7 +82,7 @@ export default {
           m: "mask",
           do: "Getrecord",
           uid: wx.getStorageSync("sessionId"),
-          type:this.type
+          type: this.type
         })
         .then(res => {
           if (res.code == 1) {
@@ -89,7 +93,7 @@ export default {
     }
   },
   onShow() {
-    this.init()
+    this.init();
   }
 };
 </script>

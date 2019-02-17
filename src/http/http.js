@@ -75,6 +75,15 @@ axios.defaults.adapter = function (config) {
             });
           } else {
             resolve(data.data)   
+            resolve(data.data)   
+            const msg = data.data.msg
+            console.log('错误');
+            
+            wx.showToast({
+              title: `${msg}`,
+              icon: 'none',
+              duration: 2000
+            });
           }
         },
         fail(err) {

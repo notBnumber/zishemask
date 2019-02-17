@@ -161,11 +161,12 @@ Xieyi = this.requestPost('')
 // 余额支付
 YuePay = this.requestPost('')
 
+// 售后
+Aftersale = this.requestPost('')
 
 
-
-
-
+// 是否可提现
+Checktixian = this.requestPost('')
 
 
 

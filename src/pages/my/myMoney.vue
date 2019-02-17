@@ -9,7 +9,7 @@
           <p>大米</p>
           <p>￥{{info.wallet}}</p>
         </div>
-        <div class="rightDiv" @click="pageTo('/pages/my/getMoney')">提现</div>
+        <div class="rightDiv" @click="totixiain">提现</div>
       </div>
       <!-- <button class="login" @click="goLogin('/pages/login/login')" v-if="!isLogin">登录/注册</button> -->
       <!-- <div class="head-pic" @click="pageTo('/pages/my/noticeCenter')" v-if="isLogin">
@@ -63,6 +63,25 @@ export default {
   },
   methods: {
     jjjj(index) {},
+    totixiain() {
+      // pageTo('/pages/my/getMoney')
+      // Checktixian
+      this.$API
+        .Checktixian({
+          i: 2,
+          c: "entry",
+          a: "wxapp",
+          m: "mask",
+          do: "Checktixian",
+          uid: wx.getStorageSync("sessionId")
+        })
+        .then(res => {
+          if (res.code == 1) {
+            this.pageTo('/pages/my/getMoney')
+          } else {
+          }
+        });
+    },
     isPwd() {
       // this.pageTo('/pages/my/setpsw')
       this.$API
@@ -106,7 +125,7 @@ export default {
           type: "warning"
         });
       } else {
-        this.pageTo('/pages/my/vipcard')
+        this.pageTo("/pages/my/vipcard");
       }
     }
   },

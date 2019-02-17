@@ -18,18 +18,22 @@
         <!-- 这个组件不加载 -->
       </li>
     </ul>
+    <div class="inp">
+      <input type="text" placeholder="请输入支付宝姓名" v-model="zfbname">
+      <input type="text" placeholder="请输入支付宝账号" v-model="zfbnum">
+    </div>
     <div class="types">
       <p>服务类型</p>
       <div class="btn" :class="[ val == index && 'btn_active']" v-for="(item, index) in stateList" :key="index" @click="selects(index)">
         {{item.title}}
       </div>
     </div>
-    <div class="box">
+    <!-- <div class="box">
       <textarea placeholder="请输入退货理由" placeholder-style="color: #888888"></textarea>
 
-    </div>
+    </div> -->
     <div class="btn">
-      <button class="login-out">提交退款申请</button>
+      <button class="login-out" @click="shenqin">提交退款申请</button>
     </div>
   </div>
 </template>
@@ -54,15 +58,42 @@ export default {
         }
       ],
       stateLists: [],
-      val: 0
+      val: 0,
+      types: 1,
+      zfbname: "",
+      zfbnum: ""
     };
   },
   props: {},
   methods: {
+    shenqin() {
+      this.$API
+        .Aftersale({
+          i: 2,
+          c: "entry",
+          a: "wxapp",
+          m: "mask",
+          do: "Aftersale",
+          uid: wx.getStorageSync("sessionId"),
+          oid: this.$route.query.id,
+          type: this.types,
+          zfbnum: this.zfbnum,
+          zfbname: this.zfbname
+        })
+        .then(res => {
+          if (res.code == 1) {
+            setTimeout(() => {
+              this.goBack();
+            }, 1000);
+          } else {
+            // this.pageTo('/pages/shopCart/payResult', {isSuccess: false})
+          }
+        });
+    },
     selects(index) {
       this.val = index;
       console.log(this.val);
-
+      this.types = this.val + 1;
       // this.isopen = false;
     },
     init() {
@@ -102,6 +133,19 @@ export default {
   overflow: hidden;
   overflow-y: scroll;
   background-color: #fff;
+  .inp {
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    input {
+      margin-top: 15px;
+      font-size: 15px;
+    }
+  }
   .one {
     background-color: #fff;
     padding: 18px 13px;
@@ -128,6 +172,9 @@ export default {
     justify-content: flex-start;
     align-items: center;
     margin-top: 10px;
+    p {
+      font-size: 15px;
+    }
     .btn {
       padding: 8px 7px;
       box-sizing: border-box;
@@ -135,6 +182,7 @@ export default {
       border-radius: 5px;
       font-size: 13px;
       margin-left: 8px;
+      margin-top: 15px;
     }
     .btn_active {
       background-color: #ed1731;
@@ -255,6 +303,7 @@ export default {
   }
   .btn {
     padding: 0 13px;
+    margin-top: 15px;
     // margin-top: 50px;
     button.login-out {
       width: 100%;

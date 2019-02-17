@@ -43,11 +43,11 @@
       <li class="detail">订单号：{{stateList.order_num}}</li>
       <li class="detail">创建时间：{{stateList.time}}</li>
       <!-- postfeename -->
-      <li class="detail">快递公司：{{stateList.postfeename}}</li>
-      <li class="detail space"  :data-text="stateList.postfeenum">快递号：{{stateList.postfeenum}}
+      <li class="detail" v-if="stateList.postfeenum !=null && stateList.postfeenum != ''">快递公司：{{stateList.postfeename}}</li>
+      <li class="detail space"  v-if="stateList.postfeenum !=null && stateList.postfeenum != ''" :data-text="stateList.postfeenum">快递号：{{stateList.postfeenum}}
         <span @click="copyNum">复制</span>
       </li>
-      
+      <li class="detail" v-if="stateList.postfeenum ==null || stateList.postfeenum == ''">门店自提</li>
       <!-- <li class="detail" v-if="state !== 1 || state !== 5">支付时间：2018-11-27 12:24</li>
       <li class="detail" v-if="state == 0 || state == 3 || state == 4">发货时间：2018-11-27 12:24</li>
       <li class="detail" v-if="state == 0 || state == 4">收货时间：2018-11-27 12:24</li> -->
@@ -339,7 +339,7 @@ export default {
       @include singleLine;
       line-height: 26px;
     }
-    li.space {
+    li.space span{
       color: #ed1731;
     }
   }

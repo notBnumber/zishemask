@@ -3,6 +3,9 @@
   <div class="forget-template">
     <!-- <headers isBack></headers> -->
     <span class="title">申请提现</span>
+    <span class="tip">
+      提现手续费1%
+    </span>
     <ul class='ul'>
       <li class="account" :class="isfocu == 0 && 'active'">
         <div>
@@ -124,13 +127,13 @@ export default {
       }, 1000);
     },
     changePwd() {
-      // if (!this.phoneRegexp.test(this.name)) {
-      //   this.$Toast({
-      //     content: "手机号码格式错误",
-      //     type: "error"
-      //   });
-      //   return;
-      // }
+      if (this.name<100) {
+        this.$Toast({
+          content: "提现金额不能小于100",
+          type: "error"
+        });
+        return;
+      }
       this.$API
         .Withdrawal({
           i: 2,
@@ -138,7 +141,7 @@ export default {
           a: "wxapp",
           m: "mask",
           do: "Withdrawal",
-          phone: this.name,
+          money : this.name,
           paypsw: this.password,
           cid: this.$route.query.id,
           uid:
@@ -153,10 +156,13 @@ export default {
             // this.switchTab("/pages/home/index");
             // this.goBack()
             this.$Toast({ content: res.msg, type: "success" });
-            setTimeout(() => {
-              this.goBack();
-            }, 1000);
+            // setTimeout(() => {
+            //   this.goBack();
+            // }, 1000);
+            this.pageTo('/pages/my/getMoney')
+            // this.pageTo('/pages/login/login')
           } else {
+            
             this.$Toast({
               content: res.msg,
               type: "error"
@@ -183,6 +189,14 @@ export default {
   height: 100vh;
   overflow: hidden;
   background: #ffffff;
+  span.tip {
+    margin-top: 12px;
+    font-size: 14px;
+    font-family: PingFang-SC-Bold;
+    font-weight: bold;
+    color: #000000;
+    padding-left: 19px;
+  }
   span.title {
     display: inline-block;
     margin-top: 24px;
