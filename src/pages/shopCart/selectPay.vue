@@ -121,7 +121,7 @@ export default {
           content: '请输入密码',
           type: "warning"
         });
-      } else P;
+      } else{
       this.$API
         .YuePay({
           i: 2,
@@ -148,6 +148,7 @@ export default {
             // this.pageTo('/pages/shopCart/payResult', {isSuccess: false})
           }
         });
+      }
     },
     init() {
       this.$API
