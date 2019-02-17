@@ -140,6 +140,11 @@ export default {
               this.goBack();
             }, 1000);
           } else {
+              //这里弹出框有问题，层次问题
+              this.$Toast({
+                  content: res.code.msg,
+                  type: "warning"
+              });
             // this.pageTo('/pages/shopCart/payResult', {isSuccess: false})
           }
         });
