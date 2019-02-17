@@ -57,8 +57,8 @@
           <span>待收货</span>
         </span>
         <!--<span class="body-item" @click="pageTo('/pages/my/orderCenter', {tabIndex: 4})">-->
-          <!--<i class="evaluate"></i>-->
-          <!--<span>待评价</span>-->
+        <!--<i class="evaluate"></i>-->
+        <!--<span>待评价</span>-->
         <!--</span>-->
         <span class="body-item" @click="pageTo('/pages/my/orderAfterSale')">
           <i class="refund"></i>
@@ -118,9 +118,9 @@
           <i class="arrow"></i>
         </li>
         <!--<li @click="xieyi">-->
-          <!--<span>-->
-            <!--<i class="complaints"></i>我是协议</span>-->
-          <!--<i class="arrow"></i>-->
+        <!--<span>-->
+        <!--<i class="complaints"></i>我是协议</span>-->
+        <!--<i class="arrow"></i>-->
         <!--</li>-->
       </ul>
       <div class="outLogin" @click="outLogin">
@@ -137,14 +137,14 @@ export default {
   mixins: [modal],
   data() {
     return {
-        ID:'',
-        level:'',
+      ID: "",
+      level: "",
       avatarUrl: "",
       nickName: "",
       modal1: false,
       timer: null,
       isLogin: false,
-        toustel:''
+      toustel: ""
     };
   },
   methods: {
@@ -152,7 +152,7 @@ export default {
       this.replaceTo("/pages/login/wxLogin");
       //  wx.setStorageSync('sessionId', response.data.sessionId)
 
-      wx.clearStorage()
+      wx.clearStorage();
     },
       tovip() {
           if (this.level == 0) {
@@ -166,90 +166,90 @@ export default {
       },
     getUserInfo() {
       let vm = this;
-        this.$API
-            .tousucall({
-                i: 2,
-                c: "entry",
-                a: "wxapp",
-                m: "mask",
-                do: "Qrcodeinfo",
-                uid: wx.getStorageSync("sessionId")
-            })
-            .then(res => {
-                console.log(res, "头像昵称");
-                if (res.code == 1) {
-                    vm.avatarUrl = res.data.headerimg;
-                    vm.nickName = res.data.nickName;
-                    vm.ID = res.data.id;
-                    vm.level = res.data.level;
-                }
-            });
+      this.$API
+        .tousucall({
+          i: 2,
+          c: "entry",
+          a: "wxapp",
+          m: "mask",
+          do: "Qrcodeinfo",
+          uid: wx.getStorageSync("sessionId")
+        })
+        .then(res => {
+          console.log(res, "头像昵称");
+          if (res.code == 1) {
+            vm.avatarUrl = res.data.headerimg;
+            vm.nickName = res.data.nickName;
+            vm.ID = res.data.id;
+            vm.level = res.data.level;
+          }
+        });
       //以下方法微信即将废弃
-//      wx.getUserInfo({
-//        success(res) {
-//          vm.avatarUrl = res.userInfo.avatarUrl;
-//          vm.nickName = res.userInfo.nickName;
-//        },
-//        fail(err) {
-//          wx.showToast({
-//            title: "获取用户信息失败",
-//            icon: "none"
-//          });
-//          vm.timer = setTimeout(() => {
-//            vm.modalOpen("modal1");
-//          }, 1500);
-//        }
-//      });
+      //      wx.getUserInfo({
+      //        success(res) {
+      //          vm.avatarUrl = res.userInfo.avatarUrl;
+      //          vm.nickName = res.userInfo.nickName;
+      //        },
+      //        fail(err) {
+      //          wx.showToast({
+      //            title: "获取用户信息失败",
+      //            icon: "none"
+      //          });
+      //          vm.timer = setTimeout(() => {
+      //            vm.modalOpen("modal1");
+      //          }, 1500);
+      //        }
+      //      });
     },
-      docall(){
-        let that=this;
-          wx.makePhoneCall({
-              phoneNumber: that.toustel //仅为示例，并非真实的电话号码
-          })
-      },
-      getcall(){
-          this.$API
-              .tousucall({
-                  i: 2,
-                  c: "entry",
-                  a: "wxapp",
-                  m: "mask",
-                  do: "Tousu",
-                  uid: wx.getStorageSync("sessionId")
-              })
-              .then(res => {
-                  console.log(res, "投诉电话");
-                  if (res.code == 1) {
-                      this.toustel = res.data.tel;
-                  }
-              });
-      },
-      xieyi(){
-//          wx.showActionSheet({
-//              itemList: ['类型1', '类型二', '类型三'],
-//              success(res) {
-//                  console.log(res.tapIndex)
-//                  wx.showToast({
-//                          title: '选择了'+res.tapIndex,
-//                          duration: 1000
-//                      })
-//              },
-//              fail(res) {
-//                  console.log(res.errMsg)
-//              }
-//          })
-      },
-//    getSetting() {
-//      let vm = this;
-//      wx.getSetting({
-//        success(res) {
-//          console.log(res, "是否授权");
-//          if (!res.authSetting["scope.userInfo"]) {
-//            vm.getUserInfo();
-//          }
-//        }
-//      });
-//    },
+    docall() {
+      let that = this;
+      wx.makePhoneCall({
+        phoneNumber: that.toustel //仅为示例，并非真实的电话号码
+      });
+    },
+    getcall() {
+      this.$API
+        .tousucall({
+          i: 2,
+          c: "entry",
+          a: "wxapp",
+          m: "mask",
+          do: "Tousu",
+          uid: wx.getStorageSync("sessionId")
+        })
+        .then(res => {
+          console.log(res, "投诉电话");
+          if (res.code == 1) {
+            this.toustel = res.data.tel;
+          }
+        });
+    },
+    xieyi() {
+      //          wx.showActionSheet({
+      //              itemList: ['类型1', '类型二', '类型三'],
+      //              success(res) {
+      //                  console.log(res.tapIndex)
+      //                  wx.showToast({
+      //                          title: '选择了'+res.tapIndex,
+      //                          duration: 1000
+      //                      })
+      //              },
+      //              fail(res) {
+      //                  console.log(res.errMsg)
+      //              }
+      //          })
+    },
+    //    getSetting() {
+    //      let vm = this;
+    //      wx.getSetting({
+    //        success(res) {
+    //          console.log(res, "是否授权");
+    //          if (!res.authSetting["scope.userInfo"]) {
+    //            vm.getUserInfo();
+    //          }
+    //        }
+    //      });
+    //    },
     goSetting(name) {
       let vm = this;
       wx.openSetting({
@@ -265,15 +265,15 @@ export default {
     }
   },
   onShow() {
-      console.log('onShow')
-      this.getcall();
+    console.log("onShow");
+    this.getcall();
     if (wx.getStorageSync("sessionId")) {
       this.isLogin = true;
     }
     this.getUserInfo();
   },
   onUnload() {
-      console.log('onUnload')
+    console.log("onUnload");
     clearTimeout(this.timer);
   }
 };
@@ -292,7 +292,7 @@ export default {
   }
   .head {
     height: 80px;
-    background-color: #ED555F;
+    background-color: #ed555f;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -325,7 +325,7 @@ export default {
         .shenfen {
           display: flex;
           justify-content: flex-start;
-          span{
+          span {
             font-size: 16px;
             padding: 5px 1px;
           }
@@ -426,7 +426,6 @@ export default {
           &.refund {
             background-image: url("~@/assets/img/user_icon_5@2x.png");
           }
-
         }
         span {
           font-size: 12px;
@@ -508,7 +507,6 @@ export default {
       border-radius: 8px;
       color: #fff;
     }
-
   }
 }
 </style>

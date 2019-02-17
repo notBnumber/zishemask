@@ -230,9 +230,9 @@ module.exports = [
     config: {
       "navigationBarTitleText": "选择支付",
       "enablePullDownRefresh": false,
-        "usingComponents": {
-            "i-toast": "/iView/toast/index",
-        }
+      "usingComponents": {
+        "i-toast": "/iView/toast/index",
+    }
     }
   },
   // 我的

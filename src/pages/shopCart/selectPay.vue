@@ -116,12 +116,17 @@ export default {
       console.log(this.yue);
     },
     toInfo() {
-      if (this.paypsw == "") {
+      console.log(this.pwd);
+      
+      if (this.pwd == "") {
         this.$Toast({
           content: '请输入密码',
           type: "warning"
-        });
-      } else{
+        }); 
+
+        
+        return
+      } ;
       this.$API
         .YuePay({
           i: 2,
