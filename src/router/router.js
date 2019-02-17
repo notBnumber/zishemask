@@ -218,22 +218,22 @@ module.exports = [
       "enablePullDownRefresh": false
     }
   },
-  {
-    path: "pages/shopCart/payResult",
-    config: {
-      "navigationBarTitleText": "支付结果",
-      "enablePullDownRefresh": false
-    }
-  },
-  {
-    path: "pages/shopCart/selectPay",
-    config: {
-      "navigationBarTitleText": "选择支付",
-      "enablePullDownRefresh": false,
-      "usingComponents": {
-        "i-toast": "/iView/toast/index",
-    }
-    }
+    {
+        path: "pages/shopCart/payResult",
+        config: {
+            "navigationBarTitleText": "支付结果",
+            "enablePullDownRefresh": false
+        }
+    },
+    {
+        path: "pages/shopCart/selectPay",
+        config: {
+            "navigationBarTitleText": "选择支付",
+            "enablePullDownRefresh": false,
+            "usingComponents": {
+                "i-toast": "/iView/toast/index",
+            }
+        }
   },
   // 我的
   {
@@ -245,6 +245,7 @@ module.exports = [
       "disableScroll": true,
       "enablePullDownRefresh": false,
       "usingComponents": {
+          "i-toast": "/iView/toast/index",
         "i-modal": "/iView/modal/index",
       }
     }

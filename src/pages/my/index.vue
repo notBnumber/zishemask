@@ -127,6 +127,7 @@
         退出登录
       </div>
     </div>
+    <i-toast id="toast" />
   </div>
 </template>
 
