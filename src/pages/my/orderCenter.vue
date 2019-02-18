@@ -15,7 +15,7 @@
         <orderItem :state="item" :ii = 'item.state' @okOrder='okOrder'></orderItem>
       </li>
     </ul>
-    <span v-if="stateList.length==0">空空如也</span>
+    <div v-if="stateList.length==0" class="space">----空空如也----</div>
     <!-- <ul class="order-list" v-if="tabActive==1">
       <li class="order-item" v-for="(item, index) in stateList" :key="index">
         <orderItem :state="item"></orderItem>
@@ -120,6 +120,23 @@ export default {
 @import "~@/assets/css/_mixin";
 .orderCenter-template {
   width: 100%;
+  position: relative;
+  .space {
+    // display: inline-block;
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    // text-align: center;
+    // height: 100vh;
+     position: absolute;  
+    top: -100%;  
+    width: 100%;  
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   ul.tabs {
     width: 100%;
     display: flex;

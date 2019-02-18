@@ -8,7 +8,7 @@
         <orderAfterSaleItem :state="item"></orderAfterSaleItem>
       </li>
     </ul>
-    <span v-if="stateList.length==0">空空如也</span>
+    <span v-if="stateList.length==0" class="space">----空空如也----</span>
   </div>
 </template>
 
@@ -67,11 +67,27 @@
   @import "~@/assets/css/_mixin";
   .orderAfterSale-template {
     width: 100%;
+      position: relative;
     ul.order-list {
       width: 100%;
       li.order-item {
         width: 100%;
       }
     }
+      .space {
+    // display: inline-block;
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    // text-align: center;
+    // height: 100vh;
+     position: absolute;  
+    width: 100%;  
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   }
 </style>
