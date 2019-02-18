@@ -69,9 +69,29 @@
 
     <div class="box">
       <ul>
-        <li @click="pageTo('/pages/my/dayday')">
+        <!--<li @click="pageTo('/pages/my/myEvaluate')">-->
+          <!--<span>-->
+            <!--<i class="evaluate"></i>我的足迹</span>-->
+          <!--<i class="arrow"></i>-->
+        <!--</li> -->
+        <li @click="tovip">
           <span>
-            <i class="evaluate"></i>签到</span>
+            <i class="evaluate"></i>签到领积分</span>
+          <i class="arrow"></i>
+        </li>
+        <li @click="pageTo('/pages/my/pyramid')">
+          <span>
+            <i class="distribution"></i>分销中心</span>
+          <i class="arrow"></i>
+        </li>
+        <li @click="pageTo('/pages/my/myMoney')">
+          <span>
+            <i class="Help"></i>我的资产</span>
+          <i class="arrow"></i>
+        </li>
+        <li @click="pageTo('/pages/my/power')">
+          <span>
+            <i class="myRight"></i>我的特权</span>
           <i class="arrow"></i>
         </li>
         <li @click="pageTo('/pages/my/myCollection')">
@@ -84,26 +104,13 @@
             <i class="address"></i>收货地址</span>
           <i class="arrow"></i>
         </li>
-        <li @click="pageTo('/pages/my/myMoney')">
-          <span>
-            <i class="Help"></i>我的资产</span>
-          <i class="arrow"></i>
-        </li>
+
         <li @click="pageTo('/pages/my/userinfo')">
           <span>
             <i class="setting"></i>编辑资料</span>
           <i class="arrow"></i>
         </li>
-        <li @click="pageTo('/pages/my/pyramid')">
-          <span>
-            <i class="distribution"></i>分销中心</span>
-          <i class="arrow"></i>
-        </li>
-        <li @click="pageTo('/pages/my/power')">
-          <span>
-            <i class="myRight"></i>我的特权</span>
-          <i class="arrow"></i>
-        </li>
+
 
         <li @click="docall">
           <span>
@@ -120,6 +127,7 @@
         退出登录
       </div>
     </div>
+    <i-toast id="toast" />
   </div>
 </template>
 
@@ -147,6 +155,16 @@ export default {
 
       wx.clearStorage();
     },
+      tovip() {
+          if (this.level == 0) {
+              this.$Toast({
+                  content: "非代理不可领积分",
+                  type: "warning"
+              });
+          } else {
+              this.pageTo("/pages/my/vipcard");
+          }
+      },
     getUserInfo() {
       let vm = this;
       this.$API

@@ -118,45 +118,45 @@ export default {
       this.yue = !this.yue;
       console.log(this.yue);
     },
-    toInfo() {
-      console.log(this.pwd);
-      
-      if (this.pwd == "") {
-        this.$Toast({
-          content: '请输入密码',
-          type: "warning"
-        }); 
+      toInfo() {
+          console.log(this.pwd);
 
-        
-        return
-      } ;
-      this.$API
-        .YuePay({
-          i: 2,
-          c: "entry",
-          a: "wxapp",
-          m: "mask",
-          do: "YuePay",
-          uid: wx.getStorageSync("sessionId"),
-          money: this.$route.query.money,
-          orderid: this.$route.query.id,
-          paypsw: this.pwd
-        })
-        .then(res => {
-          if (res.code == 1) {
-            setTimeout(() => {
-              this.goBack();
-            }, 1000);
-          } else {
-              //这里弹出框有问题，层次问题
+          if (this.pwd == "") {
               this.$Toast({
-                  content: res.code.msg,
+                  content: '请输入密码',
                   type: "warning"
               });
-            // this.pageTo('/pages/shopCart/payResult', {isSuccess: false})
-          }
-        });
-    },
+
+
+              return
+          } ;
+          this.$API
+              .YuePay({
+                  i: 2,
+                  c: "entry",
+                  a: "wxapp",
+                  m: "mask",
+                  do: "YuePay",
+                  uid: wx.getStorageSync("sessionId"),
+                  money: this.$route.query.money,
+                  orderid: this.$route.query.id,
+                  paypsw: this.pwd
+              })
+              .then(res => {
+                  if (res.code == 1) {
+                      setTimeout(() => {
+                          this.goBack();
+                      }, 1000);
+                  } else {
+                      //这里弹出框有问题，层次问题
+                      this.$Toast({
+                          content: res.code.msg,
+                          type: "warning"
+                      });
+                      // this.pageTo('/pages/shopCart/payResult', {isSuccess: false})
+                  }
+              });
+      },
     init() {
       this.$API
         .Getwallet({
