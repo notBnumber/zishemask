@@ -7,7 +7,7 @@
           <!-- <span>联系电话:{{defaults.}}</span> -->
         </div>
         <div class="address-info">
-          收货地址：{{address==''?'':address.address+address.detailadd}}
+          收货地址：{{address==''?'':address.address}}&nbsp;{{address.detailadd}}
         </div>
       </div>
       <i class="more-icon"></i>
@@ -140,10 +140,10 @@ export default {
               console.log('提交成功');
               vm.pageTo("/pages/shopCart/selectPay",{money:Number(this.allPrice) + Number(this.freight),id:res.data})
             } else {
-                this.$Toast({
-                    content: res.msg,
-                    type: "warning"
-                });
+                // this.$Toast({
+                //     content: res.msg,
+                //     type: "warning"
+                // });
               // this.pageTo('/pages/shopCart/payResult', {isSuccess: false})
             }
           });

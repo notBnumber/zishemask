@@ -63,10 +63,13 @@ export default {
           openid: wx.getStorageSync("openid"),
           money: this.$route.query.money
         })
-        .then(res => {
+        .then(res => {          
           let vm = this;
           if (res.code == 1) {
-            console.log("zhifu 成功");
+            let orderid = this.$route.query.id
+            let money = this.$route.query.money
+            console.log(this.$route.query.id);
+             console.log('>>>>', "支持技术监督局");
             // this.stateList = res.data;
             wx.requestPayment({
               timeStamp: res.data.timeStamp,
@@ -75,16 +78,16 @@ export default {
               paySign: res.data.paySign,
               signType: "MD5",
               success: function(e) {
-                vm.sss = true;
+                let sss = true;
                 console.log(e, "支持技术监督局");
                 wx.reLaunch({
                   url:
                     "/pages/shopCart/payResult?isSuccess=" +
-                    vm.sss +
+                    sss +
                     "&id=" +
-                    vm.$route.query.id +
+                    orderid +
                     "&money=" +
-                    this.$route.query.money
+                    money
                 });
                 //支付成功处理
                 // app.util.request({

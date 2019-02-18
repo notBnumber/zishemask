@@ -26,7 +26,8 @@ export default {
   data() {
     return {
       isSuccess: false,
-      ids:''
+      ids:'',
+      money:''
     }
   },
   props: {
