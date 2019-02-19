@@ -71,10 +71,10 @@ export default {
             });
             this.$emit("del");
           } else {
-            this.$Toast({
-              content: res.msg,
-              type: "warning"
-            });
+            // this.$Toast({
+            //   content: res.msg,
+            //   type: "warning"
+            // });
           }
         });
       // this.$emit("closeCollect", this.index);

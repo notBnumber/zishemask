@@ -163,10 +163,10 @@ export default {
             // this.pageTo('/pages/login/login')
           } else {
             
-            this.$Toast({
-              content: res.msg,
-              type: "error"
-            });
+            // this.$Toast({
+            //   content: res.msg,
+            //   type: "error"
+            // });
           }
         });
     }

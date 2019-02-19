@@ -42,39 +42,10 @@ axios.defaults.adapter = function (config) {
         success: function (data) {
           const code = Number(data.data.code)
           console.log(config,'kkkk');
-          
+          wx.hideLoading()
           if (code === 1) {
             resolve(data.data)            
-          } else if (code === 2) {
-            // wx.login({
-            //   success(res) {
-            //     vm.$API.wxLogin({
-            //       code: res.code
-            //     }).then(response => {
-            //       wx.setStorageSync('sessionId', response.data.sessionId)
-            //       wx.setStorageSync('personalId', response.data.id)
-            //       resolve(data.data)
-            //       // 如果没有绑定
-            //       // if(response.data.isBind == 0) {
-            //       //   this.$router.replace('/pages/personal/login');
-            //       // }else {
-            //       //   wx.switchTab({url: '/pages/purchase/purchase'})
-            //       // }
-            //     })
-            //   }
-            // })
-          } else if (code === 0) {
-            resolve(data.data)   
-            const msg = data.data.msg
-            console.log('错误');
-            
-            wx.showToast({
-              title: `${msg}`,
-              icon: 'none',
-              duration: 2000
-            });
-          } else {
-            resolve(data.data)   
+          }   else {
             resolve(data.data)   
             const msg = data.data.msg
             console.log('错误');
@@ -88,13 +59,14 @@ axios.defaults.adapter = function (config) {
         },
         fail(err) {
           console.log(err);
+          wx.hideLoading()
           wx.showToast({
             title: '网络出错',
             icon: 'none'
           })
         },
         complete: () => {
-          wx.hideLoading()
+          // wx.hideLoading()
         }
       })
     } catch (err) {

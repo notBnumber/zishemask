@@ -167,10 +167,10 @@ export default {
           this.pageTo("/pages/my/myMoney");
         },1000)
           } else {
-            this.$Toast({
-              content: res.msg,
-              type: "error"
-            });
+            // this.$Toast({
+            //   content: res.msg,
+            //   type: "error"
+            // });
           }
         });
       // vm.pageTo('/pages/login/forgetpwd')

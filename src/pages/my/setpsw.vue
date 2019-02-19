@@ -165,10 +165,10 @@ export default {
             // this.goBack();
             this.pageTo('/pages/my/newsetpsw')
           } else {
-            this.$Toast({
-              content: res.msg,
-              type: "error"
-            });
+            // this.$Toast({
+            //   content: res.msg,
+            //   type: "error"
+            // });
           }
         });
       // vm.pageTo('/pages/login/forgetpwd')

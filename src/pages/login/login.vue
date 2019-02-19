@@ -112,10 +112,10 @@ export default {
             wx.setStorageSync('is',true)
             // 成功登录 is为true
           } else {
-            this.$Toast({
-              content: res.msg,
-              type: "warning"
-            });
+            // this.$Toast({
+            //   content: res.msg,
+            //   type: "warning"
+            // });
           }
         });
       // wx.request({

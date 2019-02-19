@@ -153,10 +153,10 @@ export default {
             // this.switchTab("/pages/home/index");
             this.goBack()
           } else {
-            this.$Toast({
-              content: res.msg,
-              type: "error"
-            });
+            // this.$Toast({
+            //   content: res.msg,
+            //   type: "error"
+            // });
           }
         });
     }
