@@ -139,7 +139,8 @@ export default {
             if (res.code == 1) {
               console.log('提交成功');
               vm.pageTo("/pages/shopCart/selectPay",{money:Number(this.allPrice) + Number(this.freight),id:res.data})
-            } else {
+            } else if(res.code==-1){
+              this.pageTo("/pages/login/login");
                 // this.$Toast({
                 //     content: res.msg,
                 //     type: "warning"

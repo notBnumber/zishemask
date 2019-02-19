@@ -183,6 +183,8 @@ export default {
             vm.nickName = res.data.nickName;
             vm.ID = res.data.id;
             vm.level = res.data.level;
+          } else {
+            // this.pageTo("/pages/login/login");
           }
         });
       //以下方法微信即将废弃
