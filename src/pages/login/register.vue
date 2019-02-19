@@ -190,6 +190,11 @@ export default {
   },
   mounted() {
     //do something after mounting vue instance
+  },
+  onShow() {
+    this.code=''
+    this.password = ''
+    this.name = ''
   }
 };
 </script>
