@@ -80,7 +80,7 @@ export default {
               success: function(e) {
                 let sss = true;
                 console.log(e, "支持技术监督局");
-                wx.reLaunch({
+                wx.redirectTo({
                   url:
                     "/pages/shopCart/payResult?isSuccess=" +
                     sss +
@@ -149,7 +149,7 @@ export default {
             let sss = true;
             let orderid = this.$route.query.id;
             let money = this.$route.query.money;
-            wx.reLaunch({
+            wx.redirectTo({
               url:
                 "/pages/shopCart/payResult?isSuccess=" +
                 sss +
