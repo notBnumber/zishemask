@@ -1,5 +1,5 @@
 <template>
-  <div class="orderItem-component" @click="pageTo('/pages/my/orderDetail', {id:state.id})" v-if="state!=''">
+  <div class="orderItem-component" @click.stop="pageTo('/pages/my/orderDetail', {id:state.id})" v-if="state!=''">
     <div class="header">
       <span class="order-no">订单号：{{state.order_num}}</span>
       <span class="order-state">{{state.state == 4 ? '交易完成' : state.state == 1 ? '待付款' : state.state == 2 ? '待发货' : state.state == 3 ? '待收货' : state.state == 4 ? '已完成' : '售后'}}</span>
@@ -25,7 +25,7 @@
     </div> -->
       <div class="right">
         <div class="btn" v-if="ii == 4">
-          <button @click="pageTo('/pages/my/submitAfterSale',{id:state.id})">申请售后</button>
+          <button @click.stop="pageTo('/pages/my/submitAfterSale',{id:state.id})">申请售后</button>
           <!-- <button>付款</button> -->
         </div>
         <div class="btn" v-else-if="ii == 2 || ii == 3">
@@ -33,7 +33,7 @@
           <!-- <button>付款</button> -->
         </div>
         <div class="btn" v-else-if="ii == 1">
-          <button @click="toPay">去支付</button>
+          <button @click.stop="toPay">去支付</button>
         </div>
         <!-- <div class="btn" v-else-if="state === 2">
         <button @click.stop="refund()">申请退款</button>
