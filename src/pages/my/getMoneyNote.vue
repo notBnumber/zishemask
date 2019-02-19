@@ -15,12 +15,12 @@
           <li class="main_li" v-for="(item, index) in info" :key="index">
             <span class="main_right">
               <ul>
-                <li class="liOne">{{item.rbuyername}}</li>
+                <li class="liOne">￥{{item.rmoney}}</li>
                 <li>{{item.raddtime}}</li>
               </ul>
             </span>
             <span class="main_footer">
-              +{{item.rmoney}}
+              {{item.rsettlement==0?'未审核':'已同意'}}
             </span>
           </li>
         </ul>
