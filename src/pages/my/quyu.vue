@@ -64,10 +64,11 @@
               <p>{{vipinfo.tgmoenycount}}/0元</p>
             </div>
           </div>
-          <button type="warn" class="btn"  @click="pageTo('/pages/my/shenqing')">申请</button>
+          <button type="warn" class="btn"  @click="gotoshenqing">申请</button>
         </div>
       </div>
     </div>
+    <i-toast id="toast" />
   </div>
 </template>
 
@@ -117,6 +118,16 @@ export default {
                       console.log(that.tgmoneybili, "推广销售金额比例");
                   }
               });
+      },
+      gotoshenqing(){
+          if(this.level<3){
+            this.$Toast({
+                      content: "金卡方可申请！",
+                      type: "warning"
+                  });
+          }else{
+              this.pageTo("/pages/my/shenqing");
+          }
       }
   },
     onShow(){
