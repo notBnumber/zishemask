@@ -63,13 +63,13 @@ export default {
           openid: wx.getStorageSync("openid"),
           money: this.$route.query.money
         })
-        .then(res => {          
+        .then(res => {
           let vm = this;
           if (res.code == 1) {
-            let orderid = this.$route.query.id
-            let money = this.$route.query.money
+            let orderid = this.$route.query.id;
+            let money = this.$route.query.money;
             console.log(this.$route.query.id);
-             console.log('>>>>', "支持技术监督局");
+            console.log(">>>>", "支持技术监督局");
             // this.stateList = res.data;
             wx.requestPayment({
               timeStamp: res.data.timeStamp,
@@ -118,45 +118,56 @@ export default {
       this.yue = !this.yue;
       console.log(this.yue);
     },
-      toInfo() {
-          console.log(this.pwd);
+    toInfo() {
+      console.log(this.pwd);
 
-          if (this.pwd == "") {
-              this.$Toast({
-                  content: '请输入密码',
-                  type: "warning"
-              });
+      if (this.pwd == "") {
+        this.$Toast({
+          content: "请输入密码",
+          type: "warning"
+        });
 
-
-              return
-          } ;
-          this.$API
-              .YuePay({
-                  i: 2,
-                  c: "entry",
-                  a: "wxapp",
-                  m: "mask",
-                  do: "YuePay",
-                  uid: wx.getStorageSync("sessionId"),
-                  money: this.$route.query.money,
-                  orderid: this.$route.query.id,
-                  paypsw: this.pwd
-              })
-              .then(res => {
-                  if (res.code == 1) {
-                      setTimeout(() => {
-                          this.goBack();
-                      }, 1000);
-                  } else {
-                      //这里弹出框有问题，层次问题
-                      this.$Toast({
-                          content: res.code.msg,
-                          type: "warning"
-                      });
-                      // this.pageTo('/pages/shopCart/payResult', {isSuccess: false})
-                  }
-              });
-      },
+        return;
+      }
+      this.$API
+        .YuePay({
+          i: 2,
+          c: "entry",
+          a: "wxapp",
+          m: "mask",
+          do: "YuePay",
+          uid: wx.getStorageSync("sessionId"),
+          money: this.$route.query.money,
+          orderid: this.$route.query.id,
+          paypsw: this.pwd
+        })
+        .then(res => {
+          if (res.code == 1) {
+            // setTimeout(() => {
+            //     this.goBack();
+            // }, 1000);
+            let sss = true;
+            let orderid = this.$route.query.id;
+            let money = this.$route.query.money;
+            wx.reLaunch({
+              url:
+                "/pages/shopCart/payResult?isSuccess=" +
+                sss +
+                "&id=" +
+                orderid +
+                "&money=" +
+                money
+            });
+          } else {
+            //这里弹出框有问题，层次问题
+            this.$Toast({
+              content: res.code.msg,
+              type: "warning"
+            });
+            // this.pageTo('/pages/shopCart/payResult', {isSuccess: false})
+          }
+        });
+    },
     init() {
       this.$API
         .Getwallet({
