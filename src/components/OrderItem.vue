@@ -24,11 +24,12 @@
       申请售后
     </div> -->
       <div class="right">
-        <div class="btn" v-if="ii == 4">
-          <button @click.stop="pageTo('/pages/my/submitAfterSale',{id:state.id})">申请售后</button>
+        <!-- <div class="btn" v-if="ii == 4"> -->
+          <!-- <button @click.stop="pageTo('/pages/my/submitAfterSale',{id:state.id})">申请售后</button> -->
           <!-- <button>付款</button> -->
-        </div>
-        <div class="btn" v-else-if="ii == 2 || ii == 3">
+        <!-- </div> -->
+        <div class="btn" v-if="ii == 2 || ii == 3 ">
+          <button @click.stop="pageTo('/pages/my/submitAfterSale',{id:state.id})">申请售后</button>
           <button @click.stop="OJBK">确认收货</button>
           <!-- <button>付款</button> -->
         </div>
