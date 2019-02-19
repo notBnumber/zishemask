@@ -153,72 +153,101 @@ export default {
     this.loadMore();
     console.log("上拉触底");
   },
-   onShareAppMessage: function (ops) {
-   if (ops.from === 'button') {
-     // 来自页面内转发按钮
-     console.log(ops.target)
-   }
-   return {
-     title: '紫色魅影',
-     path: 'pages/home/index',
-     success: function (res) {
-       // 转发成功
-       console.log("转发成功:" + JSON.stringify(res));
-     },
-     fail: function (res) {
-       // 转发失败
-       console.log("转发失败:" + JSON.stringify(res));
-     }
-   }
-
- },
+  onShareAppMessage: function(ops) {
+    if (ops.from === "button") {
+      // 来自页面内转发按钮
+      console.log(ops.target);
+    }
+    return {
+      title: "紫色魅影",
+      path: "pages/home/index",
+      success: function(res) {
+        // 转发成功
+        console.log("转发成功:" + JSON.stringify(res));
+      },
+      fail: function(res) {
+        // 转发失败
+        console.log("转发失败:" + JSON.stringify(res));
+      }
+    };
+  },
   onLoad: function(options) {
     var scene = decodeURIComponent(options.scene);
-    if("undefined"!=scene){
-//        this.$Toast({
-//            content: "扫码进来的"+scene,
-//            type: "success"
-//        });
-        let uid=wx.getStorageSync('sessionId');
-        if(uid){
-            //直接绑定用户
-            if(uid!=scene){
-                console.log(scene,'得到pid')
-                this.$API
-                    .bang({
-                        i: 2,
-                        c: "entry",
-                        a: "wxapp",
-                        m: "mask",
-                        do: "Savaid",
-                        uid: uid,
-                        pid: scene,
-                    })
-                    .then(res => {
-                        console.log(res, "首页中绑定用户");
-                        //if (res.code == 1) {
-                            this.$Toast({
-                                content: res.msg,
-                                type: "success"
-                            });
-                        //}
-                    });
-            }
-        }else{
-            //用户还没授权，先把pdi本地保存先
-            console.log(scene,'已保存pid')
-            wx.setStorageSync("pid", scene);
+    if ("undefined" != scene) {
+      //        this.$Toast({
+      //            content: "扫码进来的"+scene,
+      //            type: "success"
+      //        });
+      let uid = wx.getStorageSync("sessionId");
+      if (uid) {
+        //直接绑定用户
+        if (uid != scene) {
+          console.log(scene, "得到pid");
+          this.$API
+            .bang({
+              i: 2,
+              c: "entry",
+              a: "wxapp",
+              m: "mask",
+              do: "Savaid",
+              uid: uid,
+              pid: scene
+            })
+            .then(res => {
+              console.log(res, "首页中绑定用户");
+              //if (res.code == 1) {
+              this.$Toast({
+                content: res.msg,
+                type: "success"
+              });
+              //}
+            });
         }
+      } else {
+        //用户还没授权，先把pdi本地保存先
+        console.log(scene, "已保存pid");
+        wx.setStorageSync("pid", scene);
+      }
     }
   },
+
   onReady() {
     let vm = this;
     console.log(this.$store.state.test);
     // vm.init()
   },
+  methods: {
+    isLogin() {
+      this.$API
+        .toLogin({
+          i: 2,
+          c: "entry",
+          a: "wxapp",
+          m: "mask",
+          do: "Login",
+          // do参数?
+          uid: wx.getStorageSync("sessionId")
+        })
+        .then(res => {
+          console.log(res);
+
+          if (res.code == 1) {
+            // this.switchTab("/pages/home/index");
+            wx.setStorageSync("is", true);
+            // 成功登录 is为true
+          } else {
+            this.pageTo("/pages/login/register");
+            // this.$Toast({
+            //   content: res.msg,
+            //   type: "warning"
+            // });
+          }
+        });
+    }
+  },
   onShow() {
-    console.log(wx.getStorageSync('is'));
-    
+    console.log(wx.getStorageSync("is"));
+    // this.isLogin();
     // if (wx.getStorageSync('is') == '') {
     //   this.pageTo('/pages/login/login')
     // }

@@ -191,6 +191,9 @@ export default {
               "登录中用户uid"
             );
             // this.switchTab("/pages/home/index");
+          } else {
+            // this.goBack()
+            this.pageTo("/pages/login/wxLogin");
           }
         });
     }

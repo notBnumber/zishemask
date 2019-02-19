@@ -50,7 +50,7 @@ export default {
       flagArr: [],
       arr: [],
       WanSalary2: [],
-      iss:true
+      iss: true
     };
   },
   watch: {
@@ -65,26 +65,26 @@ export default {
         this.isAll = false;
       }
     },
-     scrollTop(curVal, oldVal) {
+    scrollTop(curVal, oldVal) {
       if (this.scrollTop < -100) {
-        this.init()
+        this.init();
       }
     }
   },
-    onPullDownRefresh() {
+  onPullDownRefresh() {
     let vm = this;
     this.isDownRefresh = true;
     console.log("开始刷新");
-this.init()
+    this.init();
     this.timer = setTimeout(() => {
       wx.stopPullDownRefresh({
         success() {
           console.log("结束刷新");
           vm.isDownRefresh = false;
         }
-      })
+      });
       clearTimeout(vm.timer);
-    }, 2500)
+    }, 2500);
   },
   computed: {
     totalPrice() {
@@ -158,40 +158,65 @@ this.init()
       console.log("单选", this.goodsList);
     },
     del() {
-      this.init()
+      this.init();
     },
     // 过滤
     toBuy() {
-      console.log(this.goodsList, "出事");
-      let arr = [];
-      // this.arr = this.myFunction(this.arr)
-      this.WanSalary2 = this.goodsList.filter(function(item) {
-        return item.ischange == true;
-      });
-      console.log(this.WanSalary2, "选中的数组");
-      for (let item of this.WanSalary2) {
-        let obj = {};
-        obj.id = item.gID;
-        obj.value = item.Title;
-        obj.img = item.Itemcover;
-        obj.price = item.Price;
-        obj.freight = item.freight;
-        obj.integral = item.integral;
-        obj.TotalQty = item.TotalQty;
-        obj.num = item.num;
-        arr.push(obj);
-      }
-      console.log(arr, "过滤数组");
+      this.$API
+        .toLogin({
+          i: 2,
+          c: "entry",
+          a: "wxapp",
+          m: "mask",
+          do: "Login",
+          // do参数?
+          uid: wx.getStorageSync("sessionId")
+        })
+        .then(res => {
+          console.log(res);
 
-      if (this.WanSalary2.length != 0) {
-        let str = JSON.stringify(arr);
-        this.pageTo("/pages/shopCart/confirmOrder", { obj: str });
-      } else {
-        this.$Toast({
-          content: "请选择商品",
-          type: "warning"
+          if (res.code == 1) {
+            // this.switchTab("/pages/home/index");
+            wx.setStorageSync("is", true);
+            console.log(this.goodsList, "出事");
+            let arr = [];
+            // this.arr = this.myFunction(this.arr)
+            this.WanSalary2 = this.goodsList.filter(function(item) {
+              return item.ischange == true;
+            });
+            console.log(this.WanSalary2, "选中的数组");
+            for (let item of this.WanSalary2) {
+              let obj = {};
+              obj.id = item.gID;
+              obj.value = item.Title;
+              obj.img = item.Itemcover;
+              obj.price = item.Price;
+              obj.freight = item.freight;
+              obj.integral = item.integral;
+              obj.TotalQty = item.TotalQty;
+              obj.num = item.num;
+              arr.push(obj);
+            }
+            console.log(arr, "过滤数组");
+
+            if (this.WanSalary2.length != 0) {
+              let str = JSON.stringify(arr);
+              this.pageTo("/pages/shopCart/confirmOrder", { obj: str });
+            } else {
+              this.$Toast({
+                content: "请选择商品",
+                type: "warning"
+              });
+            }
+            // 成功登录 is为true
+          } else {
+            this.pageTo("/pages/login/register");
+            // this.$Toast({
+            //   content: res.msg,
+            //   type: "warning"
+            // });
+          }
         });
-      }
     },
 
     toggleButtonType() {
@@ -204,12 +229,10 @@ this.init()
     // });
     console.log("加载购物车");
 
-    
     // this.WanSalary2 = this.goodsList.filter(function(item) {
     //   return item.ischange == true;
     // });
-    console.log(this.WanSalary2.length,'过滤数组');
-    
+    console.log(this.WanSalary2.length, "过滤数组");
   },
   onReady() {
     // this.init();

@@ -29,6 +29,7 @@
     </p> -->
     <div class="btn">
       <button type="button" :disabled=" !name || !code || !password " @click="toGet">注册</button>
+      <button type="button" style='margin-top:15px' @click="pageTo('/pages/login/login')">已注册，去登录</button>
     </div>
     <i-toast id="toast" />
   </div>

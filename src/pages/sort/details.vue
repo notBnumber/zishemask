@@ -231,7 +231,7 @@ export default {
         .then(res => {
           console.log(res, "详情");
           this.detail = res.data;
-          this.isColl = res.data.iscollection
+          this.isColl = res.data.iscollection;
           console.log("sksdfkgkg", this.detail);
         });
     },
@@ -290,30 +290,55 @@ export default {
       // this.visible = true;
     },
     toBuy() {
+      this.$API
+        .toLogin({
+          i: 2,
+          c: "entry",
+          a: "wxapp",
+          m: "mask",
+          do: "Login",
+          // do参数?
+          uid: wx.getStorageSync("sessionId")
+        })
+        .then(res => {
+          console.log(res);
+
+          if (res.code == 1) {
+            // this.switchTab("/pages/home/index");
+            wx.setStorageSync("is", true);
+            let arr = [];
+            let obj = {
+              // id: this.detail.gID,
+              // value: this.detail.Title,
+              // img: this.detail.Itemcover,
+              // price: this.detail.Price,
+              // freight: this.detail.freight
+            };
+            obj.id = this.detail.gID;
+            obj.value = this.detail.Title;
+            obj.img = this.detail.Itemcover;
+            obj.price = this.detail.Price;
+            obj.freight = this.detail.freight;
+            obj.integral = this.detail.integral;
+            obj.TotalQty = this.detail.TotalQty;
+            obj.num = this.num;
+            obj.ischange = true;
+            arr.push(obj);
+            console.log(arr, "djkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
+            let str = JSON.stringify(arr);
+            this.pageTo("/pages/shopCart/confirmOrder", { obj: str });
+            // 成功登录 is为true
+          } else {
+            this.pageTo("/pages/login/register");
+            // this.$Toast({
+            //   content: res.msg,
+            //   type: "warning"
+            // });
+          }
+        });
+
       // pageTo('/pages/shopCart/confirmOrder',{id:detail.gID,num:num,freight:freight})
-      console.log(this.detail,'详情');
-      
-      let arr = [];
-      let obj = {
-        // id: this.detail.gID,
-        // value: this.detail.Title,
-        // img: this.detail.Itemcover,
-        // price: this.detail.Price,
-        // freight: this.detail.freight
-      };
-      obj.id = this.detail.gID;
-      obj.value = this.detail.Title;
-      obj.img = this.detail.Itemcover;
-      obj.price = this.detail.Price;
-      obj.freight = this.detail.freight;
-      obj.integral = this.detail.integral;
-       obj.TotalQty = this.detail.TotalQty;
-      obj.num = this.num
-      obj.ischange = true
-       arr.push(obj);
-      console.log(arr, "djkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
-      let str = JSON.stringify(arr)
-      this.pageTo('/pages/shopCart/confirmOrder',{obj:str})
+      console.log(this.detail, "详情");
     },
     addshopping() {
       if (this.isAddShopCart) {
