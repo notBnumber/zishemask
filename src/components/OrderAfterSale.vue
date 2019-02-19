@@ -5,7 +5,7 @@
     <span class="order-state"></span>
   </div>
   <ul class="goods-list">
-    <li class="goods-item" v-for="(item, index) in state.goodlist" :key="index" @click="pageTo('/pages/my/afterSaleDetail')">
+    <li class="goods-item" v-for="(item, index) in state.goodlist" :key="index" >
       <orderGoodsItem :message='item'></orderGoodsItem>
     </li>
   </ul>
