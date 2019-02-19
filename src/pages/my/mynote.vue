@@ -37,6 +37,7 @@
             </span>
           </li>
         </ul>
+        <span class="space" v-if="info.length==0">----空空如也----</span>
       </div>
     </div>
     <i-toast id="toast" />
@@ -174,6 +175,14 @@ export default {
   margin-left: 15px;
   ul li {
     display: flex;
+  }
+  .space{
+    width: 100%;
+    height: 100vh;
+    margin-top: -50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 .liOne {
