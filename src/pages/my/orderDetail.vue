@@ -58,7 +58,7 @@
         <!-- <button>在线客服</button> -->
       </div>
       <div class="right" v-if="stateList.state == 1">
-        <button @click="cancelOrder()">取消订单</button>
+        <button @click="deleteOrder()">取消订单</button>
         <!-- <button class="red">付款</button> -->
       </div>
       <div class="right" v-else-if="stateList.state == 2">
