@@ -20,11 +20,11 @@
           <div class="shenfen">
             <img src="https://cssy.hn90qc.com/icon/leve_icon.png" alt="">
             <span v-if="level==0">普通用户</span>
-            <span v-if="level==1">代理会员</span>
-            <span v-if="level==2">银卡会员</span>
-            <span v-if="level==3">金卡会员</span>
-            <span v-if="level==4">市代会员</span>
-            <span v-if="level==5">省代会员</span>
+            <span v-if="level==1">合伙人</span>
+            <span v-if="level==2">银卡合伙人</span>
+            <span v-if="level==3">金卡合伙人</span>
+            <span v-if="level==4">市代合伙人</span>
+            <span v-if="level==5">省代合伙人</span>
             <span style="margin-left: 5px;">ID：{{ID}}</span>
           </div>
         </div>

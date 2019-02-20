@@ -2,7 +2,7 @@
   <div class="orderItem-component" @click.stop="pageTo('/pages/my/orderDetail', {id:state.id})" v-if="state!=''">
     <div class="header">
       <span class="order-no">订单号：{{state.order_num}}</span>
-      <span class="order-state">{{state.state == 4 ? '交易完成' : state.state == 1 ? '待付款' : state.state == 2 ? '待发货' : state.state == 3 ? '待收货' : state.state == 4 ? '已完成' : '售后'}}</span>
+      <span class="order-state">{{state.state == 4 ? '交易完成' : state.state == 1 ? '待付款' : state.state == 2 ? '待发货' : state.state == 3 ? '待收货' : state.state == 4 ? '已完成' : '已取消'}}</span>
     </div>
 
     <!-- state-0表示全部订单
