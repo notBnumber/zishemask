@@ -153,7 +153,8 @@ export default {
       this.replaceTo("/pages/login/wxLogin");
       //  wx.setStorageSync('sessionId', response.data.sessionId)
 
-      wx.clearStorage();
+      // wx.clearStorage();
+      wx.setStorageSync('is','')
     },
       tovip() {
           if (this.level == 0) {
