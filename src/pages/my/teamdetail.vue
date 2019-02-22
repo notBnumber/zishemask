@@ -35,6 +35,8 @@
                   <span v-if="item.level==3" class="levelstye3">金卡合伙人</span>
                   <span v-if="item.level==4" class="levelstye4">市代合伙人</span>
                   <span v-if="item.level==5" class="levelstye5">省代合伙人</span>
+                  <span v-if="item.quyuid==4" class="levelstye2" style="margin-left:5px">市代合伙人</span>
+                  <span v-if="item.quyuid==5" class="levelstye2" style="margin-left:5px">省代合伙人</span>
                 </li>
               </ul>
             </span>
@@ -53,11 +55,13 @@
                 <li>{{item.addtime}}</li>
                 <li>
                   <span v-if="item.level==0" class="levelstye">普通用户</span>
-                  <span v-if="item.level==1" class="levelstye1">代理会员</span>
-                  <span v-if="item.level==2" class="levelstye2">银卡会员</span>
-                  <span v-if="item.level==3" class="levelstye3">金卡会员</span>
-                  <span v-if="item.level==4" class="levelstye4">市代会员</span>
-                  <span v-if="item.level==5" class="levelstye5">省代会员</span>
+                  <span v-if="item.level==1" class="levelstye1">合伙人</span>
+                  <span v-if="item.level==2" class="levelstye2">银卡合伙人</span>
+                  <span v-if="item.level==3" class="levelstye3">金卡合伙人</span>
+                  <span v-if="item.level==4" class="levelstye4">市代合伙人</span>
+                  <span v-if="item.level==5" class="levelstye5">省代合伙人</span>
+                  <span v-if="item.quyuid==4" class="levelstye2" style="margin-left:5px">市代合伙人</span>
+                  <span v-if="item.quyuid==5" class="levelstye2" style="margin-left:5px">省代合伙人</span>
                 </li>
               </ul>
             </span>
