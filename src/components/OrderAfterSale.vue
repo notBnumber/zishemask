@@ -1,7 +1,9 @@
 <template>
 <div class="orderAfterSale-component">
   <div class="header">
-    <span class="order-class"></span>
+    <span class="order-class" v-if="state.state==6">待退款</span>
+    <span class="order-class" v-if="state.state==7">已退款</span>
+    <span class="order-class" v-if="state.state==8">拒绝退款</span>
     <span class="order-state"></span>
   </div>
   <ul class="goods-list">
