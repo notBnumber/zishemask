@@ -168,7 +168,7 @@ Aftersale = this.requestPost('')
 // 是否可提现
 Checktixian = this.requestPost('')
 
-
+Settingdefault = this.requestPost('')
 
   // 首页轮播图
   ads = this.requestPost('/api/shop/index/ads')
