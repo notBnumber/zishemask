@@ -53,9 +53,9 @@ export default {
         {
           title: "仅退款"
         },
-        {
-          title: "换货"
-        }
+//        {
+//          title: "换货"
+//        }
       ],
       stateLists: [],
       val: 0,
