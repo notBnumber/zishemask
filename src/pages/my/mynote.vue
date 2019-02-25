@@ -29,10 +29,10 @@
                 <li>{{item.raddtime}}</li>
               </ul>
             </span>
-            <span class="main_footer" v-if="type==2 || type==0">
+            <span class="main_footer" v-if="item.rstate==0">
               +{{item.rmoney}}
             </span>
-            <span class="main_footer" v-if="type==1">
+            <span class="main_footer" v-if="item.rstate==1">
               -{{item.rmoney}}
             </span>
           </li>
