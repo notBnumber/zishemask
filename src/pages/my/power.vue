@@ -23,12 +23,14 @@
           <!--</div>-->
           <div class="shenfen">
             <img src="https://cssy.hn90qc.com/icon/leve_icon.png" alt="">
-            <span v-if="userinfo.level==0">:普通用户</span>
-            <span v-if="userinfo.level==1">:合伙人</span>
-            <span v-if="userinfo.level==2">:银卡合伙人</span>
-            <span v-if="userinfo.level==3">:金卡合伙人</span>
-            <span v-if="userinfo.level==4">:市代合伙人</span>
-            <span v-if="userinfo.level==5">:省代合伙人</span>
+            <span v-if="userinfo.level==0" class="levelstye">普通用户</span>
+            <span v-if="userinfo.level==1" class="levelstye1">合伙人</span>
+            <span v-if="userinfo.level==2" class="levelstye2">银卡合伙人</span>
+            <span v-if="userinfo.level==3" class="levelstye3">金卡合伙人</span>
+            <span v-if="userinfo.level==4" class="levelstye4">市代合伙人</span>
+            <span v-if="userinfo.level==5" class="levelstye5">省代合伙人</span>
+            <span v-if="userinfo.quyuid==4" class="levelstye2" style="margin-left:5px">市代合伙人</span>
+            <span v-if="userinfo.quyuid==5" class="levelstye2" style="margin-left:5px">省代合伙人</span>
           </div>
         </div>
         <!-- <img src="https://cssy.hn90qc.com/icon/leve_icon.png" alt=""> -->
@@ -240,6 +242,36 @@ export default {
         color: #ffffff;
       }
     }
+  }
+  .levelstye{
+    background-color: #0F8BC6;color: white;padding: 3px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+  }
+  .levelstye1{
+    background-color: #5FC421;color: white;padding: 3px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+  }
+  .levelstye2{
+    background-color: #C90FCE;color: white;padding: 3px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+  }
+  .levelstye3{
+    background-color: #03FAF7;color: white;padding: 3px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+  }
+  .levelstye4{
+    background-color: #D62E1A;color: white;padding: 3px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+  }
+  .levelstye5{
+    background-color: #FAF703;color: white;padding: 3px 12px;
+    font-size: 14px;
+    border-radius: 5px;
   }
   .main {
     width: 100%;
