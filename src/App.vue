@@ -5,6 +5,8 @@ export default {
     let vm = this;
     wx.getSetting({
       success(res) {
+        console.log(res,'扫码');
+        
         if (!res.authSetting["scope.userInfo"] ) {
           // 未授权, 则跳转至授权页
           vm.replaceTo("/pages/login/wxLogin");

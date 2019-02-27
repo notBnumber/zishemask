@@ -30,18 +30,12 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 21,
+			"current": 24,
 			"list": [
 				{
 					"id": -1,
 					"name": "搜索",
 					"pathName": "pages/sort/index",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "搜索",
-					"pathName": "pages/home/search_result",
 					"query": ""
 				},
 				{
@@ -169,7 +163,36 @@
 					"id": -1,
 					"name": "签到",
 					"pathName": "pages/home/index",
+					"query": "",
 					"scene": 1011
+				},
+				{
+					"id": -1,
+					"name": "选择支付",
+					"pathName": "pages/home/index",
+					"query": "",
+					"scene": 1012
+				},
+				{
+					"id": -1,
+					"name": "选择支付",
+					"pathName": "pages/home/index",
+					"query": "100000",
+					"scene": 1012
+				},
+				{
+					"id": -1,
+					"name": "选择支付",
+					"pathName": "pages/home/index",
+					"query": "scene=100000",
+					"scene": 1011
+				},
+				{
+					"id": -1,
+					"name": "选择支付",
+					"pathName": "pages/home/index",
+					"query": "scene=",
+					"scene": null
 				}
 			]
 		}
