@@ -163,7 +163,8 @@ YuePay = this.requestPost('')
 
 // 售后
 Aftersale = this.requestPost('')
-
+// 提现协议
+TxXieyi = this.requestPost('')
 
 // 是否可提现
 Checktixian = this.requestPost('')

@@ -1,7 +1,7 @@
 <template>
   <div class="login-template">
     <!-- <headers></headers> -->
-    <i class="logo"></i>
+    <!-- <i class="logo"></i> -->
     <ul class='ul'>
       <li class="account" :class="isfocu == 0 && 'active'">
         <div>

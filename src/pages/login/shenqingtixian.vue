@@ -33,7 +33,7 @@
       </li> -->
     </ul>
     <p class="agree">提现即代表您同意我们的
-      <i @click="pageTo('/pages/login/Privacy')">服务协议</i> 
+      <i @click="pageTo('/pages/login/Privacy1')">服务协议</i> 
     </p>
     <div class="btn">
       <button type="button" :disabled=" !name  || !password " @click="changePwd">提交申请</button>

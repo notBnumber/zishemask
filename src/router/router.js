@@ -85,6 +85,12 @@ module.exports = [
       "enablePullDownRefresh": false
     }
   },
+  {
+    path: "pages/login/Privacy1",
+    config: {
+      "enablePullDownRefresh": false
+    }
+  },
   // 服务协议
   {
     path: "pages/login/agreement",
