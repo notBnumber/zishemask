@@ -64,23 +64,23 @@ export default {
   methods: {
     jjjj(index) {},
     totixiain() {
-      // pageTo('/pages/my/getMoney')
+      this.pageTo('/pages/my/getMoney')
       // Checktixian
-      this.$API
-        .Checktixian({
-          i: 2,
-          c: "entry",
-          a: "wxapp",
-          m: "mask",
-          do: "Checktixian",
-          uid: wx.getStorageSync("sessionId")
-        })
-        .then(res => {
-          if (res.code == 1) {
-            this.pageTo('/pages/my/getMoney')
-          } else {
-          }
-        });
+//      this.$API
+//        .Checktixian({
+//          i: 2,
+//          c: "entry",
+//          a: "wxapp",
+//          m: "mask",
+//          do: "Checktixian",
+//          uid: wx.getStorageSync("sessionId")
+//        })
+//        .then(res => {
+//          if (res.code == 1) {
+//            this.pageTo('/pages/my/getMoney')
+//          } else {
+//          }
+//        });
     },
     isPwd() {
       // this.pageTo('/pages/my/setpsw')

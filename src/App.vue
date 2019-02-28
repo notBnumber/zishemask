@@ -38,10 +38,9 @@ export default {
      vm.replaceTo("/pages/login/wxLogin");
       console.log('未');
       
-    } else {
-       vm.replaceTo("/pages/login/login");
-      console.log('已授权');
-      }
+    }else if (wx.getStorageSync("is") == "") {
+        vm.replaceTo("/pages/login/login");
+    }
   },
   
   // onShareAppMessage: function(ops) {

@@ -1,7 +1,7 @@
 <template>
   <div class="login-template">
     <!-- <headers></headers> -->
-    <!-- <i class="logo"></i> -->
+     <i class="logo"></i>
     <ul class='ul'>
       <li class="account" :class="isfocu == 0 && 'active'">
         <div>
@@ -223,9 +223,10 @@ export default {
   background: #ffffff;
   .logo {
     @include bg-icon(100px);
-    background-image: url("https://cssy.hn90qc.com/icon/login_logo.png");
+    background-image: url("https://cssy.hn90qc.com/icon/logo.jpg");
     display: block;
     margin: 5px auto 0;
+    border-radius: 50%;
   }
   ul.ul {
     padding: 30px 38px;

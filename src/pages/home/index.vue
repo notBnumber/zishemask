@@ -211,33 +211,39 @@ export default {
         wx.setStorageSync("pid", scene);
         // 这里验证登录?
         let vm = this;
-        wx.getSetting({
-          success(res) {
-            if (!res.authSetting["scope.userInfo"]) {
-              // 未授权, 则跳转至授权页
+          if(wx.getStorageSync('sessionId') =='') {
               vm.replaceTo("/pages/login/wxLogin");
-            } else {
-              wx.login({
-                success(res) {
-                  console.log(res, "授权");
-
-                  wx.setStorageSync("code", res.code);
-                  // vm.$API.wxLogin({
-                  //   code: res.code
-                  // }).then(response => {
-                  //   wx.setStorageSync('sessionId', response.data.sessionId)
-                  //   wx.switchTab({url: '/pages/purchase/purchase'})
-                  // })
-                }
-              });
-              // 判断是否登录
-
-              if (wx.getStorageSync("is") == "") {
-                vm.replaceTo("/pages/login/login");
-              }
-            }
+              console.log('没授权');
+          }else if (wx.getStorageSync("is") == "") {
+               vm.replaceTo("/pages/login/login");
           }
-        });
+//        wx.getSetting({
+//          success(res) {
+//            if (!res.authSetting["scope.userInfo"]) {
+//              // 未授权, 则跳转至授权页
+//              vm.replaceTo("/pages/login/wxLogin");
+//            } else {
+//              wx.login({
+//                success(res) {
+//                  console.log(res, "授权");
+//
+//                  wx.setStorageSync("code", res.code);
+//                  // vm.$API.wxLogin({
+//                  //   code: res.code
+//                  // }).then(response => {
+//                  //   wx.setStorageSync('sessionId', response.data.sessionId)
+//                  //   wx.switchTab({url: '/pages/purchase/purchase'})
+//                  // })
+//                }
+//              });
+//              // 判断是否登录
+//
+//              if (wx.getStorageSync("is") == "") {
+//                vm.replaceTo("/pages/login/login");
+//              }
+//            }
+//          }
+//        });
       }
     }
   },
