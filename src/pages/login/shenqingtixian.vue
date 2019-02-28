@@ -32,6 +32,9 @@
         @focus='focu(3)' @blur="blur">
       </li> -->
     </ul>
+    <p class="agree">提现即代表您同意我们的
+      <i @click="pageTo('/pages/login/Privacy')">服务协议</i> 
+    </p>
     <div class="btn">
       <button type="button" :disabled=" !name  || !password " @click="changePwd">提交申请</button>
     </div>
@@ -127,7 +130,7 @@ export default {
       }, 1000);
     },
     changePwd() {
-      if (this.name<100) {
+      if (this.name < 100) {
         this.$Toast({
           content: "提现金额不能小于100",
           type: "error"
@@ -141,7 +144,7 @@ export default {
           a: "wxapp",
           m: "mask",
           do: "Withdrawal",
-          money : this.name,
+          money: this.name,
           paypsw: this.password,
           cid: this.$route.query.id,
           uid:
@@ -159,10 +162,9 @@ export default {
             // setTimeout(() => {
             //   this.goBack();
             // }, 1000);
-            this.pageTo('/pages/my/getMoney')
+            this.pageTo("/pages/my/getMoney");
             // this.pageTo('/pages/login/login')
           } else {
-            
             // this.$Toast({
             //   content: res.msg,
             //   type: "error"
@@ -262,6 +264,18 @@ export default {
       &.active {
         border-color: #333333;
       }
+    }
+  }
+    p.agree {
+    padding-left: 38px;
+    font-size: 11px;
+    font-family: PingFang-SC-Medium;
+    font-weight: 500;
+    color: #888888;
+    margin-bottom: 30px;
+    i {
+      color: #ed1731;
+      display: inline-block;
     }
   }
   .btn {
