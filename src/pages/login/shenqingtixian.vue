@@ -31,9 +31,13 @@
         <input type="password" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请重新输入密码" v-model="repeatpass"
         @focus='focu(3)' @blur="blur">
       </li> -->
+      <li class="showinfo">
+        <span style="color: white;">总余额{{moneyinfo.wallet}}元，提现金额：<label style="color: #ffc525;!important;">{{name}}</label>元,到账金额<label style="color: #ffc525;!important;">{{name-name*0.01}}</label>元</span>
+      </li>
     </ul>
-    <p class="agree">提现即代表您同意我们的
-      <i @click="pageTo('/pages/login/Privacy1')">服务协议</i> 
+    <p class="agree">
+      <input type="checkbox" id="label" v-model="ckeckVal" @click="clickMe" class="cao1">同意提现协议
+      <i @click="pageTo('/pages/login/Privacy1')">提现协议</i>
     </p>
     <div class="btn">
       <button type="button" :disabled=" !name  || !password " @click="changePwd">提交申请</button>
@@ -58,7 +62,9 @@ export default {
       isfocu: null,
       phoneRegexp: /^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\d{8}$/,
       message: "获取验证码",
-      timeState: false
+      timeState: false,
+        ckeckVal: false,
+        moneyinfo:{}
     };
   },
   methods: {
@@ -68,6 +74,12 @@ export default {
     blur() {
       this.isfocu = null;
     },
+      clickMe() {
+          console.log(9999);
+          var that = this;
+          that.ckeckVal = !that.ckeckVal;
+          console.log(that.ckeckVal);
+      },
     getCode() {
       if (this.timeState == false) {
         // if (!this.phoneRegexp.test(this.name)) {
@@ -137,6 +149,10 @@ export default {
         });
         return;
       }
+        if(this.ckeckVal == false) {
+            this.$Toast({ content: "未同意提现协议" });
+            return;
+        }
       this.$API
         .Withdrawal({
           i: 2,
@@ -174,11 +190,24 @@ export default {
     }
   },
   mounted() {
-    //do something after mounting vue instance
   },
   onShow() {
     console.log(this.$route.query, "叽叽叽叽");
-
+      this.$API
+          .Getwallet({
+              i: 2,
+              c: "entry",
+              a: "wxapp",
+              m: "mask",
+              do: "Getwallet",
+              uid: wx.getStorageSync("sessionId")
+          })
+          .then(res => {
+              if (res.code == 1) {
+                  this.moneyinfo = res.data;
+              } else {
+              }
+          });
     (this.name = ""), (this.code = ""), (this.password = "");
   }
 };
@@ -295,6 +324,20 @@ export default {
         background-color: #dddddd;
       }
     }
+  }
+  .cao1 {
+    font-size: 14px;
+    margin-top: 15px;
+  }
+  .showinfo{
+    width: 110%;
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px 1px;
+    font-size: 12px;
+    background-color: #607D8B;
+    line-height: 10px;
+    border-radius: 5px;
   }
 }
 </style>

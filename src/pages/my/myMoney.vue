@@ -64,7 +64,7 @@ export default {
   methods: {
     jjjj(index) {},
     totixiain() {
-      // pageTo('/pages/my/getMoney')
+      //this.pageTo('/pages/my/getMoney')
       // Checktixian
       this.$API
         .Checktixian({

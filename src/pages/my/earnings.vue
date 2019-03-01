@@ -79,14 +79,14 @@ export default {
   methods: {
     init() {
       // this.date = this.getCurrentMonthFirst();
-      this.typemsg = "全部";
+      //this.typemsg = "全部";
       this.$API
-        .MyEarnings({
+        .MyEarnTest({
           i: 2,
           c: "entry",
           a: "wxapp",
           m: "mask",
-          do: "MyEarnings",
+          do: "MyEarnTest",
           uid: wx.getStorageSync("sessionId"),
           type:this.type,
           dates:this.date
@@ -101,7 +101,7 @@ export default {
     showtype() {
       let that = this;
       wx.showActionSheet({
-        itemList: ["全部", "直推奖励", "间推奖励", "红包发放"],
+        itemList: ["全部", "推广奖励", "销售奖励", "招商奖", "区域奖", "红包"],
         success(res) {
           console.log(res.tapIndex, "选中id");
                         that.type = res.tapIndex
@@ -111,15 +111,20 @@ export default {
               that.typemsg = "全部";
               break;
             case 1:
-              that.typemsg = "直推奖励";
+              that.typemsg = "推广奖励";
               break;
             case 2:
-              that.typemsg = "间推奖励";
+              that.typemsg = "销售奖励";
               break;
             case 3:
-              that.typemsg = "红包发放";
+              that.typemsg = "招商奖";
               break;
-
+            case 4:
+                that.typemsg = "区域奖";
+                break;
+            case 5:
+                that.typemsg = "红包";
+                break;
               
           }
           that.init()

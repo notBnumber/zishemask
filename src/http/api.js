@@ -111,7 +111,7 @@ teaminfodetail = this.requestPost('')
 
 
 // 累积收益
-MyEarnings = this.requestPost('')
+MyEarnTest = this.requestPost('')
 // 获取银行卡
 GetCard = this.requestPost('')
 
@@ -165,7 +165,8 @@ YuePay = this.requestPost('')
 Aftersale = this.requestPost('')
 // 提现协议
 TxXieyi = this.requestPost('')
-
+// 区域商协议
+    QuyuXieyi = this.requestPost('')
 // 是否可提现
 Checktixian = this.requestPost('')
 

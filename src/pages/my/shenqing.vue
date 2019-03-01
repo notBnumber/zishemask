@@ -82,7 +82,7 @@ export default {
       }
     },
     cao() {
-      console.log("9999999999999999999");
+        this.pageTo('/pages/login/Privacyquyu')
     },
     clickMe() {
       console.log(9999);

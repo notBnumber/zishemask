@@ -91,6 +91,13 @@ module.exports = [
       "enablePullDownRefresh": false
     }
   },
+    {
+        path: "pages/login/Privacyquyu",
+        config: {
+            "navigationBarTitleText": "申请协议",
+            "enablePullDownRefresh": false,
+        }
+    },
   // 服务协议
   {
     path: "pages/login/agreement",
@@ -122,7 +129,8 @@ module.exports = [
     config: {
       "enablePullDownRefresh": false,
       "usingComponents": {
-        "i-toast": "/iView/toast/index"
+        "i-toast": "/iView/toast/index",
+          "i-checkbox": "/iView/checkbox/index"
       }
     }
   },
