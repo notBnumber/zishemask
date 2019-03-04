@@ -192,6 +192,7 @@ export default {
   mounted() {
   },
   onShow() {
+      this.ckeckVal=false;
     console.log(this.$route.query, "叽叽叽叽");
       this.$API
           .Getwallet({
