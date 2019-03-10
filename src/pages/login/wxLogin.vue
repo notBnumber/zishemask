@@ -70,7 +70,30 @@ export default {
             vm.switchTab("/pages/home/index");
           }
         });
+        this.saveInfo()
+
       }
+    },
+    // 保存
+    saveInfo() {
+      this.$API
+        .nicknameorheaderimg({
+          i: 2,
+          c: "entry",
+          a: "wxapp",
+          m: "mask",
+          do: "nicknameorheaderimg",
+          // do参数?
+
+          uid: wx.getStorageSync("sessionId"),
+          headerimg: wx.getStorageSync("headerimg"),
+          nickname: wx.getStorageSync("nickname")
+        })
+        .then(res => {
+          if (res.code == 1) {
+            // this.switchTab("/pages/home/index");
+          }
+        });
     },
     getId() {
       this.$API

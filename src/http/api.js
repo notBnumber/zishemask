@@ -70,8 +70,8 @@ CancelMyOrder = this.requestPost('')
 Smscode = this.requestPost('')
 
 
-
-
+//保存头像昵称
+nicknameorheaderimg = this.requestPost('')
 
 RegorFind = this.requestPost('')
 
