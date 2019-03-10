@@ -10,7 +10,7 @@
         <p>余额支付</p>
         <p>></p>
       </div>
-      <div class="yue" @click="wxPay()">
+      <div class="yue" @click="wxPay()" >
         <img src="https://cssy.hn90qc.com/icon/wxpay.png" alt="">
         <p>微信支付</p>
         <p>></p>
