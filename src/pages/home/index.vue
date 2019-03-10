@@ -211,11 +211,8 @@ export default {
         wx.setStorageSync("pid", scene);
         // 这里验证登录?
         let vm = this;
-          if(wx.getStorageSync('sessionId') =='') {
-              vm.replaceTo("/pages/login/wxLogin");
-              console.log('没授权');
-          }else if (wx.getStorageSync("is") == "") {
-               vm.replaceTo("/pages/login/login");
+          if(wx.getStorageSync('sessionId') ==''||wx.getStorageSync("is") == "") {
+              vm.replaceTo("/pages/login/login");
           }
 //        wx.getSetting({
 //          success(res) {
@@ -283,11 +280,13 @@ export default {
     }
   },
   onShow() {
-    console.log(wx.getStorageSync("is"));
-    // this.isLogin();
-    // if (wx.getStorageSync('is') == '') {
-    //   this.pageTo('/pages/login/login')
-    // }
+    console.log(wx.getStorageSync("is"),'我说home/index');
+      if(wx.getStorageSync('sessionId') ==''||wx.getStorageSync("is") == "") {
+          wx.redirectTo({
+              url: '/pages/login/login'
+          })
+
+      }
   }
 };
 </script>

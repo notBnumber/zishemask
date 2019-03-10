@@ -86,6 +86,7 @@ export default {
         });
     },
     login() {
+        let vm=this;
       if (!this.phoneRegexp.test(this.phoneNumber)) {
         this.$Toast({
           content: "手机号码格式错误",
@@ -107,12 +108,11 @@ export default {
         })
         .then(res => {
           console.log(res);
-
           if (res.code == 1) {
             wx.setStorageSync("sessionId", res.data.id);
             wx.setStorageSync("openid", res.data.openid);
-              wx.setStorageSync("is", true);
-            
+            wx.setStorageSync("is", true);
+            vm.bang(res.data.id);
             if (wx.getStorageSync("headerimg") == "" && wx.getStorageSync("nickname") == "") {
               this.replaceTo("/pages/login/wxLogin");
             } else {
@@ -140,8 +140,7 @@ export default {
       //   }
       // });
     },
-    bang() {
-      let uid = wx.getStorageSync("sessionId");
+    bang(uid) {
       let pid = wx.getStorageSync("pid");
       if ("" != uid && "" != pid) {
         console.log(uid, "绑定中的uid");
@@ -213,9 +212,7 @@ export default {
         wx.setStorageSync("code", res.code);
       }
     });
-    setTimeout(function() {
-      vm.bang();
-    }, 1000);
+
   },
   onUnload() {
     clearInterval(this.timer);

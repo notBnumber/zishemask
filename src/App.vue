@@ -33,13 +33,9 @@ export default {
     //   }
     // });
     console.log(wx.getStorageSync('sessionId'),'叽叽叽叽???');
-    
-    if(wx.getStorageSync('sessionId') =='') {
+    if(wx.getStorageSync('sessionId') ==''||wx.getStorageSync("is") == "") {
      vm.replaceTo("/pages/login/login");
-      console.log('未');
-      
-    }else if (wx.getStorageSync("is") == "") {
-        vm.replaceTo("/pages/login/login");
+      console.log('去登录');
     }
   },
   
