@@ -150,7 +150,7 @@ export default {
   },
   methods: {
     outLogin() {
-      this.replaceTo("/pages/login/wxLogin");
+      this.replaceTo("/pages/login/login");
       //  wx.setStorageSync('sessionId', response.data.sessionId)
 
       // wx.clearStorage();

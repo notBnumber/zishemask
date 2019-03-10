@@ -163,7 +163,7 @@ export default {
           c: "entry",
           a: "wxapp",
           m: "mask",
-          do: "RegorFind",
+          do: "RegorFind1",
           phone: this.name,
           code: this.code,
           psw: this.password,

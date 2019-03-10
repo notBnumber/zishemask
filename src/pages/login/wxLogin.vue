@@ -59,16 +59,46 @@ export default {
             console.log(res, "授权");
 
             wx.setStorageSync("code", res.code);
+            // vm.getId()
+
             // vm.$API.wxLogin({
             //   code: res.code
             // }).then(response => {
             //   wx.setStorageSync('sessionId', response.data.sessionId)
             //   wx.switchTab({url: '/pages/purchase/purchase'})
             // })
-        vm.pageTo("/pages/login/login");
+            vm.switchTab("/pages/home/index");
           }
         });
       }
+    },
+    getId() {
+      this.$API
+        .login({
+          i: 2,
+          c: "entry",
+          a: "wxapp",
+          m: "mask",
+          do: "Openid",
+          // do参数?
+
+          code: wx.getStorageSync("code"),
+          headerimg: wx.getStorageSync("headerimg"),
+          nickname: wx.getStorageSync("nickname")
+        })
+        .then(res => {
+          console.log(res, "请求验证码");
+          if (res.code == 1) {
+            wx.setStorageSync("sessionId", res.data.id);
+            wx.setStorageSync("openid", res.data.openid);
+            console.log(
+              res.data.id,
+              wx.getStorageSync("sessionId"),
+              "登录中用户uid"
+            );
+            // this.switchTab("/pages/home/index");
+          }
+        });
     }
   },
   onUnload() {
@@ -97,15 +127,15 @@ export default {
   .button {
     margin-top: 25vh;
   }
-  .desc{
+  .desc {
     margin: 20px auto;
   }
-  .t1{
+  .t1 {
     font-size: 16px;
     color: #000;
     margin-bottom: 10px;
   }
-  .t2{
+  .t2 {
     font-size: 16px;
     color: #999;
   }

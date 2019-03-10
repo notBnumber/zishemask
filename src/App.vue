@@ -35,7 +35,7 @@ export default {
     console.log(wx.getStorageSync('sessionId'),'叽叽叽叽???');
     
     if(wx.getStorageSync('sessionId') =='') {
-     vm.replaceTo("/pages/login/wxLogin");
+     vm.replaceTo("/pages/login/login");
       console.log('未');
       
     }else if (wx.getStorageSync("is") == "") {

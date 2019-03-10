@@ -1,7 +1,7 @@
 <template>
   <div class="login-template">
     <!-- <headers></headers> -->
-     <i class="logo"></i>
+    <i class="logo"></i>
     <ul class='ul'>
       <li class="account" :class="isfocu == 0 && 'active'">
         <div>
@@ -102,20 +102,27 @@ export default {
           do: "Login",
           // do参数?
           phone: this.phoneNumber,
-          psw: this.code
+          psw: this.code,
+          code: wx.getStorageSync("code")
         })
         .then(res => {
           console.log(res);
-          
+
           if (res.code == 1) {
-            this.switchTab("/pages/home/index");
-            wx.setStorageSync('is',true)
-            // 成功登录 is为true
+            wx.setStorageSync("sessionId", res.data.id);
+            wx.setStorageSync("openid", res.data.openid);
+              wx.setStorageSync("is", true);
+            
+            if (wx.getStorageSync("headerimg") == "" && wx.getStorageSync("nickname") == "") {
+              this.replaceTo("/pages/login/wxLogin");
+            } else {
+              this.switchTab("/pages/home/index");
+            }
           } else {
-            this.$Toast({
-              content: res.msg,
-              type: "warning"
-            });
+            // this.$Toast({
+            //   content: res.msg,
+            //   type: "warning"
+            // });
           }
         });
       // wx.request({
@@ -133,39 +140,38 @@ export default {
       //   }
       // });
     },
-      bang(){
-          let uid=wx.getStorageSync('sessionId');
-          let pid=wx.getStorageSync('pid');
-          if(''!=uid&&''!=pid){
-              console.log(uid, "绑定中的uid");
-              console.log(pid, "绑定中的pid");
-              if(uid!=pid){
-                  this.$API
-                      .bang({
-                          i: 2,
-                          c: "entry",
-                          a: "wxapp",
-                          m: "mask",
-                          do: "Savaid",
-                          uid: uid,
-                          pid: pid,
-                      })
-                      .then(res => {
-                          console.log(res, "登录里绑定用户");
-                          //if (res.code == 1) {
-                          this.$Toast({
-                              content: res.msg,
-                              type: "success"
-                          });
-                          //}
-                      });
-              }
-          }else{
-              console.log(uid, "为空绑定中的uid");
-              console.log(pid, "为空用户中的pid");
-          }
-
-      },
+    bang() {
+      let uid = wx.getStorageSync("sessionId");
+      let pid = wx.getStorageSync("pid");
+      if ("" != uid && "" != pid) {
+        console.log(uid, "绑定中的uid");
+        console.log(pid, "绑定中的pid");
+        if (uid != pid) {
+          this.$API
+            .bang({
+              i: 2,
+              c: "entry",
+              a: "wxapp",
+              m: "mask",
+              do: "Savaid",
+              uid: uid,
+              pid: pid
+            })
+            .then(res => {
+              console.log(res, "登录里绑定用户");
+              //if (res.code == 1) {
+              this.$Toast({
+                content: res.msg,
+                type: "success"
+              });
+              //}
+            });
+        }
+      } else {
+        console.log(uid, "为空绑定中的uid");
+        console.log(pid, "为空用户中的pid");
+      }
+    },
     getId() {
       this.$API
         .login({
@@ -195,22 +201,26 @@ export default {
         });
     }
   },
-    onShow() {
-        let vm = this;
-        //获取openid
-        vm.getId();
-        //绑定用户操作
-        console.log("执行绑定啊");
-        setTimeout(function() {
-            vm.bang();
-        }, 1000);
-    },
+  onShow() {
+    let vm = this;
+    //获取openid
+    // vm.getId();
+    //绑定用户操作
+    wx.login({
+      success(res) {
+        console.log(res, "授权");
+
+        wx.setStorageSync("code", res.code);
+      }
+    });
+    setTimeout(function() {
+      vm.bang();
+    }, 1000);
+  },
   onUnload() {
     clearInterval(this.timer);
   },
-  onReady() {
-
-  }
+  onReady() {}
 };
 </script>
 
