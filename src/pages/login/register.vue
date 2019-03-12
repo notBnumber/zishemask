@@ -174,7 +174,8 @@ export default {
           console.log(res);// 打印不出来 
           if (res.code == 1) {
             wx.setStorageSync('is',true)
-            this.switchTab("/pages/home/index");
+            // this.("/pages/home/index");
+              this.replaceTo("/pages/login/login");            
           } else {
             console.log(2222);
             
