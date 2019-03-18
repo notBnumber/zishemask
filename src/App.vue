@@ -33,8 +33,9 @@ export default {
     //   }
     // });
     console.log(wx.getStorageSync('sessionId'),'叽叽叽叽???');
-    if(wx.getStorageSync('sessionId') ==''||wx.getStorageSync("is") == "") {
-     vm.replaceTo("/pages/login/login");
+    //if(wx.getStorageSync('sessionId') ==''||wx.getStorageSync("is") == "") {
+    if(wx.getStorageSync('sessionId') =='') {
+     vm.replaceTo("/pages/login/wxLogin");
       console.log('去登录');
     }
   },

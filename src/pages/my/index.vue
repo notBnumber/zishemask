@@ -150,11 +150,10 @@ export default {
   },
   methods: {
     outLogin() {
-      this.replaceTo("/pages/login/login");
-      //  wx.setStorageSync('sessionId', response.data.sessionId)
 
-      // wx.clearStorage();
-      wx.setStorageSync('is','')
+      wx.setStorageSync('sessionId', '')
+        this.replaceTo("/pages/login/wxLogin");
+      //wx.setStorageSync('is','')
     },
       tovip() {
           if (this.level == 0) {

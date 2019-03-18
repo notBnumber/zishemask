@@ -77,6 +77,7 @@ export default {
                       }
                     });
             // vm.getId()
+             vm.getId()
 
             // vm.$API.wxLogin({
             //   code: res.code
@@ -84,13 +85,44 @@ export default {
             //   wx.setStorageSync('sessionId', response.data.sessionId)
             //   wx.switchTab({url: '/pages/purchase/purchase'})
             // })
-            vm.switchTab("/pages/home/index");
+            //vm.switchTab("/pages/home/index");
           }
         });
-        this.saveInfo()
+        //this.saveInfo()
 
       }
     },
+      bang(uid) {
+          let pid = wx.getStorageSync("pid");
+          if ("" != uid && "" != pid) {
+              console.log(uid, "绑定中的uid");
+              console.log(pid, "绑定中的pid");
+              if (uid != pid) {
+                  this.$API
+                      .bang({
+                          i: 2,
+                          c: "entry",
+                          a: "wxapp",
+                          m: "mask",
+                          do: "Savaid",
+                          uid: uid,
+                          pid: pid
+                      })
+                      .then(res => {
+                          console.log(res, "登录里绑定用户");
+                          //if (res.code == 1) {
+                          this.$Toast({
+                              content: res.msg,
+                              type: "success"
+                          });
+                          //}
+                      });
+              }
+          } else {
+              console.log(uid, "为空绑定中的uid");
+              console.log(pid, "为空用户中的pid");
+          }
+      },
     // 保存
     saveInfo() {
       this.$API
@@ -113,7 +145,11 @@ export default {
         });
     },
     getId() {
-      this.$API
+        let vm = this;
+        wx.login({
+          success(res) { 
+            wx.setStorageSync("code", res.code);
+vm.$API
         .login({
           i: 2,
           c: "entry",
@@ -122,7 +158,7 @@ export default {
           do: "Openid",
           // do参数?
 
-          code: wx.getStorageSync("code"),
+          code: res.code,
           headerimg: wx.getStorageSync("headerimg"),
           nickname: wx.getStorageSync("nickname")
         })
@@ -131,14 +167,19 @@ export default {
           if (res.code == 1) {
             wx.setStorageSync("sessionId", res.data.id);
             wx.setStorageSync("openid", res.data.openid);
+            //绑定关系
+            vm.bang(res.data.id);
             console.log(
               res.data.id,
               wx.getStorageSync("sessionId"),
               "登录中用户uid"
             );
-            // this.switchTab("/pages/home/index");
+             vm.switchTab("/pages/home/index");
           }
         });
+           }
+        });
+      
     }
   },
   onUnload() {

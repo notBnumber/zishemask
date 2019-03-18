@@ -137,7 +137,7 @@ export default {
           c: "entry",
           a: "wxapp",
           m: "mask",
-          do: "RegorFind1",
+          do: "Settingpsw",
           phone: this.name,
           code: this.code,
           psw: this.password,

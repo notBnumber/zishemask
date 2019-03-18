@@ -53,11 +53,12 @@
                     </picker>
                 </div>
 
-                <!--<div class="inp">-->
-                    <!--<span>密码：</span>-->
-                    <!--<input value="已设置密码" title="密码" disabled v-if="info.issetpsw == 1" />-->
-                    <!--<input value="未设置密码" title="密码" disabled v-if="info.issetpsw == 0" />-->
-                <!--</div>-->
+                <div class="inp">
+                    <span>密码：</span>
+                    <input value="已设置密码" title="密码" disabled v-if="info.issetpsw == 1" />
+                    <input value="未设置密码" title="密码" disabled v-if="info.issetpsw == 0" />
+                    <span @click="changepsw" class="setpsw">设置登录密码</span>
+                </div>
 
             </i-panel>
 
@@ -150,6 +151,9 @@ export default {
       this.info.birthday = e.mp.detail.value;
       console.log(this.info.birthday);
     },
+      changepsw(){
+          this.pageTo("/pages/login/forget");
+      },
     submit() {
       if (!this.info.user_name) {
         this.$Toast({ content: "请输入姓名" });
@@ -306,5 +310,11 @@ export default {
     font-size: 17px;
     margin-right: 50px;
   }
+    .setpsw{
+        background-color: cornflowerblue;
+        color: white;
+        border-radius: 8px;
+        padding: 5px 15px;
+    }
 }
 </style>
