@@ -132,6 +132,7 @@ Ispaypsw = this.requestPost('')
 
 // 获取个人信息
 GetUserinfo = this.requestPost('')
+  GetUnionID = this.requestPost('')
 // 编辑个人信息
 UpdateInfo = this.requestPost('')
   //我的特权页面

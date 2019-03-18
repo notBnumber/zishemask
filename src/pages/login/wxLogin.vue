@@ -54,11 +54,28 @@ export default {
           mask: false
         });
       } else {
+        let t=this;
         wx.login({
           success(res) {
             console.log(res, "授权");
-
             wx.setStorageSync("code", res.code);
+            t.$API
+                    .GetUnionID({
+                      i: 2,
+                      c: "entry",
+                      a: "wxapp",
+                      m: "mask",
+                      do: "GetUnionID",
+                      encryptedData: detail.encryptedData,
+                      iv: detail.iv,
+                      code: res.code
+                    })
+                    .then(res => {
+                      console.log(res,'返回的个人隐私信息')
+                      if (res.code == 1) {
+                        // this.switchTab("/pages/home/index");
+                      }
+                    });
             // vm.getId()
 
             // vm.$API.wxLogin({
