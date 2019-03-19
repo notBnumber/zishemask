@@ -79,7 +79,7 @@
             <i class="evaluate"></i>签到领积分</span>
           <i class="arrow"></i>
         </li>
-        <li @click="pageTo('/pages/my/pyramid')">
+        <li @click="pageTo('/pages/my/pyramid')" v-if="shen">
           <span>
             <i class="distribution"></i>分销中心</span>
           <i class="arrow"></i>
@@ -145,7 +145,8 @@ export default {
       modal1: false,
       timer: null,
       isLogin: false,
-      toustel: ""
+      toustel: "",
+      shen:1,
     };
   },
   methods: {
@@ -224,6 +225,7 @@ export default {
           console.log(res, "投诉电话");
           if (res.code == 1) {
             this.toustel = res.data.tel;
+            this.shen = res.data.shen;
           }
         });
     },
