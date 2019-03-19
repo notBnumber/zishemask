@@ -144,7 +144,10 @@ export default {
                     content: res.msg,
                     type: "warning"
                 });
-              this.pageTo("/pages/my/userinfo");
+                setTimeout(function () {
+                  vm.pageTo("/pages/my/userinfo");
+                },2000)
+              
               // this.pageTo('/pages/shopCart/payResult', {isSuccess: false})
             }
           });
