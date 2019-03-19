@@ -57,7 +57,7 @@ export default {
         let t=this;
         wx.login({
           success(res) {
-            console.log(res, "授权");
+            console.log(res, "授权信息");
             wx.setStorageSync("code", res.code);
             t.$API
                     .GetUnionID({

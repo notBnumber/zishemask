@@ -140,11 +140,11 @@ export default {
               console.log('提交成功');
               vm.pageTo("/pages/shopCart/selectPay",{money:Number(this.allPrice) + Number(this.freight),id:res.data})
             } else if(res.code==-1){
-              this.pageTo("/pages/login/login");
-                // this.$Toast({
-                //     content: res.msg,
-                //     type: "warning"
-                // });
+                this.$Toast({
+                    content: res.msg,
+                    type: "warning"
+                });
+              this.pageTo("/pages/my/userinfo");
               // this.pageTo('/pages/shopCart/payResult', {isSuccess: false})
             }
           });

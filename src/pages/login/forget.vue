@@ -2,7 +2,7 @@
   <!-- 忘记密码 -->
   <div class="forget-template">
     <!-- <headers isBack></headers> -->
-    <span class="title">忘记密码</span>
+    <span class="title">设置登录密码</span>
     <ul class='ul'>
       <li class="account" :class="isfocu == 0 && 'active'">
         <div>
@@ -10,13 +10,13 @@
         </div>
         <input type="number" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入账号" v-model="name" @focus='focu(0)' @blur="blur">
       </li>
-      <li class="code" :class="isfocu == 1 && 'active'">
-        <div>
-          <i></i>
-        </div>
-        <input type="number" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入验证码" v-model="code" @focus='focu(1)' @blur="blur">
-        <button type="button" @click="getCode">{{message}}</button>
-      </li>
+      <!--<li class="code" :class="isfocu == 1 && 'active'">-->
+        <!--<div>-->
+          <!--<i></i>-->
+        <!--</div>-->
+        <!--<input type="number" placeholder-style="color: #BBBBBB;font-weight: 400" placeholder="请输入验证码" v-model="code" @focus='focu(1)' @blur="blur">-->
+        <!--<button type="button" @click="getCode">{{message}}</button>-->
+      <!--</li>-->
       <li class="password" :class="isfocu == 2 && 'active'">
         <div>
           <i></i>
@@ -30,7 +30,7 @@
       </li> -->
     </ul>
     <div class="btn">
-      <button type="button" :disabled=" !name || !code || !password " @click="changePwd">更改密码</button>
+      <button type="button" :disabled=" !name|| !password " @click="changePwd">设置密码</button>
     </div>
     <i-toast id="toast" />
   </div>
@@ -131,6 +131,7 @@ export default {
         });
         return;
       }
+      let vm=this;
       this.$API
         .RegorFind({
           i: 2,
@@ -151,12 +152,19 @@ export default {
           console.log(res, "注册");
           if (res.code == 1) {
             console.log();
-            this.switchTab("/pages/home/index");
+            this.$Toast({
+              content: res.msg,
+              type: "success"
+            });
+            setTimeout(function () {
+              vm.switchTab("/pages/home/index");
+            },600)
+
           } else {
-            // this.$Toast({
-            //   content: res.msg,
-            //   type: "error"
-            // });
+            this.$Toast({
+              content: res.msg,
+              type: "error"
+            });
           }
         });
     }

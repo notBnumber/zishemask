@@ -259,7 +259,7 @@ export default {
     border-radius: 5px;
   }
   .levelstye3{
-    background-color: #03FAF7;color: white;padding: 3px 12px;
+    background-color: #FAF703;color: black;padding: 3px 12px;
     font-size: 14px;
     border-radius: 5px;
   }
@@ -269,7 +269,7 @@ export default {
     border-radius: 5px;
   }
   .levelstye5{
-    background-color: #FAF703;color: white;padding: 3px 12px;
+    background-color: #40B080;color: white;padding: 3px 12px;
     font-size: 14px;
     border-radius: 5px;
   }
