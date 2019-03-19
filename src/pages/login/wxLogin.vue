@@ -72,23 +72,13 @@ export default {
                     })
                     .then(res => {
                       console.log(res,'返回的个人隐私信息')
+                      console.log(res.data.unionId,'返回UnionID')
                       if (res.code == 1) {
-                        // this.switchTab("/pages/home/index");
+                        vm.getId(res.data.unionId)
                       }
                     });
-            // vm.getId()
-             vm.getId()
-
-            // vm.$API.wxLogin({
-            //   code: res.code
-            // }).then(response => {
-            //   wx.setStorageSync('sessionId', response.data.sessionId)
-            //   wx.switchTab({url: '/pages/purchase/purchase'})
-            // })
-            //vm.switchTab("/pages/home/index");
           }
         });
-        //this.saveInfo()
 
       }
     },
@@ -144,7 +134,7 @@ export default {
           }
         });
     },
-    getId() {
+    getId(unionId) {
         let vm = this;
         wx.login({
           success(res) { 
@@ -159,6 +149,7 @@ vm.$API
           // do参数?
 
           code: res.code,
+          unionId: unionId,
           headerimg: wx.getStorageSync("headerimg"),
           nickname: wx.getStorageSync("nickname")
         })
