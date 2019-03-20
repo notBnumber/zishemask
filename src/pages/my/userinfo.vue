@@ -5,6 +5,18 @@
 
             <i-panel>
                 <div class="inp">
+                    <span>
+                        *手机号：
+                    </span>
+                    <input title="手机号" placeholder="请输入手机号" v-model="info.user_tel" />
+                </div>
+                <div class="inp">
+                    <span>*密码：</span>
+                    <input style="width: 80px" value="已设置密码" title="*密码" disabled v-if="info.issetpsw == 1" />
+                    <input style="width: 80px" value="未设置密码" title="*密码" disabled v-if="info.issetpsw == 0" />
+                    <span @click="changepsw" class="setpsw">设置登录密码</span>
+                </div>
+                <div class="inp">
                     <span>姓名：</span>
                     <input title="姓名" placeholder="请输入名字" v-model="info.user_name" />
                 </div>
@@ -34,12 +46,7 @@
                     </span>
                     <input type="text" title="微信" placeholder="请输入微信" v-model="info.wechat" />
                 </div>
-                <div class="inp">
-                    <span>
-                        手机号：
-                    </span>
-                    <input title="手机号" placeholder="请输入手机号" v-model="info.user_tel" />
-                </div>
+
                 <div class="birthday">
                     <label>生日：</label>
                     <picker mode="date" value="date" @change="bindDateChange">
@@ -53,12 +60,7 @@
                     </picker>
                 </div>
 
-                <div class="inp">
-                    <span>密码：</span>
-                    <input value="已设置密码" title="密码" disabled v-if="info.issetpsw == 1" />
-                    <input value="未设置密码" title="密码" disabled v-if="info.issetpsw == 0" />
-                    <span @click="changepsw" class="setpsw">设置登录密码</span>
-                </div>
+
 
             </i-panel>
 
@@ -152,26 +154,27 @@ export default {
       console.log(this.info.birthday);
     },
       changepsw(){
-          this.pageTo("/pages/login/forget");
+          this.pageTo("/pages/login/forget",{phone:this.info.user_tel});
       },
     submit() {
-      if (!this.info.user_name) {
-        this.$Toast({ content: "请输入姓名" });
-        return;
-      }
+      // if (!this.info.user_name) {
+      //   this.$Toast({ content: "请输入姓名" });
+      //   return;
+      // }
       if (!this.info.user_tel) {
         this.$Toast({ content: "请输入联系电话" });
         return;
       }
-      var Verification = /^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\d{8}$/;
+      //var Verification = /^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\d{8}$/;
+      var Verification = /^[1][0-9][0-9]{9}$/;
       if (!Verification.test(this.info.user_tel)) {
         this.$Toast({ content: "请输入正确的电话号码" });
         return;
       }
-      if (this.info.address == "请选择地区") {
-        this.$Toast({ content: "请选择地区" });
-        return;
-      }
+      // if (this.info.address == "请选择地区") {
+      //   this.$Toast({ content: "请选择地区" });
+      //   return;
+      // }
       this.$API
         .UpdateInfo({
           i: 2,
@@ -314,7 +317,7 @@ export default {
         background-color: cornflowerblue;
         color: white;
         border-radius: 8px;
-        padding: 5px 15px;
+        padding: 2px 15px;
     }
 }
 </style>
