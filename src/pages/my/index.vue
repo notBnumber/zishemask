@@ -225,7 +225,7 @@ export default {
           console.log(res, "投诉电话");
           if (res.code == 1) {
             this.toustel = res.data.tel;
-            this.shen = res.data.shen;
+            this.shen = res.data.shen2;
           }
         });
     },
