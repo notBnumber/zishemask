@@ -59,7 +59,7 @@ export default {
     initLeft() {
       this.$API
         .left({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -74,7 +74,7 @@ export default {
     initRight() {
       this.$API
         .right({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",

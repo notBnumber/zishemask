@@ -6,7 +6,7 @@
       <i-panel >
         <RadioGroup v-model="sexs" @change="changeModel" class="sexradio">
           <div class="jj">
-            <img src="https://cssy.hn90qc.com/icon/brankcard.png" alt="">
+            <img src="https://csyueshi.com/icon/brankcard.png" alt="">
             <div>
               <p class="p1">银行卡</p>
               <p class="p2">{{info.phone}}</p>
@@ -41,7 +41,7 @@ export default {
     init() {
       this.$API
         .GetCard({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",

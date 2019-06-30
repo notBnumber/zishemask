@@ -84,7 +84,7 @@ export default {
     OJBK() {
       this.$API
         .OkMyOrder({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",

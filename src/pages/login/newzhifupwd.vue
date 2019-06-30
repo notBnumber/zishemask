@@ -74,7 +74,7 @@ export default {
         }
         this.$API
           .Smscode({
-            i: 2,
+            i: 3,
             c: "entry",
             a: "wxapp",
             m: "mask",
@@ -138,7 +138,7 @@ export default {
       }
       this.$API
         .ForgetOrAddpaypsw({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",

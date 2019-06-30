@@ -1,7 +1,7 @@
 <template>
   <div class="my-template">
     <div class="mImg">
-      <img src="https://cssy.hn90qc.com/icon/qiandao.jpg" alt="">
+      <img src="https://csyueshi.com/icon/qiandao.jpg" alt="">
     </div>
     <p class="caonima" v-if="isday == true">今天你已经签到了</p>
     <p class="caonima1" v-if="isday ==false " @click="Singin">点击签到</p>
@@ -64,7 +64,7 @@ export default {
     Singin() {
       this.$API
         .Singin({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -88,7 +88,7 @@ export default {
     init() {
       this.$API
         .TodaySingin({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -106,7 +106,7 @@ export default {
     gets() {
       this.$API
         .SinginList({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",

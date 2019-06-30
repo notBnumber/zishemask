@@ -26,7 +26,7 @@ export default {
   onShow() {
     this.$API
       .Xieyi({
-        i: 2,
+        i: 3,
         c: "entry",
         a: "wxapp",
         m: "mask",

@@ -93,7 +93,7 @@ export default {
     del(id) {
       this.$API
         .Delshopcat({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -119,7 +119,7 @@ export default {
       }
       this.$API
         .Shopcar({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -145,7 +145,7 @@ export default {
       }
       this.$API
         .Shopcar({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",

@@ -220,7 +220,7 @@ export default {
     init() {
       this.$API
         .detail({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -264,7 +264,7 @@ export default {
         console.log("加入购物车", this.num);
         this.$API
           .Shopcar({
-            i: 2,
+            i: 3,
             c: "entry",
             a: "wxapp",
             m: "mask",
@@ -308,7 +308,7 @@ export default {
       //不需要检验登录
       // this.$API
       //   .toLogin({
-      //     i: 2,
+      //     i: 3,
       //     c: "entry",
       //     a: "wxapp",
       //     m: "mask",
@@ -373,7 +373,7 @@ export default {
         this.isColl = false;
         this.$API
           .Collection({
-            i: 2,
+            i: 3,
             c: "entry",
             a: "wxapp",
             m: "mask",
@@ -399,7 +399,7 @@ export default {
         // Getcollection
         this.$API
           .Collection({
-            i: 2,
+            i: 3,
             c: "entry",
             a: "wxapp",
             m: "mask",

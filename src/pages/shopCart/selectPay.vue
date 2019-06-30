@@ -6,12 +6,12 @@
     </div>
     <div class="big">
       <div class="yue" @click="yues">
-        <img src="https://cssy.hn90qc.com/icon/yuepay.png" alt="">
+        <img src="https://csyueshi.com/icon/yuepay.png" alt="">
         <p>余额支付</p>
         <p>></p>
       </div>
       <div class="yue" @click="wxPay()" >
-        <img src="https://cssy.hn90qc.com/icon/wxpay.png" alt="">
+        <img src="https://csyueshi.com/icon/wxpay.png" alt="">
         <p>微信支付</p>
         <p>></p>
       </div>
@@ -54,7 +54,7 @@ export default {
       // 打印
       this.$API
         .doPay({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -131,7 +131,7 @@ export default {
       }
       this.$API
         .YuePay({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -171,7 +171,7 @@ export default {
     init() {
       this.$API
         .Getwallet({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",

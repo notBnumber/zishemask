@@ -65,7 +65,7 @@ export default {
 
             {
                 type: "image",
-                url: "https://cssy.hn90qc.com/icon/qrcodebj.jpg",
+                url: "https://csyueshi.com/icon/qrcodebj.jpg",
                 left: 0,
                 top: 0,
                 width: 750,

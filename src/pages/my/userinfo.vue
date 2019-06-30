@@ -113,7 +113,7 @@ export default {
     init() {
       this.$API
         .GetUserinfo({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -177,7 +177,7 @@ export default {
       // }
       this.$API
         .UpdateInfo({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",

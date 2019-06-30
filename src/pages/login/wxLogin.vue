@@ -61,7 +61,7 @@ export default {
             wx.setStorageSync("code", res.code);
             t.$API
                     .GetUnionID({
-                      i: 2,
+                      i: 3,
                       c: "entry",
                       a: "wxapp",
                       m: "mask",
@@ -90,7 +90,7 @@ export default {
               if (uid != pid) {
                   this.$API
                       .bang({
-                          i: 2,
+                          i: 3,
                           c: "entry",
                           a: "wxapp",
                           m: "mask",
@@ -117,7 +117,7 @@ export default {
     saveInfo() {
       this.$API
         .nicknameorheaderimg({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -141,7 +141,7 @@ export default {
             wx.setStorageSync("code", res.code);
 vm.$API
         .login({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",

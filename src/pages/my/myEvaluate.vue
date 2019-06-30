@@ -43,7 +43,7 @@ export default {
     init() {
       this.$API
         .Getfootprint({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -58,7 +58,7 @@ export default {
     del(id) {
       this.$API
         .Delfootprint({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",

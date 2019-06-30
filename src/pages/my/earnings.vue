@@ -49,7 +49,7 @@
             </span>
             <span class="money">￥{{item.rmoney}}</span>
             <span class="main_footer">
-              <img src="https://cssy.hn90qc.com/icon/moreicon.png" />
+              <img src="https://csyueshi.com/icon/moreicon.png" />
             </span>
           </li>
         </ul>
@@ -82,7 +82,7 @@ export default {
       //this.typemsg = "全部";
       this.$API
         .MyEarnTest({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",

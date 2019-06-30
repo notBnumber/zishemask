@@ -27,7 +27,7 @@
           </div>
 
         </div>
-        <!-- <img src="https://cssy.hn90qc.com/icon/leve_icon.png" alt=""> -->
+        <!-- <img src="https://csyueshi.com/icon/leve_icon.png" alt=""> -->
       </div>
       <!-- <button class="login" @click="goLogin('/pages/login/login')" v-if="!isLogin">登录/注册</button> -->
       <!-- <div class="head-pic" @click="pageTo('/pages/my/noticeCenter')" v-if="isLogin">
@@ -92,7 +92,7 @@ export default {
           let that=this
           this.$API
               .Myvip({
-                  i: 2,
+                  i: 3,
                   c: "entry",
                   a: "wxapp",
                   m: "mask",

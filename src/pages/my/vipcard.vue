@@ -4,7 +4,7 @@
 
     </div>
     <div class="mImg">
-      <img src="https://cssy.hn90qc.com/icon/vip.jpg" alt="">
+      <img src="https://csyueshi.com/icon/vip.jpg" alt="">
     </div>
     <p>使用时请出示此卡</p>
 
@@ -46,7 +46,7 @@ export default {
       
       this.$API
         .TodaySingin({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -66,7 +66,7 @@ this.pageTo('/pages/my/dayday')
     init() {
       this.$API
         .Vipcardinfo({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",

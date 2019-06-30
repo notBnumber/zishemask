@@ -6,7 +6,7 @@
       <i-panel>
         <div  class="sexradio"  @click="pageTo('/pages/my/editmoneycard',{id:info.id,branch:info.branch,name:info.name,openbranch:info.openbranch,phone:info.phone,cardnumber:info.cardnumber,phone1:info.phone1})">
           <div class="jj">
-            <img src="https://cssy.hn90qc.com/icon/brankcard.png" alt="">
+            <img src="https://csyueshi.com/icon/brankcard.png" alt="">
             <div>
               <p class="p1">银行卡</p>
               <p class="p2">{{info.phone}}</p>

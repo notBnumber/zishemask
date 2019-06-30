@@ -74,7 +74,7 @@ export default {
         console.log(this.info,'得到的id')
       this.$API
         .teaminfodetail({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",

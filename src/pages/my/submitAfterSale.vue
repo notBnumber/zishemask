@@ -69,7 +69,7 @@ export default {
     shenqin() {
       this.$API
         .Aftersale({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -99,7 +99,7 @@ export default {
     init() {
       this.$API
         .GetDetailOrder({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",

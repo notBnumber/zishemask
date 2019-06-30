@@ -66,7 +66,7 @@ export default {
     getData() {
       this.$API
         .Qrcodeinfo({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",

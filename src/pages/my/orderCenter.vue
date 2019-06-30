@@ -75,7 +75,7 @@ export default {
     init() {
       this.$API
         .GetOrderlist({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",

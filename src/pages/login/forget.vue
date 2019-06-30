@@ -75,7 +75,7 @@ export default {
             }
             this.$API
                 .Smscode({
-                    i: 2,
+                    i: 3,
                     c: "entry",
                     a: "wxapp",
                     m: "mask",
@@ -136,7 +136,7 @@ export default {
       let vm=this;
       this.$API
         .RegorFind({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",

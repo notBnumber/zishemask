@@ -132,7 +132,7 @@ export default {
       // }
       this.$API
         .Sqproorcity({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",

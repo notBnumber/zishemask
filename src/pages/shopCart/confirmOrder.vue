@@ -65,7 +65,7 @@ export default {
       // this.address = wx.getStorageSync("address");
       this.$API
         .GetDefaultaddress({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -83,7 +83,7 @@ export default {
       // 商品详情
       // this.$API
       //   .Onegood({
-      //     i: 2,
+      //     i: 3,
       //     c: "entry",
       //     a: "wxapp",
       //     m: "mask",
@@ -123,7 +123,7 @@ export default {
       } else {
         this.$API
           .AddMyOrder({
-            i: 2,
+            i: 3,
             c: "entry",
             a: "wxapp",
             m: "mask",

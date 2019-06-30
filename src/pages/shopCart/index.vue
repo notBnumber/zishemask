@@ -104,7 +104,7 @@ export default {
     init() {
       this.$API
         .Getcart({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -164,7 +164,7 @@ export default {
     toBuy() {
       this.$API
         .toLogin({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",

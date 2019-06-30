@@ -91,7 +91,7 @@ export default {
         // }
         this.$API
           .Smscode({
-            i: 2,
+            i: 3,
             c: "entry",
             a: "wxapp",
             m: "mask",
@@ -155,7 +155,7 @@ export default {
         }
       this.$API
         .Withdrawal({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -196,7 +196,7 @@ export default {
     console.log(this.$route.query, "叽叽叽叽");
       this.$API
           .Getwallet({
-              i: 2,
+              i: 3,
               c: "entry",
               a: "wxapp",
               m: "mask",

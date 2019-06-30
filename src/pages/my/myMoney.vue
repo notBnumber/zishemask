@@ -5,7 +5,7 @@
       <div class="head-left" v-if="isLogin">
         <div class="leftDiv" @click="pageTo('/pages/my/mynote')">记录</div>
         <div class="monDiv">
-          <img src="https://cssy.hn90qc.com/icon/mymoneyicon.png" alt="">
+          <img src="https://csyueshi.com/icon/mymoneyicon.png" alt="">
           <p>大米</p>
           <p>￥{{info.wallet}}</p>
         </div>
@@ -24,7 +24,7 @@
       </div>
       <div class="mainContent">
         <div class="contentOne" @click="tovip">
-          <img src="https://cssy.hn90qc.com/icon/teamicon.png" alt="">
+          <img src="https://csyueshi.com/icon/teamicon.png" alt="">
 
           <div class="cao">
 
@@ -34,7 +34,7 @@
         </div>
 
         <div class="contentTwo" @click="isPwd">
-          <img src="https://cssy.hn90qc.com/icon/teamicon.png" alt="">
+          <img src="https://csyueshi.com/icon/teamicon.png" alt="">
           <div class="cao">
             <p>支付密码</p>
             <p>设置/修改</p>
@@ -68,7 +68,7 @@ export default {
       // Checktixian
       this.$API
         .Checktixian({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -86,7 +86,7 @@ export default {
       // this.pageTo('/pages/my/setpsw')
       this.$API
         .Getpaypsw({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -104,7 +104,7 @@ export default {
     init() {
       this.$API
         .Getwallet({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",

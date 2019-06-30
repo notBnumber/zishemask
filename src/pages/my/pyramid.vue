@@ -26,19 +26,19 @@
       <div class="down">
         <div class="down_left">
           <ul>
-            <li @click="pageTo('/pages/my/teamdetail')"><img src="https://cssy.hn90qc.com/icon/teamicon.png" /></li>
+            <li @click="pageTo('/pages/my/teamdetail')"><img src="https://csyueshi.com/icon/teamicon.png" /></li>
             <li style="text-align: center;margin-top: 3px;">我的团队({{num.teamcount==null?0:num.teamcount}})人</li>
           </ul>
         </div>
         <div class="down_cen">
           <ul>
-            <li @click="toqrcode"><img src="https://cssy.hn90qc.com/icon/qrcodeicon.png" /></li>
+            <li @click="toqrcode"><img src="https://csyueshi.com/icon/qrcodeicon.png" /></li>
             <li style="text-align: center;margin-top: 3px;">推广二维码</li>
           </ul>
         </div>
         <div class="down_right">
           <ul>
-            <li @click="pageTo('/pages/my/earnings')"><img src="https://cssy.hn90qc.com/icon/syicon.png" /></li>
+            <li @click="pageTo('/pages/my/earnings')"><img src="https://csyueshi.com/icon/syicon.png" /></li>
             <li style="text-align: center;margin-top: 3px;">累积收益</li>
           </ul>
         </div>
@@ -61,7 +61,7 @@ export default {
     init() {
       this.$API
         .Gettream({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",

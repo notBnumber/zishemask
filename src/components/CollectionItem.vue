@@ -52,7 +52,7 @@ export default {
       
       this.$API
         .Collection({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",

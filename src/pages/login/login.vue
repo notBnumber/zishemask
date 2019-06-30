@@ -96,7 +96,7 @@ export default {
       }
       this.$API
         .toLogin({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -148,7 +148,7 @@ export default {
         if (uid != pid) {
           this.$API
             .bang({
-              i: 2,
+              i: 3,
               c: "entry",
               a: "wxapp",
               m: "mask",
@@ -174,7 +174,7 @@ export default {
     getId() {
       this.$API
         .login({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",
@@ -230,7 +230,7 @@ export default {
   background: #ffffff;
   .logo {
     @include bg-icon(100px);
-    background-image: url("https://cssy.hn90qc.com/icon/logo.jpg");
+    background-image: url("https://csyueshi.com/icon/logo.jpg");
     display: block;
     margin: 5px auto 0;
     border-radius: 50%;

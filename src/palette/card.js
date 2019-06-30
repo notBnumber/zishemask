@@ -13,7 +13,7 @@ export default class LastMayday {
 
   _template () {
     return ({
-      background: 'https://cssy.hn90qc.com/icon/qrcodebj.jpg',
+      background: 'https://csyueshi.com/icon/qrcodebj.jpg',
       width: '700rpx',
       height: '1050rpx',
       borderRadius: '20rpx',

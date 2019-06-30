@@ -87,7 +87,7 @@ export default {
       if (this.add == true) {
         this.$API
           .Card({
-            i: 2,
+            i: 3,
             c: "entry",
             a: "wxapp",
             m: "mask",
@@ -108,7 +108,7 @@ export default {
       } else {
               this.$API
         .Card({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",

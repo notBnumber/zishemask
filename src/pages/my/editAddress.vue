@@ -87,7 +87,7 @@ export default {
       }
       this.$API
         .UpdAddress({
-          i: 2,
+          i: 3,
           c: "entry",
           a: "wxapp",
           m: "mask",
